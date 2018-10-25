@@ -1,0 +1,29 @@
+; PCC assembly-time definitions for use by compiled C programs
+
+	universal $cdefs
+	extern	$csv,$cret
+	radix	8
+
+$data=0			;reloc base
+$text=400000		;reloc base
+
+; Registers
+	$0==0
+	$1==1
+	$2==2
+	$3==3
+	$4==4
+	$5==5
+	$6==6
+	$7==7
+	$10==10
+	$11==11
+	$12==12
+	$13==13
+	$14==14
+	$15==15
+	$fp=16
+	$p=17
+	$sp==17
+
+	end

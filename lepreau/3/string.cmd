@@ -1,0 +1,9 @@
+pcc strcat.c
+pcc strcmp.c
+pcc strcpy.c
+pcc strlen.c
+pcc strncat.c
+pcc strncmp.c
+pcc strncpy.c
+pcc index.c
+pcc rindex.c

@@ -1,0 +1,5 @@
+! File to recompile and rebuild Pass 1 of PCC compiler
+
+@cc -c cgram.c clocal.c code2.c comm1.c local.c optim.c pftn2.c scan.c trees.c xdefs.c
+@link
+*@c1test.ccl

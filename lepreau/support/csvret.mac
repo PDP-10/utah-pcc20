@@ -1,0 +1,36 @@
+; csvret.mac - runtime initialization
+; 
+; Author:	Jay Lepreau
+; 		Computer Science Dept.
+; 		University of Utah
+; Date:		March 81
+; Copyright (c) 1981 Jay Lepreau
+;
+
+; PCC register save and restore for Dec-20. ver 1A.3 3/81
+; Can be improved easily-- but fp becomes one less, so gen'ed 
+; code changes.  Do later, see new-csvret.mac
+
+	entry	$csv, $cret
+	radix 	10
+	search	$mdefs
+	twoseg	$text
+	
+	reloc	$text
+; This code ASSUMES lowreg = 10!!
+lowreg=10			; lowest reg to save
+
+$csv:	dmovem	lowreg,1(sp)
+	dmovem	lowreg+2,3(sp)
+	movem	fp,5(sp)
+	move	fp,sp
+	jrst	@(sp)		; make this popj fp,
+
+$cret:	move	sp,fp		; sp = fp-1
+	adjsp	sp,-1		;  or could do: pop p,r2  [elim this]
+	dmove	lowreg,2(sp)
+	dmove	lowreg+2,4(sp)
+	move	fp,6(sp)
+	popj	sp,
+
+	end

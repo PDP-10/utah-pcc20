@@ -1,0 +1,23 @@
+**** As of 1/9/81, profiling no longer supported  ****
+
+FYI, new development:
+A few days ago I finished a preliminary 'profiling' version: instead of
+using pc sampling (which is better) I use special versions of csv and cret.
+All you have to do is re-link a program, including pcc:prolib.
+It puts out a mon.out file which can be sorted in various ways with
+pcc:psort:
+      pcc:psort	[-c cpu time (default),
+		 -w wall clk time,
+		 -i invocations (calls),
+		 -f fxn name		]	[file (mon.out default)].
+
+It's got some lossages, e.g. the times for a caller include
+it's callee's times, timing is kind of inaccurate right now, and the
+printf's and putc's that happen when the mon.out file gets dumped are
+included.  But it's a start.
+
+I see little trouble with doing it the right way via a superior process
+sampling the pc, and will do it soon.  I'd like to do it in a way
+such that non-pcc pgms can be profiled, too.
+
+The profile versions of things start with "P-" in <lepreau.io>....

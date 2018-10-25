@@ -1,0 +1,236 @@
+! <BEEBE.STRUCT>PCC.PCL.23,  3-Jun-83 22:25:39, Edit by BEEBE;
+! Add wild-card filelist loop with default of *.C
+! <BEEBE.STRUCT>PCC.PCL.11,  2-Jun-83 16:05:10, Edit by BEEBE;
+! Add date/time compare of .C and .REL files, avoiding useless
+! recompilation unless /COMPILE switch given.  This feature requires
+! new version of EXEC/PCL which supports filename argument to 
+! $FileInfo_I and the $IsFile function.
+! PS:<SUBSYS.PCL>PCC.PCL.20, 14-May-83 09:29:13, Edit by BEEBE
+! Change system-dependenent directory names/logical names
+!
+! OLD EXEC 4(664) VERSION, RESRICTED LINKING ONLY
+!
+! pcc.pcl - PCC exec command to drive the portable C compiler (pcc-20),
+!	    with bells and whistles
+!
+! Author:	Jay Lepreau
+!		Computer Science Dept.
+!		University of Utah
+! Date:		March 15, 1981
+! Copyright (c) 1981 Jay Lepreau
+
+
+string tempdir;     ! Directory where largish temporary files can go
+string uniqstr;
+string pccfile;
+string cppoptions;
+string pcclink;
+string pccfullcomp;	! NO means syntax check only (cpp, pass1)
+integer pccflags;	! 0 means never invoked before
+
+command PCC;
+begin
+    external string tempdir, uniqstr;
+    external string pccfile, cppoptions, pcclink, pccfullcomp;
+    external integer pccflags;
+
+    string  c, s, snul, helpline, opthelp;
+    string  fn1, fnhead, ifile;
+    string  fn1short, devdir, shortrel;
+    string  fext, mfile, macfile, relfile, fndir;
+    string  oldir, shorthead;
+    string  HT;
+    integer n, idx, length, fn1beg, dirbeg, extbeg, err, longflg;
+    integer more, firstoption, saval, usersav;
+    integer force_compile,must_compile,NO,YES;
+!   integer chan, eof;
+
+    NO = 0;
+    YES = 1;
+    HT = $CvItC(9);
+    force_compile = NO;
+
+    guide "Compile C program(s)";
+
+    if pccfile = "" then pccfile = "*";
+    if pccfile = "*" then helpline = "source filespec (default *.c)"
+      else helpline =  "source filespec (default " + pccfile + ")";
+    if cppoptions = "" then opthelp = ""
+      else opthelp = "options (default " + cppoptions + ")";
+    if pccflags = 0 then begin	    ! set initial defaults
+!	pccflags = 1;	     ! not here cause of pcl bug, see later
+	if pccfullcomp = "" then pccfullcomp = "YES";
+	if pcclink = "" then pcclink = "NO";
+! INSTALLATION DEPENDENT;
+	if tempdir = "" then tempdir = "SCR:";
+! Can't use username as prefix cause of possible trouble with long filenames.
+! Could use Jobnum instead, but not as nice for variety of reasons.
+! Make it suffix instead of prefix so that recognition works better.
+!	tempdir = tempdir;  ! + "-" + $UserName + "-";
+	s = $UserName;
+	if $search(s, ".") <> 0 then begin  ! Use last component only
+	    n = $Length(s);
+	    do begin		! find last . in user name;
+	    n = n - 1;
+	    if n < 1 then
+		abort "Impossible - lost dot";
+	    c = s[n : 1];
+	    end until c = ".";
+	    s = s[n+1 : *];
+	end;	
+	uniqstr = "-" + s;	! To tack onto fn2
+    end;
+
+    parse ( FILELIST(default pccfile, default_ext "c", help helpline):
+	    pccfile = $files;
+	);
+
+    more = 1;
+   while more=1 do
+    parse ( switch (help opthelp, stdhelp,
+	    words(  include	:: 1,
+		define	    :: 2,
+		undefine    :: 3,
+		kill_cpp_options:  4,
+		link	    :: 5,
+		full_compile	::6,
+		compile	    :7)):
+	    begin
+		saval = $value;
+		case $value from 1 to 7 of begin
+		[1]: begin
+		    s = "I";
+		    parse(directory(parseonly):
+			s = s + $atom);
+		     end;
+		[2]: begin
+		    s = "D";
+		    parse(quotedstring(help
+			"""token1=token2"", in double quotes"):
+			    s = s + $atom;
+			  field(help "token"):
+			    s = s + $atom;
+			  file(help "Initial rename file",
+			   noindirect): 
+			    s = s + "@" + $files);
+		     end;
+		[3]: begin
+		    s = "U";
+		    parse(field(help "token"):
+			s = s + $atom);
+		     end;
+		[4]: begin
+		    firstoption = 0;	!safety...
+		    cppoptions = "";
+		    opthelp = "";
+		     end;
+		[5]: parse(keyword(default pcclink,
+			      words(yes :1,
+				no  :2)):
+		    pcclink = $atom);
+		[6]: parse(keyword(default pccfullcomp,
+			      words(yes :1,
+				no  :2)):
+		    pccfullcomp = $atom);
+		[7]: force_compile = YES
+		end;
+
+		if saval <= 3 then begin
+		    if firstoption = 1 then begin
+			firstoption = 0;
+			cppoptions = "";
+		    end;
+		    cppoptions = cppoptions + " -" + s;
+		    opthelp = "options (default " +cppoptions+ ")";
+		end;
+	    end;
+
+	eol(help "confirm for current defaults"): more = 0
+	);  !end of switch parse
+
+    if pccflags = 0 then begin		!set default pcc:
+	pccflags = 1;		!..do here cause of pcl bug
+	docommand original "info log pcc:" to s;
+! INSTALLATION DEPENDENT;
+	if s = "" then docommand original "define pcc: ps:<SUBSYS.pcc>";
+    end;
+
+DO 
+{
+    pccfile = $files;
+    fn1beg = $search ($filel, ">") + 1;
+    length = $search ($filel [fn1beg : *], ".") - 1;
+    fn1 = $filel [fn1beg : length];
+!   dirbeg = 5;
+!   fndir = $filel [dirbeg : fn1beg - dirbeg - 1];
+    extbeg = fn1beg + length +1;
+!   fext = $filel [extbeg : $search ($filel[extbeg : *], ".") - 1];
+    fn1short = fn1 [1 : 6];
+    fnhead = $filel [1 : extbeg - 2];
+    devdir = $filel [1 : fn1beg-1];
+    docommand original "define pcctmp: " + devdir;	!short for link
+    shorthead = "pcctmp:" + fn1short;
+
+    ifile = tempdir + fn1 + ".i" + uniqstr;
+    if pccfullcomp = "NO" then mfile = "nul:"
+	else mfile = tempdir + fn1 + ".m" + uniqstr;
+    macfile = tempdir + fn1 + ".mac" + uniqstr;
+    relfile = fnhead + ".rel";
+    shortrel = shorthead + ".rel";
+    must_compile = force_compile;
+    IF must_compile = NO THEN
+        IF $Isfile(relfile) = YES THEN
+	    IF $FileInfo_I(relfile,$FBWRT) < $FileInfo_I($FILEL,$FBWRT) THEN
+	        must_compile = YES ! file.REL is older than file.C
+	    ELSE NOP
+	ELSE
+	    must_compile = YES;
+
+    IF must_compile = NO THEN
+        display $Files + HT + "up-to-date"
+    ELSE
+    BEGIN
+        display $FileS;
+	docommand "pcc:cpp.exe " + cppoptions + " " + pccfile + " >" + ifile;
+	docommand "pcc:c1.exe <" + ifile + " >" + mfile;
+	docommand "delete " + ifile to snul;
+    
+	if pccfullcomp = "YES" then begin
+	    docommand "pcc:c2.exe -l <" + mfile + " >" + macfile;
+    !	    docommand "reset ." to snul;
+	    docommand "delete " + mfile to snul;
+	    invoke "sys:macro.exe";
+	    typein relfile + "=" + macfile;
+	    typein "";
+	    gettypeout s;
+	    killprogram;	    !to be safe
+	    err = $search(s, "?") + $search(s, "%");
+	    if err > 0 then begin
+		display "**** Assembly Problem ****";
+		display " ";
+		display s;
+!		abort "Aborting,  macro file = " + macfile;
+		goto more;
+	    end
+	    else begin
+!		display macfile + " ==> " + relfile;
+		docommand "delete " + macfile to snul;
+	    end;
+	    if pcclink = "YES" then docommand "clink " + relfile;
+	END;
+    end;
+more:
+}
+UNTIL $NextFile = 0;
+end; 
+
+command SHOW_PCC_DEFAULTS;
+begin
+    external string pccfile, cppoptions, pcclink, pccfullcomp, pccrelfiles;
+    display "pcc default source file		= " + pccfile;
+    display "pcc default pre-processor options  = " + cppoptions;
+    display "pcc full-compile flag	    = " + pccfullcomp;
+    display "pcc link flag		= " + pcclink;
+    display "";
+    display "clink .rel files = " + pccrelfiles;
+end;

@@ -1,0 +1,139 @@
+HLP:PCC.HLP: Last updated 25-Apr-83, 14-May-83
+
+The Portable  C Compiler,  pcc-20,  accepts full  V7 Unix  C  and
+generates Dec-20 code.  It has  been developed by Jay Lepreau  of
+the Department of Computer Science, University of Utah, based  on
+the Portable C Compiler, pcc, developed by Steve Johnson at  Bell
+Laboratories.  pcc is available on PDP-11, VAX-11,  Interdata-32,
+IBM 370,  and  now  DEC-20  computers.   This  is  a  preliminary
+version; pcc-20 has not yet released official release status.
+
+The software is a proprietary product  copyrighted by the U of  U
+Deparment of Computer Science,  and its use  requires a valid  V7
+Unix licence (which  the College of  Science Computer has).   The
+.EXE files  are  therefore given  execute  access, but  not  read
+access (so you  cannot copy  them).  The source  files are  given
+read access in order to be used as include files; it is a licence
+violation for users to copy them for use elsewhere.
+
+To use pcc, you must first establish a pcc environment which you
+can do by the command
+
+@TAKE PCC:INIT
+
+This line actually belongs in your COMAND.CMD file if you've  got
+one, or in your  LOGIN.CMD file if you  don't.  Right now all  it
+does is define a big PCL procedure called PCC, which is just full
+of goodies, and a procedure SHOW-PCC-DEFAULTS.  It also defines a
+procedure CLINK (C linker) to link multi-module C programs.
+
+Single module programs can be linked via PCC's /LINK:YES  switch.
+CLINK handles  long filenames  properly so  you won't  know  that
+stupid LINK itself  does not.
+
+Both PCC  and CLINK  remember the  files and  options which  were
+specified the time before, and these are their defaults.
+
+SYNOPSIS of PCL COMMANDS:
+Note that if you  use '?'  and  <esc> liberally these  procedures
+are more-or-less self-documenting.
+
+PCC filename [switches]
+	If a default filename exists (i.e, you have run PCC  this
+	session), all you have to type is 'pcc'.
+
+Switches:
+	/INCLUDE:, /DEFINE:,  and  /UNDEFINE: correspond  to  the
+	Unix -I,-D,  and -U  options to  cc.  The  names  tops20,
+	TOPS20, KL10, and kl10 are automatically predefined to be
+	1.  unix and pdp11 are not, obviously.  To define a token
+	with  a  value,   you  must  put   it  in  quotes,   e.g.
+	/DEFINE:"DEBUG=yes".
+
+	/KILL-CPP-OPTIONS wipes out  the current C  Pre-Processor
+	options.  More may be added at  any time.  Type a ?  mark
+	to see what they are.
+
+	/FULL-COMPILE:NO does a syntax check only; YES creates  a
+	.REL file.  YES is the first-time default.
+
+	/LINK:YES attempts to link-edit the program and put it on
+	the source program's directory with the same name.   This
+	will only work for  a one module  program.  To link  more
+	than one module use  the CLINK procedure after  compiling
+	them with PCC.  /LINK:NO is the first-time default.
+
+	All of  the  above  options are  remembered  between  PCC
+	commands, and are the defaults  the next time it is  run.
+	Use SHOW-PCC-DEFAULTS  to see  what they  are, or  use  ?
+	marks to PCC.
+
+
+CLINK file1,file2,....,filen
+
+NOTE: Due to bugs in the  PCL Exec, CLINK occasionally bombs  out
+with the message:  "Unusual fork  termination 400000000000."   No
+problem, just do 'reset', and try it again.
+
+CLINK takes  a list  of  .REL files,  links  them, and  saves  as
+firstrelfile.EXE.  You do not have to type the .REL suffixes.  It
+is very smart --  completely handles long file  names (LINK is  a
+PA1050 idiot), and always put you back where you were at the end.
+However, DON'T CTL-C  it if  you've got filenames  longer than  6
+chars, or any  long-named .REL  file will have  been re-named  to
+some weirdness like "PCCD13:PCCF13.REL".  If there are  undefined
+globals it just lets you know, cleans up, and quits.
+
+PCC with /LINK:YES invokes CLINK.  The .EXE file is always  saved
+on the source program's directory.  It remembers the last list of
+.REL files, and that's the default  -- you can use CTL-W, etc  to
+edit the list after you've <ESCape'd>.
+
+The libraries which are searched are PCC:PLIB1, which is a dummy,
+and PCC:PLIB which is the real  one. By defining PCC: to  include
+one of your own directories before the system PCC: definition,  a
+private  library  named  PLIB1.REL  on  that  directory  will  be
+searched before the standard PCC:PLIB1.  (However, it appears you
+can't override standard  routines in  that manner  -- link  blows
+up-- but you can have your own in a library, and can override  by
+explicitly listing the files to CLINK.)
+
+INCLUDE FILES
+The standard place for #include files is on logical device  PCC:,
+which MUST include  the system definition  of PCC:; for  example,
+you could do something like this:
+
+@define PCC:	ps:<mydir1>,ps:<mydir2>,PCC:
+
+If you  don't need  to add  any private  directories for  include
+files you can forget about this.   Of course, you can always  use
+the /INCLUDE  option.   #include  filenames  must  be  in  "unix"
+format; see  CURRENT.STATUS  and  MISC.DOC on  PCCDOC:  for  more
+detail.
+
+
+TYPE CHECKING
+Note that although pcc-20 accepts the same language as V7 Unix C,
+it does quite a bit more  type-checking (the same as done by  the
+Vax Unix C compiler, though not  nearly as much as lint), so  you
+should expect more warnings until  you clean up your code.   View
+that as an aid.
+
+
+ADDITIONAL INFO
+See the files on PCCDOC:
+ CURRENT.STATUS	-	This contains most recent doc on compiler
+			and library restrictions and features.
+ DEBUG.DOC -		How to debug your pcc-20 program (stack
+			layout, etc) 
+ MISC.DOC -		More detail about a few odds and ends.
+ PCC.HLP -		You're reading it now.
+ TOPS20-ROUTINES.DOC -	More detail on the TOPS-20-specific
+			routines. 
+
+BUG REPORTING
+After appropriate  consultation with  your local  C, Tops-20,  or
+Unix gurus as  appropriate, please forward  compiler and  runtime
+library bug reports to bug-pcc@Utah-20 or  harpo!utah-cs!bug-pcc.
+On the  College  of  Science  Computer, send  MAIL  to  BEEBE  or
+C-GRISS.

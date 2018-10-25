@@ -1,0 +1,36 @@
+
+
+; <SUBSYS.PCC>5INSTALL-PCL.MIC.4 & <SUBSYS.PCC>5INSTALL-PCL.MIC.3 14-May-83 1206	PAGE 1
+
+
+
+LINE 1, PAGE 1
+1)	! PS:<SUBSYS.PCC>5INSTALL-PCL.MIC.4, 14-May-83 09:33:12, Edit by BEEBE;
+1)	! Change system-dependenent directory names/logical names
+1)	! Change PRESERVE command to conform to current EXEC
+1)	! Require ENABLE capability to save new environment file on PCC:
+1)	@def pcc: ps:<SUBSYS.pcc>	! Maybe INSTALLATION DEPENDENT (hopefully not)
+1)	@CONN
+1)	@RENAME COMAND.CMD.* #COMAND#.CMD.*
+1)	@PUSH
+1)	@ENABLE
+1)	  undeclare all		;to be safe
+1)	  set no command-trace	;to be safe (old pcl bug)
+1)	  declare /noconf pcl-routines pcc:pcc.pcl,pcc:clink.pcl
+1)	  preserve !environment! pcc:pcc-all.env
+1)	  POP
+1)	@RENAME #COMAND#.CMD.* COMAND.CMD.*
+1)	;
+LINE 1, PAGE 1
+2)	@def pcc: ps:<pcc>		! Maybe INSTALLATION DEPENDENT (hopefully not)
+2)	@CONN
+2)	@RENAME COMAND.CMD WOOF.WOOF
+2)	@PUSH
+2)	  undeclare all		;to be safe
+2)	  set no command-trace	;to be safe (old pcl bug)
+2)	  declare /noconf pcl-routines pcc:pcc.pcl,pcc:clink.pcl
+2)	  preserve environment pcc:pcc-all.env
+2)	  POP
+2)	@RENAME WOOF.WOOF COMAND.CMD
+2)	;
+

@@ -1,0 +1,3 @@
+! Pass 1 of PCC (test version)
+
+@c1test.exe <'a.i >'a.m

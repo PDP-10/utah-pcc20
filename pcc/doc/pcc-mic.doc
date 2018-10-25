@@ -1,0 +1,6 @@
+To compile a module using mic instead of the pcc pcl interface, just say:
+
+MIC PCC:PCC srcfile-prefix		(with NO extension!)
+
+The file is left in srcfile-prefix.REL
+The .MAC file is in your directory, undeleted.

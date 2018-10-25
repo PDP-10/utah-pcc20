@@ -1,0 +1,3 @@
+! Pass 0 (C preprocessor) of PCC
+
+@cpp.exe 'a.c >'a.i

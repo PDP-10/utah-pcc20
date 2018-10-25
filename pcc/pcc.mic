@@ -1,0 +1,8 @@
+@pcc:cpp.exe 'A.c >SCR:'A.i
+@pcc:c1.exe 'B <SCR:'A.i >SCR:'A.m
+@pcc:c2.exe 'B -l <SCR:'A.m >'A.mac
+@; Compile done
+@macro
+*'A='A
+*
+@; Assemble done

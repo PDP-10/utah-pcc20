@@ -1,0 +1,66 @@
+; jsys.mac - Common jsys interface for pcc-20.
+; 
+; Author:	Jay Lepreau
+; 		Computer Science Dept.
+; 		University of Utah
+; Date:		Feb 81
+; Copyright (c) 1981 Jay Lepreau
+
+; int jsys(jsnumber [,ACinvec]  [,ACoutvec]);
+; int jsnumber; 	JSYS number, defines in jsys.h
+; int ACinvec[5];	Input reg. values in invec[1-4], omit if uneeded.
+; int ACoutvec[5];	Output reg. values. Also, jsys(n,v) == jsys(n,v,v).
+;
+; NB: returns JSerr==0 on error, JSok==1 if ok.
+; Note that vec[n] corresponds to ACn; ie, vec[0] is unused.
+;
+; Clobbers registers 0 - 6.
+
+	search $mdefs,monsym
+	radix 10
+	twoseg	$text
+
+	reloc	$text
+	entry	jsys,.JSacs
+;;	extern	nargs
+;;fudge==0			; for jsys fx with csv, cret
+;;parmreg==fp
+
+fudge==1			; for jsys fx w/o csv, cret
+parmreg==sp
+
+jsysno==$PARM1+fudge		; $PARMn = offsets off fp, defined in $mdefs
+invec==$PARM2+fudge
+outvec==$PARM3+fudge
+
+;;jsys:	pushj	sp,$csv			;TEMP: just to be safe while debugging
+;;	adjsp	sp,$AUTOINIT		;defined in $mdefs
+
+; assume at least 1 arg present.
+jsys:	hrre	r1,@(sp)		; this is -(# of args)
+	movn	r1,r1
+	sosg	r6,r1			;if ((r6 = --nargs) <= 0) goto onearg
+	jrst	onearg			;fx code only
+	move	r5,invec(parmreg)	;get invec
+	dmove	r1,1(r5)		;load regs 1-4 from invec
+	dmove	r3,3(r5)
+
+onearg:!movei	r0,0			;provisional: error code
+	jsys	@jsysno(parmreg)
+	erjmp 	err0
+	movei	r0,1
+
+err0:!	jumpe	r6,finis		;1 arg only, all done
+	cain	r6,2
+	move	r5,outvec(parmreg)	;3 args: get different outvec
+	dmovem	r1,1(r5)		;save returned regs in outvec
+	dmovem	r3,3(r5)
+
+finis:!	move	r1,r0			;get value into return reg.
+	popj	sp,
+;;	jrst	$cret
+	lit
+
+	reloc $data
+.JSacs:: block 5
+	end

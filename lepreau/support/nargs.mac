@@ -1,0 +1,25 @@
+; nargs.mac - PCC nargs routine
+;This may be called from any point in the caller as it uses the fp, not the sp 
+;
+; Author:	Jay Lepreau
+; 		Computer Science Dept.
+; 		University of Utah
+; Date:		Feb 81
+; Copyright (c) 1981 Jay Lepreau
+
+	radix	10
+	search	$mdefs
+	twoseg	$text
+
+	reloc	$text
+	entry	nargs
+
+nargs:	movei	r1,0			; provisional
+	hllz	r2,@$parm1+1(fp)	; return_pc->next instr: left half
+	came	r2,[adjsp p,0]		; subi sp,xxxx?
+	popj	p,			; no, so no args, for sure
+	hrre	r1,@$parm1+1(fp)	; yes, so this is -(# of args)
+	movn	r1,r1			; make positive
+	popj	p,
+
+	end

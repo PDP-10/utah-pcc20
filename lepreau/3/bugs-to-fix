@@ -1,0 +1,109 @@
+18-May-82 03:40:25-MDT,3398;000000000001
+Mail-from: ARPANET site UCB-C70 rcvd 18-May-82 0337-MDT
+Date:     17 May 82 4:57:04-MDT (Mon)
+From:     Mike.nmtvax at UDel-Relay
+To: arpavax.4bsd-bugs at Ucb-C70
+Subject:  /usr/src/libc/stdio/{filbuf,flsbuf,rdwr}.c
+Via:  NMTVAX; 18 May 82 5:18-EDT
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ATTENTION:
+	We have just recently been added to CSNET phonenet.  As part of
+	the testing procedure, this bug report is being sent over phonenet
+	instead of our usual connection via uucp.  When you receive this
+	report could you please acknowledge it via BOTH the following
+	addresses:
+		unmvax!nmtvax!mike
+		mike.nmtvax @ udel-relay
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+DESCRIPTION:
+	1. Fread did not return error when attempt was made to read from file
+	   open for only writing.  It would return NULL but the error indicator
+	   would not be set.
+	2. Fwrite did not return error when attempt was made to write from file
+	   open for only reading.  
+	3. In the case described in #2 above, the returned value would not
+	   even be NULL (indicating error), it would instead be the number of 
+	   items which you requested in the fwrite.
+
+TO REPRODUCE:
+	Run the following test program:
+
+**********************************************************************
+/* Test of errors in fread and fwrite */
+#include <stdio.h>
+main()
+{
+	char *testfile = "/tmp/rwtest"; char buf[512];
+	FILE *fd; int rv;
+	printf("Opening %s for write only\n");
+	fd = fopen(testfile, "w");
+	if (fd == NULL) {
+		printf("Open of %s for write failed\n", testfile);
+		exit(1);
+	}
+	printf("Attempting to read 512 items of size 1 from %s\n", testfile);
+	printf("FREAD should return 0, FERROR should return 1\n");
+	clearerr(fd);
+	rv = fread(buf, sizeof(char), 512, fd);
+	printf("FREAD returns %d, FERROR returns %d\n", rv, ferror(fd));
+	printf("Now closing %s and reopening for read only\n", testfile);
+	fclose(fd);
+	fd = fopen(testfile, "r");
+	if (fd == NULL) {
+		printf("Open of %s for read failed\n", testfile);
+		exit(1);
+	}
+	printf("Attempting to write 512 items of size 1 to %s\n", testfile);
+	printf("FWRITE should return 0, FERROR should return 1\n");
+	clearerr(fd);
+	rv = fwrite(buf, sizeof(char), 512, fd);
+	printf("FWRITE returns %d, FERROR returns %d\n", rv, ferror(fd));
+	printf("Closing %s and done\n", testfile);
+}
+**********************************************************************
+
+FIXES:
+	1. In filbuf.c, make sure that error indicator is set when read is
+	   attempted from a file not open for reading.
+	2. In flsbuf.c, make sure that error indicator is set when write is
+	   attempted to a file not open for writing.
+	3. In rdwr.c, check the returned value from putc each time and return
+	   if it indicates an error.
+
+	In diff form, these changes look like:
+
+	filbuf.c:
+
+		13c13,14
+		< 	if ((iop->_flag&_IOREAD) == 0)
+		---
+		> 	if ((iop->_flag&_IOREAD) == 0) {
+		> 		iop->_flag |= _IOERR;
+		15c16,17
+		< 	if (iop->_flag&_IOSTRG)
+		---
+		> 	}
+		>  	if (iop->_flag&_IOSTRG)
+		16a19
+		> 
+
+	flsbuf.c:
+
+		19c19,20
+		< 	if ((iop->_flag&_IOWRT)==0)
+		---
+		> 	if ((iop->_flag&_IOWRT)==0) {
+		> 		iop->_flag |= _IOERR;
+		20a22
+		> 	}
+
+	rdwr.c:
+
+		39c39,40
+		< 			putc(*ptr++, iop);
+		---
+		> 			if (putc(*ptr++, iop) < 0)
+		> 				return(ndone);
+

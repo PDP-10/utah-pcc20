@@ -1,0 +1,126 @@
+/*
+ * macdefs - based on Sam Leffler's Harris/6 version
+ *
+ * Author:	Jay Lepreau
+ *		Computer Science Dept.
+ * 		University of Utah
+ * Date:	July  80
+ * Copyright (c) 1980 Jay Lepreau for Dec-20 version
+ */
+
+# define makecc(val,i)  lastcon = i ? (val<<SZCHAR)|lastcon : val  
+
+# define SZCHAR	36		/* TEMPORARY TEMPORARY TEMPORARY !!! */
+# define SZINT 36
+# define SZFLOAT 36
+# define SZDOUBLE 36		/* temporarily */
+# define SZLONG 36
+# define SZSHORT 36		/* for initial version (only?) */
+# define SZPOINT 36
+# define ALCHAR 36		/* TEMPORARY */
+# define ALINT 36
+# define ALFLOAT 36
+# define ALDOUBLE 36
+# define ALLONG 36
+# define ALSHORT 36		/* for now */
+# define ALPOINT 36
+# define ALSTRUCT 36
+# define ALSTACK 36 
+
+/*	maximum and minimum register variables registers */
+# define MAXRVAR 13
+# define MINRVAR 10
+
+# define SAVEAREA (MAXRVAR - MINRVAR + 2)	/* no. of reg.var regs + fp */
+
+# define AUTOINIT ( (SAVEAREA+1) * SZINT)	/* kludge: need one extra */ 
+# define ARGINIT  36	 /* KLUDGE KLUDGE KLUDGE: really -72 going backwards*/	
+				/* leave space for 2 words:		*/
+				/* return pc & addr(subr. entry pnt)+1	*/
+				/* note is positive cause of kludge in pftn */
+/*
+ *	size in which constants are converted
+ *	should be long if feasible
+ */
+typedef long int	CONSZ;
+# define CONFMT "%ld"
+
+/*
+ *	size in which offsets are kept
+ *	should be large enough to cover address space in bits
+ */
+typedef long int	OFFSZ;
+
+/*
+ *	size to keep cookies, need one bit per cookie
+ */
+typedef	int		COOKSZ;		/* was unsigned for /6 */
+
+/*
+ *	size to keep needs, need about one bit per need
+ */
+typedef	int		NEEDSZ;		/* was unsigned for /6 */
+
+/*
+ *	size to keep shapes in, probably the same as cookie
+ */
+typedef	int		SHAPESZ;	/* was unsigned for /6 */
+
+/* 	character set macro */
+# define CCTRANS(x) x
+
+#define FIELDOPS		/* Can do fancy fieldops on Dec-20 */
+
+/* Target machine attributes */
+# define MAXSHORT (256L*1024L-1)	/* 256k - 1 */
+
+/*	Byte pointer macros */
+# define POS0	27		/* actual position field in a bp */
+# define POS1	18
+# define POS2	9
+# define POS3	0
+
+# define POSLOC	30		/* location of position field in bp */
+# define SIZLOC 24		/*    "		size	  "	"   */
+
+# define ADDRFLD 0777777	/* address field of instr and bp    */
+
+# define BUILDBP(pos, addr)  (((pos) << POSLOC) | (SZCHAR << SIZLOC) | (addr))
+
+/* register cookie for stack pointer */
+# define STKREG 14	/* fp */
+# define ARGREG 14	/* fp */
+
+	/* various standard pieces of code are used */
+# define STDPRTREE
+
+#ifdef ONEPASS
+# define LABFMT "$%d"
+#else
+# define LABFMT "$%d\n"
+#endif
+
+/* definition indicates automatics and/or temporaries
+   are on a negative growing stack */
+# undef  BACKAUTO	/* stack grows up */
+# undef  BACKTEMP	/* on Dec-20	  */
+# define BACKPARM	/* but param INDICES go backwards since evaluated */
+			/* right to left and stack grows up. added by fjl */
+
+# undef RTOLBYTE	/* Bytes numbered left to right on Dec-20 */
+
+# ifndef FORT
+# define EXIT dexit
+/* would define ONEPASS here */
+# endif
+
+# define ENUMSIZE(high,low) INT		/* simple for now */
+
+# define NCHPERINT	(SZINT/SZCHAR)
+
+# define BYTES		010
+# define WORDS		020
+# define NOTYPE		0
+
+/* macro to turn byte quantities into 36-bit ints (round) */   
+# define INTROUND(x)	(((x-1)/4)+1)

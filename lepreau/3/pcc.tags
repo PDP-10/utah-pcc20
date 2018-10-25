@@ -1,0 +1,1137 @@
+LIB02:<COS.LEPREAU.3>ATOI.C.0
+00054,C
+atoi(p)7
+
+LIB02:<COS.LEPREAU.3>CALLOC.C.0
+00164,C
+#define CHARPERINT (sizeof(int)/sizeof(char))138
+#define NULL 0154
+calloc(num, size)183
+cfree(p, num, size)474
+
+LIB02:<COS.LEPREAU.3>CHRTAB.C.0
+00045,C
+
+LIB02:<COS.LEPREAU.3>CLRERR.C.0
+00063,C
+clearerr(iop)79
+
+LIB02:<COS.LEPREAU.3>CRYPT.C.0
+00112,C
+setkey(key)1911
+encrypt(block, edflag)5384
+crypt(pw,salt)7194
+
+LIB02:<COS.LEPREAU.3>CTIME.C.0
+00171,C
+ctime(t)1845
+localtime(tim)1933
+sunday(t, d)2855
+gmtime(tim)3034
+asctime(t)4039
+dysize(y)4694
+ct_numb(cp, n)4781
+
+LIB02:<COS.LEPREAU.3>CTYPE.C.0
+00044,C
+
+LIB02:<COS.LEPREAU.3>DOSCAN.C.0
+00325,C
+#define	SPC	01122
+#define	STP	02138
+#define	SHORT	0157
+#define	REGULAR	1176
+#define	LONG	2192
+#define	INT	0207
+#define	FLOAT	1224
+_doscan(iop, fmt, argp)457
+_innum(ptr, type, len, size, iop, eofptr)1785
+_instr(ptr, type, len, iop, eofptr)3916
+_getccl(s)4656
+
+LIB02:<COS.LEPREAU.3>ECVT.C.0
+00181,C
+#define	NDIG	80265
+ecvt(arg, ndigits, decpt, sign)305
+fcvt(arg, ndigits, decpt, sign)440
+cvt(arg, ndigits, decpt, sign, eflag)588
+
+LIB02:<COS.LEPREAU.3>EXP_NOT-YET.C.0
+00064,C
+exp(arg)698
+
+LIB02:<COS.LEPREAU.3>FDOPEN.C.0
+00067,C
+fdopen(fd, mode)268
+
+LIB02:<COS.LEPREAU.3>FGETC.C.0
+00058,C
+fgetc(fp)74
+
+LIB02:<COS.LEPREAU.3>FGETS.C.0
+00065,C
+fgets(s, n, iop)89
+
+LIB02:<COS.LEPREAU.3>FILBUF.C.0
+00062,C
+_filbuf(iop)94
+
+LIB02:<COS.LEPREAU.3>FLOOR.C.0
+00071,C
+floor(d)110
+ceil(d)296
+
+LIB02:<COS.LEPREAU.3>FLSBUF.C.0
+00118,C
+_flsbuf(c, iop)98
+fflush(iop)1320
+_cleanup()1731
+fclose(iop)1877
+
+LIB02:<COS.LEPREAU.3>FOPEN.C.0
+00067,C
+fopen(file, mode)116
+
+LIB02:<COS.LEPREAU.3>FPUTC.C.0
+00061,C
+fputc(c, fp)77
+
+LIB02:<COS.LEPREAU.3>FPUTS.C.0
+00062,C
+fputs(s, iop)78
+
+LIB02:<COS.LEPREAU.3>FREOPEN.C.0
+00075,C
+freopen(file, mode, iop)82
+
+LIB02:<COS.LEPREAU.3>FREXP.C.0
+00060,C
+frexp(x,i)233
+
+LIB02:<COS.LEPREAU.3>FSEEK.C.0
+00077,C
+fseek(iop, offset, ptrname)178
+
+LIB02:<COS.LEPREAU.3>FTELL.C.0
+00044,C
+
+LIB02:<COS.LEPREAU.3>GETCHAR.C.0
+00061,C
+getchar()150
+
+LIB02:<COS.LEPREAU.3>GETPASS.C.0
+00067,C
+getpass(prompt)129
+
+LIB02:<COS.LEPREAU.3>GETS.C.0
+00055,C
+gets(s)79
+
+LIB02:<COS.LEPREAU.3>GETW.C.0
+00057,C
+getw(iop)73
+
+LIB02:<COS.LEPREAU.3>INDEX.C.0
+00082,C
+#define	NULL	0106
+index(sp, c)130
+
+LIB02:<COS.LEPREAU.3>INTSS.C.0
+00057,C
+intss()182
+
+LIB02:<COS.LEPREAU.3>LOG.C.0
+00144,C
+#define exp frexp		/* TEMP HACK to avoid external ref to exp() */247
+log(arg)807
+log10(arg)1240
+
+LIB02:<COS.LEPREAU.3>MALLOC.C.0
+00696,C
+#define ASSERT(p) if(!(p))botch("p");else121
+botch(s)131
+#define ASSERT(p)241
+#define GRANULE 64308
+#define GRANULE 0334
+#define INT int1086
+#define ALIGN int1105
+#define NALIGN 11123
+#define WORD sizeof(union store)1157
+# define BLOCK 512	/* a multiple of WORD*/1253
+#define BLOCK 10241280
+# define BUSY 0200000000000			/* for kl10 can't be 1 */1360
+# define BUSY 11384
+#define NULL 01410
+#define testbusy(p) ((INT)(p)&BUSY)1447
+#define setbusy(p) (union store *)((INT)(p)|BUSY)1498
+#define clearbusy(p) (union store *)((INT)(p)&~BUSY)1552
+malloc(nbytes)1914
+free(ap)3361
+realloc(p, nbytes)3857
+allock()4354
+
+LIB02:<COS.LEPREAU.3>POW_NOT-YET.C.0
+00070,C
+pow(arg1,arg2)156
+
+LIB02:<COS.LEPREAU.3>PUTCHAR.C.0
+00062,C
+putchar(c)150
+
+LIB02:<COS.LEPREAU.3>PUTS.C.0
+00055,C
+puts(s)71
+
+LIB02:<COS.LEPREAU.3>PUTW.C.0
+00060,C
+putw(w, iop)76
+
+LIB02:<COS.LEPREAU.3>QSORT.C.0
+00068,C
+qsort(a, n, es, fc)65
+
+LIB02:<COS.LEPREAU.3>RDWR.C.0
+00111,C
+fread(ptr, size, count, iop)92
+fwrite(ptr, size, count, iop)427
+
+LIB02:<COS.LEPREAU.3>REGEX.C.0
+00478,C
+#define	CBRA	13064
+#define	CCHR	23080
+#define	CDOT	43096
+#define	CCL	63111
+#define	NCCL	83127
+#define	CDOL	103144
+#define	CEOF	113161
+#define	CKET	123178
+#define	CBACK	183196
+#define	CSTAR	013216
+#define	ESIZE	5123237
+#define	NBRA	93253
+re_comp(sp)3424
+#define	comerr(msg) {expbuf[0] = 0; numbra = 0; return(msg); }3720
+re_exec(p1)5710
+advance(lp, ep)6321
+backref(i, lp)7913
+cclass(set, c, af)8107
+
+LIB02:<COS.LEPREAU.3>REW.C.0
+00058,C
+rewind(iop)72
+
+LIB02:<COS.LEPREAU.3>RIN.C.0
+00053,C
+rin()145
+
+LIB02:<COS.LEPREAU.3>RINDEX.C.0
+00084,C
+#define NULL 0110
+rindex(sp, c)135
+
+LIB02:<COS.LEPREAU.3>SCANF.C.0
+00121,C
+scanf(fmt, args)38
+fscanf(iop, fmt, args)120
+sscanf(str, fmt, args)212
+
+LIB02:<COS.LEPREAU.3>SETBUF.C.0
+00066,C
+setbuf(iop, buf)82
+
+LIB02:<COS.LEPREAU.3>SQRT.C.0
+00058,C
+sqrt(arg)185
+
+LIB02:<COS.LEPREAU.3>STRCAT.C.0
+00065,C
+strcat(s1, s2)119
+
+LIB02:<COS.LEPREAU.3>STRCMP.C.0
+00064,C
+strcmp(s1, s2)79
+
+LIB02:<COS.LEPREAU.3>STRCPY.C.0
+00064,C
+strcpy(s1, s2)99
+
+LIB02:<COS.LEPREAU.3>STRLEN.C.0
+00059,C
+strlen(s)85
+
+LIB02:<COS.LEPREAU.3>STRNCAT.C.0
+00070,C
+strncat(s1, s2, n)159
+
+LIB02:<COS.LEPREAU.3>STRNCMP.C.0
+00070,C
+strncmp(s1, s2, n)101
+
+LIB02:<COS.LEPREAU.3>STRNCPY.C.0
+00070,C
+strncpy(s1, s2, n)120
+
+LIB02:<COS.LEPREAU.3>STROUT.C.0
+00095,C
+_strout(count, string, adjust, file, fillch)110
+
+LIB02:<COS.LEPREAU.3>STUFF.C.0
+00057,C
+wdleng()72
+
+LIB02:<COS.LEPREAU.3>TERMCAP.C.0
+00291,C
+#define	BUFSIZ	102487
+#define MAXHOP	32	/* max number of tc= indirections */143
+tgetent(bp, name)1173
+tnchktc()2934
+tnamatch(np)4041
+tskip(bp)4604
+tgetnum(id)4995
+tgetflag(id)5610
+tgetstr(id, area)6131
+tdecode(str, area)6549
+
+LIB02:<COS.LEPREAU.3>TGOTO.C.0
+00110,C
+#define	CTRL(c)	('c' & 037)93
+tgoto(CM, destcol, destline)929
+
+LIB02:<COS.LEPREAU.3>TIMEZONE.C.0
+00047,C
+
+LIB02:<COS.LEPREAU.3>TPUTS.C.0
+00073,C
+tputs(cp, affcnt, outc)705
+
+LIB02:<COS.LEPREAU.3>UNGETC.C.0
+00064,C
+ungetc(c, iop)80
+
+LIB02:<COS.LEPREAU.3>VALLOC.C.0
+00060,C
+valloc(i)103
+
+LIB02:<COS.LEPREAU.3.LOCAL>ATOT.C.0
+00049,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>FOLD.C.0
+00049,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>GETBOOL.C.0
+00052,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>GTIME.C.0
+00050,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>NXTARG.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>PDATE.C.0
+00559,C
+# define NUMBER 257942
+# define WEEKDAY 258964
+# define MONTH 259984
+# define AM 2601001
+# define PM 2611018
+# define TIMEZONE 2621041
+#define yyclearin yychar = -11072
+#define yyerrok yyerrflag = 01103
+#define YYMAXDEPTH 1501192
+#define YYSTYPE int1238
+# define YYERRCODE 2561301
+pdate(str, tmp)1887
+# define YYNPROD 323971
+# define YYLAST 2263992
+# define YYFLAG -10006567
+# define YYERROR goto yyerrlab6599
+# define YYACCEPT return(0)6628
+# define YYABORT return(1)6656
+
+LIB02:<COS.LEPREAU.3.LOCAL>PRSTAB.C.0
+00213,C
+#define SPACE 5			/* min. space between columns */1133
+#define MAXCOLS 71		/* max. cols on line */1178
+#define MINROWS 8		/* min. rows to be printed */1228
+
+LIB02:<COS.LEPREAU.3.LOCAL>RSINDEX.C.0
+00138,C
+#define streqn(a,b,c)	(!strncmp(a,b,c))196
+#define NULL 0212
+rsindex(s1, s2)239
+
+LIB02:<COS.LEPREAU.3.LOCAL>SINDEX.C.0
+00136,C
+#define streqn(a,b,c)	(!strncmp(a,b,c))165
+#define NULL 0181
+sindex(s1, s2)207
+
+LIB02:<COS.LEPREAU.3.LOCAL>SKIPTO.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>STABLK.C.0
+00133,C
+#define NOTFOUND -11535
+#define AMBIGUOUS -21557
+#define MAXSTRINGS 5001581
+
+LIB02:<COS.LEPREAU.3.LOCAL>STLMATCH.C.0
+00053,C
+
+LIB02:<COS.LEPREAU.3.MOD>ATOF.C.0
+00092,C
+atof(p)448
+_flout(buf, d, prec, type)985
+
+LIB02:<COS.LEPREAU.3.MOD>DATA.C.0
+00047,C
+
+LIB02:<COS.LEPREAU.3.MOD>ENDOPEN.C.0
+00080,C
+_endopen(file, mode, iop)94
+
+LIB02:<COS.LEPREAU.3.MOD>FDOPEN.C.0
+00071,C
+fdopen(fd, mode)268
+
+LIB02:<COS.LEPREAU.3.MOD>FPRINT.C.0
+00284,C
+#define sputc(c,p)	((int)(*(p)++ = (c)))595
+#define dtruncate(f) ( (int) (f) )677
+#define dround(f)   ( (f) >= 0 ? (int) ((f)+.499999) : ((int) ((f)-.499999)) )757
+#define dabs(f)	    ( (f) >= 0 ? (f) : (-(f) >= 0 ? -(f) :\918
+
+LIB02:<COS.LEPREAU.3.MOD>GETENV.C.0
+00135,C
+#define NULL	0577
+#define MAXLOGNAME	511		/* enuf for now */712
+getenv(name)736
+
+LIB02:<COS.LEPREAU.3.MOD>GETLOGIN.C.0
+00067,C
+getlogin()266
+
+LIB02:<COS.LEPREAU.3.MOD>GETPWENT.C.0
+00090,C
+getpwuid(uid)174
+getpwnam(name)493
+
+LIB02:<COS.LEPREAU.3.MOD>MKTEMP.C.0
+00079,C
+mktemp(as)192
+_hptim()567
+
+LIB02:<COS.LEPREAU.3.MOD>MODF.C.0
+00109,C
+#define abs(x)	((x) < 0 ? -(x) : (x))37
+modf(val, iptr)64
+
+LIB02:<COS.LEPREAU.3.MOD>PERROR.C.0
+00101,C
+perror(str)305
+_seterr()1004
+_syserr(str)1311
+
+LIB02:<COS.LEPREAU.3.MOD>POPEN.C.0
+00065,C
+popen(a,b,c)12
+
+LIB02:<COS.LEPREAU.3.MOD>PRINTF.C.0
+00632,C
+#define TRUE  1504
+#define FALSE 0521
+#define MAXNUMLEN 64	/* max length in chars a number can turn into */2024
+# define OCTMASK 077777777777		/* to fix arith right shifts till we */2165
+# define HEXMASK 037777777777		/* get unsigneds */2217
+#define SMALLREV "86383795343-"2365
+sprintf(str, fmt, args)3503
+#define _PRZF(chr, f, num, prec, padc, fc) {\5750
+#define _PRZF	_przf5856
+_prdf(i, f, w, prec, padc, fc)6807
+_prsf(s, f, w, prec, padc, fc)7502
+_prcf(c, f, w, prec, padc, fc)8258
+_prxf(i, f, w, prec, padc, fc)8641
+_pref(d, f, w, prec, padc, fc)9377
+
+LIB02:<COS.LEPREAU.3.MOD>RAND.C.0
+00072,C
+srand(x)99
+rand()141
+
+LIB02:<COS.LEPREAU.3.MOD>SIN.C.0
+00096,C
+cos(arg)671
+sin(arg)780
+sinus(arg, quad)877
+
+LIB02:<COS.LEPREAU.3.MOD>SLEEP.C.0
+00080,C
+sleep(secs)97
+nap(ticks)256
+
+LIB02:<COS.LEPREAU.3.MOD>SYSTEM.C.0
+00172,C
+#define vfork fork353
+#define _exit exit373
+#define MAXARG 200			/* should be same as in init.c */429
+system(s)488
+
+LIB02:<COS.LEPREAU.CPP.DIST>ALLO.C.0
+00373,C
+allo0()254
+allo( p, q )717
+freetemp( k )1826
+freereg( p, n )2557
+usable( p, n, r )3439
+shareit( p, r, n )4492
+ushare( p, f, r )4756
+recl2( p )5233
+rfree( r, t )5544
+rbusy(r,t)5968
+rwprint( rw )6309
+reclaim( p, rw, cookie )6760
+ncopy( q, p )9780
+tcopy( p )10222
+allchk()10730
+prneeds(n)10979
+
+LIB02:<COS.LEPREAU.CPP.DIST>CGRAM.C.0
+01613,C
+# define NAME 215
+# define STRING 334
+# define ICON 451
+# define FCON 568
+# define PLUS 685
+# define MINUS 8103
+# define MUL 11120
+# define AND 14137
+# define OR 17153
+# define ER 19169
+# define QUEST 21188
+# define COLON 22207
+# define ANDAND 23227
+# define OROR 24245
+# define ASOP 25263
+# define RELOP 26282
+# define EQUOP 27301
+# define DIVOP 28320
+# define SHIFTOP 29341
+# define INCOP 30360
+# define UNOP 31378
+# define STROP 32397
+# define TYPE 33415
+# define CLASS 34434
+# define STRUCT 35454
+# define RETURN 36474
+# define GOTO 37492
+# define IF 38508
+# define ELSE 39526
+# define SWITCH 40546
+# define BREAK 41565
+# define CONTINUE 42587
+# define WHILE 43606
+# define DO 44622
+# define FOR 45639
+# define DEFAULT 46660
+# define CASE 47678
+# define SIZEOF 48698
+# define ENUM 49716
+# define LP 50732
+# define RP 51748
+# define LC 52764
+# define RC 53780
+# define LB 54796
+# define RB 55812
+# define CM 56828
+# define SM 57844
+# define ASSIGN 58864
+#define yyclearin yychar = -1942
+#define yyerrok yyerrflag = 0973
+#define YYMAXDEPTH 1501062
+# define YYERRCODE 2561202
+mkty( t, d, s )1258
+bdty( op, p, v )1351
+dstash(n)1709
+savebc()1822
+resetbc(mask)2034
+addcase(p)2190
+adddef()2601
+swstart()2826
+swend()3027
+# define YYNPROD 1794032
+# define YYLAST 11704054
+# define YYFLAG -100017345
+# define YYERROR goto yyerrlab17377
+# define YYACCEPT return(0)17406
+# define YYABORT return(1)17434
+yyparse()17723
+ftnend()20707
+
+LIB02:<COS.LEPREAU.CPP.DIST>CLOCAL.C.0
+00230,C
+#define FLOATING(t)	((t) == FLOAT || (t) == DOUBLE)385
+bytefix(p)574
+optim1(p)2660
+clocal(p)4667
+strtype(t)15172
+bptype(t)15400
+offsetype(t)15716
+negater(p)15875
+
+LIB02:<COS.LEPREAU.CPP.DIST>CODE.C.0
+00641,C
+#define VERSION	"1,2,36,0\n"  /* pcc v, fxlink v, byte size, unused */751
+#define LABSTART 20		/* must be higher than register# max */ 1003
+branch( n )1278
+defalign(n)1525
+locctr( l )1732
+loctr2(loctyp, firstflg)3289
+deflab( n )4162
+getlab()4315
+efcode()4460
+bfcode( a, n )5581
+bccode()7095
+bjobcode(filnam)7488
+ejobcode( flag )8061
+aobeg()8156
+aocode(p)8226
+aoend()8311
+defnam( p )8386
+bycode( t, i )8800
+zecode( n )9244
+fldal( t )9543
+fldty( p )9678
+where(c)9860
+main( argc, argv )9951
+pextrns()11295
+dexit( v )11801
+genswitch(p,n)11879
+
+LIB02:<COS.LEPREAU.CPP.DIST>COMM1.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.CPP.DIST>COMM2.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.CPP.DIST>CPP.C.0
+02664,C
+#define STATIC559
+#define STDIN 0578
+#define STDOUT 1596
+#define STDERR 2614
+#define READ 0630
+#define WRITE 1647
+#define SALT '#'665
+#define BUFSIZ 512701
+# define COFF 128956
+# define COFF 0980
+#define ALFSIZ 512	/* alphabet size */1041
+#define ALFSIZ 256	/* alphabet size */1089
+#define BLANK 11162
+#define IDENT 21179
+#define NUMBR 31196
+#define scw1 12330
+#define scw2 02346
+#define b0 12439
+#define b1 22453
+#define b2 42467
+#define b3 82481
+#define b4 162496
+#define b5 322511
+#define b6 642526
+#define b7 1282542
+#define IB 12566
+#define SB 22580
+#define NB 42594
+#define CB 82608
+#define QB 162623
+#define WB 322638
+#define isslo (ptrtab == (slotab+COFF))2740
+#define isid(a)  ((fastab+COFF)[a]&IB)2780
+#define isspc(a) (ptrtab[a]&SB)2813
+#define isnum(a) ((fastab+COFF)[a]&NB)2853
+#define iscom(a) ((fastab+COFF)[a]&CB)2893
+#define isquo(a) ((fastab+COFF)[a]&QB)2933
+#define iswarn(a) ((fastab+COFF)[a]&WB)2974
+#define eob(a) ((a) >= pend)3006
+#define bob(a) (pbeg >= (a))3036
+# define SBSIZE 48000		/* std = 12000 */3115
+# define DROP 0xFE	/* special character not legal ASCII or EBCDIC */3226
+# define WARN DROP3246
+# define SAME 03263
+# define MAXINC 103283
+# define MAXFRE 14	/* max buffers of macro pushback */3339
+# define MAXFRM 31	/* max number of formals/actuals to a macro */3406
+# define NPREDEF 204605
+# define main	mainpp4910
+# define exit(S)	longjmp(env, 1)4958
+# define symsiz 5004999
+# define symsiz 20000			/* NHFB: make it big!!! */5089
+# define open(S,D)	fileno(fopen(S, "r"))5153
+# define close(F)	fclose(_f[F])5186
+sayline()5693
+dump()8481
+#define MAXOUT 808896
+refill(p)9905
+#define BEG 011576
+#define LF 111590
+cotoken(p)11612
+#define tmac1(c,bit) if (!xmac1(c,bit,&)) goto nomac15986
+#define xmac1(c,bit,op) ((macbit+COFF)[c] op (bit))16039
+#define tmac1(c,bit)16068
+#define xmac1(c,bit,op)16093
+#define tmac2(c0,c1,cpos) if (!xmac2(c0,c1,cpos,&)) goto nomac16177
+#define xmac2(c0,c1,cpos,op)\16208
+#define tmac2(c0,c1,cpos)16316
+#define xmac2(c0,c1,cpos,op)16346
+skipbl(p)17627
+unfill(p)17807
+doincl(p)18902
+equfrm(a,p1,p2)20994
+dodef(p)21161
+#define fasscan() ptrtab = fastab+COFF24752
+#define sloscan() ptrtab = slotab+COFF24792
+control(p)24865
+stsym(s)27003
+ppsym(s)27510
+pperror(s,x,y)27695
+yyerror(s,a,b)27977
+ppwarn(s,x)28025
+lookup(namep, enterf)28151
+slookup(p1,p2,enterf)29381
+subst(p,sp)29831
+trmdir(s)32150
+copy(s)32459
+strdex(s,c)32587
+yywrap()32670
+fixdir(p)32802
+main(argc,argv)33262
+
+LIB02:<COS.LEPREAU.CPP.DIST>CPY.C.0
+00666,C
+# define number 25719
+# define stop 25838
+# define DEFINED 25960
+# define EQ 26077
+# define NE 26194
+# define LE 262111
+# define GE 263128
+# define LS 264145
+# define RS 265162
+# define ANDAND 266183
+# define OROR 267202
+# define UMINUS 268223
+#define yyclearin yychar = -1254
+#define yyerrok yyerrflag = 0285
+#define YYMAXDEPTH 150374
+#define YYSTYPE int420
+# define YYERRCODE 256476
+# define YYNPROD 30896
+# define YYLAST 363917
+# define YYFLAG -10004298
+# define YYERROR goto yyerrlab4330
+# define YYACCEPT return(0)4359
+# define YYABORT return(1)4387
+yyparse()4700
+
+LIB02:<COS.LEPREAU.CPP.DIST>LOCAL.C.0
+00104,C
+# define BITMASK(n)	((1L<<n)-1)660
+cendarg()1113
+
+LIB02:<COS.LEPREAU.CPP.DIST>LOCAL2.C.0
+00647,C
+rmove(rt, rs, t)6371
+setregs()6528
+szty(t)7125
+rewfld(p)7289
+callreg(p)7429
+shltype(o, p)7664
+flshape(p)7866
+shtemp(p)8108
+spsz(t, v)8450
+shumul( p )8959
+adrcon( val )9172
+conput( p )9237
+vadrput( p )9701
+upput( p )9818
+adrput( p )9869
+acon( p )11176
+genscall(p, cookie)11603
+gencall(p, cookie)11812
+cbgen(o, lab, mode)12524
+nextcook(p, cookie)13171
+lastchance(p, cook)13598
+myreader(p)13753
+special(p, shape)13984
+main(argc, argv)14566
+where(c)14639
+dexit(v)14746
+paconv(p, r)14976
+psconv(p, r)15548
+bpadd(p, r)16151
+bpsub(p, r)16612
+
+LIB02:<COS.LEPREAU.CPP.DIST>MATCH.C.0
+00259,C
+# define logical(e)	((e) != 0)460
+# define logical(e)	(e)492
+tshape( p, shape )1351
+ttype( t, tword )3220
+setrew()4246
+match( p, cookie )5606
+expand( p, cookie, cp, q )7879
+getlr( p, c )10002
+
+LIB02:<COS.LEPREAU.CPP.DIST>OPTIM.C.0
+00396,C
+# define SWAP(p,q) {sp=p; p=q; q=sp;}59
+# define RCON(p) (p->right->op==ICON)98
+# define RO(p) p->right->op127
+# define RV(p) p->right->lval158
+# define LCON(p) (p->left->op==ICON)196
+# define LO(p) p->left->op224
+# define LV(p) p->left->lval254
+fortarg( p )336
+optim(p)797
+ispow2(c)8435
+nncon(p)8627
+coerce(l, o, r)8723
+
+LIB02:<COS.LEPREAU.CPP.DIST>ORDER.C.0
+00632,C
+# define max(x,y) ((x)<(y)?(y):(x))423
+# define min(x,y) ((x)<(y)?(x):(y))460
+# define regnode(p)	( (p)->op == REG )502
+# define commop(op)	( dope[op] & COMMFLG )	/* commutative op? */570
+# define simpop(op)	( dope[op] & SIMPFLG )	/* simple op ?	   */635
+# define shiftop(op)	( dope[op] & SHFFLG )	/* shift operator? */701
+# define umulop(op)	( (op) == UNARY MUL )744
+# define FLOATING(t)	((t) == FLOAT || (t) == DOUBLE)800
+# define CHARACTER(t)	((t) == CHAR)	/*** || (t) == UCHAR) ***/864
+# define ZCHAR	012871
+# define ZLONG	022905
+# define ZFLOAT	042940
+
+LIB02:<COS.LEPREAU.CPP.DIST>PFTN.C.0
+00182,C
+ftnend()7502
+dclargs()8050
+yyaccpt()12984
+getstr()18116
+endinit()19452
+gotscal()23007
+ilbrace()23855
+irbrace()24367
+
+LIB02:<COS.LEPREAU.CPP.DIST>READER.C.0
+00630,C
+#define NOOPT		/* TEMP? for cbranch */60
+# define NOMAIN342
+p2init( argc, argv )761
+mainp2( argc, argv )2062
+p2compile( p )4084
+p2bbeg( aoff, myreg )4613
+p2bend()4969
+delay( p )5039
+delay1( p )5593
+delay2( p )6208
+codgen( p, cookie )7021
+prcook( cookie )7732
+order(p,cook)8228
+store( p )13774
+constore( p )14942
+markcall( p )15317
+stoarg( p, calltype )15784
+cbranch( p, true, false )16391
+rcount()19122
+eprint( p, down, a, b )19276
+eread()20108
+rdin( base )21145
+ffld( p, down, down1, down2 )21774
+oreg2( p )23036
+canon(p)24804
+
+LIB02:<COS.LEPREAU.CPP.DIST>SCAN.C.0
+01661,C
+#define YYDEBUG SCAN115
+# define A_ERR	0		       /* illegal character */209
+# define A_LET	1		       /* saw a letter */254
+# define A_DIG	2		       /* saw a digit */298
+# define A_1C	3		       /* return a single character */355
+# define A_STR	4		       /* string */394
+# define A_CC	5		       /* character constant */444
+# define A_BCD	6		       /* GCOS BCD constant */494
+# define A_SL	7		       /* saw a / */533
+# define A_DOT	8		       /* saw a . */573
+# define A_PL	9		       /* + */606
+# define A_MI	10		       /* - */640
+# define A_EQ	11		       /* = */674
+# define A_NOT	12		       /* ! */709
+# define A_LT	13		       /* < */743
+# define A_GT	14		       /* > */777
+# define A_AND	16		       /* & */812
+# define A_OR	17		       /* | */846
+# define A_WS	18		       /* whitespace (not \n) */898
+# define A_NL	19		       /* n */933
+# define LEXLET	011210
+# define LEXDIG	021230
+# define LEXOCT	041250
+# define LEXHEX	0101271
+# define LEXWS	0201291
+# define LEXDOT	0401312
+# define AR_TY	0		       /* type word */1392
+# define AR_RW	1		       /* simple reserved word */1445
+# define AR_CL	2		       /* storage class word */1496
+# define AR_S	3		       /* struct */1534
+# define AR_U	4		       /* union */1571
+# define AR_E	5		       /* enum */1607
+# define AR_A	6		       /* asm */1642
+# define LXTSZ	1001690
+# define CSMASK	03771771
+# define CSSZ	2561790
+# define CSMASK	01771820
+# define CSSZ	1281839
+# define lxget(c,m) (lxgcp=yytext,lxmore(c,m))1927
+lxinit()6303
+lxcom()9872
+yylex()11020
+lxres()18832
+lxtitle()21318
+
+LIB02:<COS.LEPREAU.CPP.DIST>TABLE.C.0
+00475,C
+# define AWD	SNAME|SOREG|SCON|STARNM|SAREG	/* addressable word	*/487
+# define LWD	SNAME|SOREG|SCON|SAREG		/* directly addr word	*/550
+# define SMEM	SNAME|SOREG|SCON|STARNM		/* in memory		*/607
+# define TWD	TINT|TFLOAT|TPOINT|TDOUBLE|TCHAR   /*tmp type 'word' (tptrto deleted) */696
+# define TNORM	TINT|TFLOAT|TPOINT|TDOUBLE	/* 'normal' word types	*/765
+# define DF(x) FORREW,SANY,TANY,SANY,TANY,REWRITE,x,""8852
+
+LIB02:<COS.LEPREAU.CPP.DIST>TREES.C.0
+00626,C
+# define NCVT 01107
+# define PUN 02124
+# define TYPL 04142
+# define TYPR 010161
+# define TYMATCH 040183
+# define LVAL 0100203
+# define CVTO 0200223
+# define CVTL 0400243
+# define CVTR 01000264
+# define PTMATCH 02000288
+# define OTHER 04000310
+# define NCVTR 010000333
+# define MINT	01		/* integer */24627
+# define MDBI	02		/* integer or double */24670
+# define MSTR	04		/* structure */24705
+# define MPTR	010		/* pointer */24739
+# define MPTI	020		/* pointer or integer */24784
+# define MENU	040		/* enumeration variable or member */24841
+
+LIB02:<COS.LEPREAU.CPP.DIST>XDEFS.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.CPP.DIST>YTAB.C.0
+00519,C
+# define number 25719
+# define stop 25838
+# define DEFINED 25960
+# define EQ 26077
+# define NE 26194
+# define LE 262111
+# define GE 263128
+# define LS 264145
+# define RS 265162
+# define ANDAND 266183
+# define OROR 267202
+# define UMINUS 268223
+#define yyclearin yychar = -1254
+#define yyerrok yyerrflag = 0285
+#define YYMAXDEPTH 150374
+#define YYSTYPE int420
+# define YYERRCODE 256476
+# define YYNPROD 30896
+# define YYLAST 363917
+
+LIB02:<COS.LEPREAU.CPP.DIST>YYLEX.C.0
+00204,C
+#define isid(a)  ((fastab+COFF)[a]&IB)38
+#define IB 152
+#define COFF 128156
+#define COFF 0179
+yylex()198
+tobinary(st, b)1935
+return(n)2507
+
+LIB02:<COS.LEPREAU.SUPPORT>ACCESS.C.0
+00077,C
+access(filnam, mode)320
+
+LIB02:<COS.LEPREAU.SUPPORT>BRK.C.0
+00111,C
+#define	HISEGSTART 0400000354
+brk(addr)474
+sbrk(incr)716
+
+LIB02:<COS.LEPREAU.SUPPORT>F1.C.0
+00341,C
+#define IOX4	0220			/* tops20 error code for eof */503
+_gtjfn(filnam, flags)570
+_rljfn(jfn)1261
+open(filnam, type, bytesize)1478
+#define BYTESIZE ( 36 / (sizeof(int)/sizeof(char)) )2268
+_open(filnam, mode)3872
+_ttynotrn(jfn)5434
+makdir(dirout, file)6334
+_numtodir(dirnum)6877
+
+LIB02:<COS.LEPREAU.SUPPORT>FNSTD1.C.0
+00225,C
+# define FNSIZE 100144
+# define QUOTE	022	/* ^V */173
+# define EOS	'\0'	/* end-of-string */212
+#define chkbar(p)	{if (*p == '/') ++p;}	/* skip adjacent slashes */976
+
+LIB02:<COS.LEPREAU.SUPPORT>FNSTD2.C.0
+00151,C
+# define FNSIZE 10078
+# define QUOTE	022	/* ^V */107
+# define EOS	'\0'	/* end-of-string */146
+
+LIB02:<COS.LEPREAU.SUPPORT>FORK.C.0
+00117,C
+fork()341
+vfork()1941
+wait(status)3673
+gfrks(blk, size)5392
+
+LIB02:<COS.LEPREAU.SUPPORT>INIT.C.0
+00440,C
+#define TRUE	1318
+#define FALSE	0335
+#define MAXNAMLEN 256			/* max length filnam fron gnjfn */397
+#define COMBUFSZ 2048422
+#define MAXARG	 200443
+_init()1186
+fill_combuf()1459
+#define QUOTE	 026		/* ^V */3252
+#define ARGQUOTE '\\'3275
+argovflow()6921
+maybeglob(av, maxarg)7128
+_glob(av, maxarg)7568
+_gnjfn(jfn)8586
+_jfns(buf, jfn, fmt, prefix)8806
+setio()9181
+
+LIB02:<COS.LEPREAU.SUPPORT>IOCTL.C.0
+00361,C
+#define brkword(c)	( (c)<32?0: (c)<64?1: (c)<96?2: 3 )490
+#define brkbit(c)	( 1 << (31 - ((c)-32*brkword(c))) )545
+ioctl(fd, code, argp)901
+mt_ps_brk(jfn, pause_fx, brkptr)5907
+_sfbsz(jfn, size)6344
+_ttyraw(jfn, fotp)6475
+_ttyunraw(jfn, fotp)6573
+_savetiw(jfn, fotp)6653
+_settiw(jfn, tiw)6807
+
+LIB02:<COS.LEPREAU.SUPPORT>OLD-IOCTL.C.0
+00239,C
+#define brkword(c)	( (c)<32?0: (c)<64?1: (c)<96?2: 3 )490
+#define brkbit(c)	( 1 << (31 - ((c)-32*brkword(c))) )545
+ioctl(fd, code, argp)901
+mt_ps_brk(jfn, pause_fx, brkptr)5797
+
+LIB02:<COS.LEPREAU.SUPPORT>OPEN_NOT-YET.C.0
+00138,C
+open(filnam, type)86
+#define BYTESIZE ( 36 / (sizeof(int)/sizeof(char)) )831
+
+LIB02:<COS.LEPREAU.SUPPORT>PRTERR.C.0
+00068,C
+_prterr(str)35
+
+LIB02:<COS.LEPREAU.SUPPORT>SIG.C.0
+00708,C
+#define NCHAN	36673
+#define UBASE	23			/* start of "assignable by user pgm" */829
+#define CHNBIT(n) (1 << (35-n))862
+#define TERM	001			/* can be terminal generated */997
+#define PANIC	002			/* panic channel */1038
+#define NORM	004			/* other psi intr */1079
+#define BJ	010			/*unique to blackjack; not in tops20*/1136
+#define CHNHUP	UBASE+01163
+#define CHNINT	UBASE+11187
+#define CHNQUIT	UBASE+21212
+#define CHNKILL	UBASE+31237
+#define CHNSYS	UBASE+41261
+#define CHNPIPE	UBASE+51286
+#define CHNALRM	UBASE+61311
+#define CHNTERM	UBASE+71336
+(*2329
+signal(sig, func)2348
+kill(pid, sig)4001
+ignore(sig)4297
+alarm(secs)4349
+
+LIB02:<COS.LEPREAU.SUPPORT>TIME.C.0
+00271,C
+#define HOUR 3600370
+#define DAY  (HOUR*24)394
+#define DAY0 40587     /* number of days between tops20 0 day and Unix 0 day */475
+ctime(intime)582
+time(tloc)1484
+ftime(tp)1655
+_u2ttim(u)2213
+_t2utim(t)2312
+
+LIB02:<COS.LEPREAU.SUPPORT>U0_NOT-YET.C.0
+00070,C
+jfnof(fd)109
+
+LIB02:<COS.LEPREAU.SUPPORT>U1.C.0
+00566,C
+#define V Value464
+#define IOX4  0220			/* end of file */577
+#define IOX11 01440			/* quota exceeded */621
+# define min(a,b)	( (a) <= (b) ? (a) : (b) )682
+close(fd, flags)782
+chdir(dirnam, pwd)1328
+read(fd, buf, nbytes)1745
+_read(jfn, buf, nbytes)2820
+_ungetc(c, fd)3081
+ttyread(jfn, buf, nbytes)4441
+write(fd, buf, nbytes)7124
+_write(jfn, buf, nbytes)8494
+open(filnam, type)8801
+creat(filnam, mode)8945
+unlink(filnam, flags)9133
+funlink(fd, flags)9465
+exit(val)9728
+_exit(val)10365
+
+LIB02:<COS.LEPREAU.SUPPORT>U2.C.0
+00489,C
+lseek(fd, offset, whence)516
+tell(fd)1172
+_gtfsz(jfn)1367
+#define WREAD	04			/* "world" read */1526
+#define WWRITE	021545
+#define WEXEC	011563
+stat(name, statp)1646
+fstat(fd, statp)1964
+_rcusr(user)4509
+getuid()4793
+_getji(offset)4859
+gtdirprot(dir)5138
+_dirnm(jfn)6108
+_dirnm(jfn)6774
+utime(file, timep)7696
+#define FDBIDX(fld) (&fdb.fld - (int *)&fdb)7874
+chmod(name, mode)8201
+_chfdb(jfn, idx, val)8669
+
+LIB02:<COS.LEPREAU.SUPPORT>XDEFS20_NOT-YET.C.0
+00060,C
+

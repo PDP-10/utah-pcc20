@@ -1,0 +1,61 @@
+; $init.mac - runtime initialization
+; 
+; Author:	Jay Lepreau
+; 		Computer Science Dept.
+; 		University of Utah
+; Date:		Feb 81
+; Copyright (c) 1981 Jay Lepreau
+;
+
+	search	$mdefs,monsym
+	twoseg	$text
+
+	entry	$start,abort
+	extern	main,exit
+
+	radix	8
+$VERSION==1			; 0-777		1A.4
+$LEVEL==1			; 0-77 (A-BK) (a-z,aa-az,ba-bk) 1=no psects,
+				;				adjsp
+$EDIT==4			; 0-> 4 = New library, real stdio
+
+	radix	10
+$stksz=512*50   		; run-time stack size (temp: now 50 pages)
+
+	reloc	$text
+; Entry Vector
+$evec:	portal	$start		; start addr -- portal allows execute-only
+	portal	$start		; reentry addr
+	byte	(3)2(9)$VERSION(6)$LEVEL(18)$EDIT	; version
+
+$start:	reset			; maybe should not do after continue?
+; Set up stack ptr.
+;	move	p,.jbff		; first free loc after low seg
+	hlrz	p,.jbhrl	; get first relative free loc after text seg
+	addi	p,$text		; make absolute
+	addi	p,^o777		; round up to page boundary so easier to ddt
+	andi	p,^o777000
+	hrl	p,[-$stksz]	;set up left half
+
+ok:!	extern	.init		; == C fx _init
+	pushj	p,.init		; does argv stuff,etc
+				; sets r1-> argstruct...
+	movei	r0,1(r1)
+	push	p,r0		; argv
+	push	p,(r1)		; argc
+	pushj	p,main
+	adjsp	p,-2		; 2 args -- needed in case main does 'nargs'
+
+	push	p,[0]
+	pushj	exit		; exit(0): clean up, close files, etc.
+	adjsp	p,-1		; exit doesn't come back now anyway
+	haltf
+	jrst	$start		; [[start over: not get here now]]
+
+abort::	hrroi	r1,[asciz/?ABORTING
+/]
+	psout
+	haltf
+	jrst	.-1
+
+	end	<3,,$evec>

@@ -1,0 +1,17 @@
+
+
+; <SUBSYS.PCC>PCC.MIC.3 & <SUBSYS.PCC>PCC.MIC.2 14-May-83 1207	PAGE 1
+
+
+
+LINE 1, PAGE 1
+1)	@pcc:cpp.exe 'A.c >SCR:'A.i
+1)	@pcc:c1.exe 'B <SCR:'A.i >SCR:'A.m
+1)	@pcc:c2.exe 'B -l <SCR:'A.m >'A.mac
+1)	@; Compile done
+LINE 1, PAGE 1
+2)	@pcc:cpp.exe 'A.c >scratch:'A.i
+2)	@pcc:c1.exe 'B <scratch:'A.i >scratch:'A.m
+2)	@pcc:c2.exe 'B -l <scratch:'A.m >'A.mac
+2)	@; Compile done
+

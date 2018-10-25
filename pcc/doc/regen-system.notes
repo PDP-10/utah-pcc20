@@ -1,0 +1,62 @@
+DIRECTORY LAYOUT:
+Here are my personal defines which may be ref'ed in some command files.
+; PCC DIRECTORIES
+def pcc: ps:<pcc.new>,ps:<pcc>	! system def for compiler, includes, libs, etc.
+def c:	ps:<pcc>		! pcc exe's, includes, run-time lib, unv files
+def cn: ps:<pcc.new>		! new versions of above
+def cs: ps:<pcc.sys>		! /usr/inkludge/sys
+def cd: ps:<pcc.doc>		! semi-formal pcc documentation
+;
+def cpd: ps:<lepreau.cpp.dist>	! preprocessor and compiler sources.
+def sp:  ps:<lepreau.support>	! low level support and section 2
+def 3:  ps:<lepreau.3>		! unmodified section 3
+def 3l:  ps:<lepreau.3.local>	! unmodified section 3 local
+def 3m:  ps:<lepreau.3.mod>	! modified section 3
+;
+; Unix Dirs
+def ux: unix:			! Binaries
+def ul: ps:<unix.lib>		! /usr/lib, termcap, misc.
+def um: ps:<unix.man>		! misc unix doc.
+def us: ps:<unix.src>		! misc user pgm src
+
+
+
+NOTES ON GENERATING THE LIBRARY .REL FILES:
+In the library source directories, only sources with existing .REL files
+are used-- any .C files without matching .REL files are garbage.
+
+pcc:plib.rel is the concatenation of 3,3L,3M,and SP.rel.  See the command file
+in each directory, MAK.CMD.  In the 3 directory there is a MKLIB.CMD which
+concats them.
+
+The source to curses is not on the tape, and the rel is stored in a
+separate library: pcc:curses.rel.
+
+3 contains section 3 stuff (essentially) unmodified-- same as 4.1+ bsd stuff,
+	perhaps with bug fixes.
+3L contains local Utah section 3 routines, unmodified.
+3M contains section 3 stuff modified to some degree.
+The <..SUPPORT> directory (and sp.rel) contain low-level support stuff,
+including section 2 (system calls) emulation.  
+
+So-- if libm routines existed (i.e. I ported them or copied them over at least)
+they would be in 3 or 3m.  Conceivably there could be something in sp also, if
+I had produced some low-level math support routines, e.g, some general purpose
+assembly routines.
+
+If you are looking for ldexp it isn't there.  It's a short asm routine which
+needs to be ported.  Floor appears to be ref'ed but missing too-- that's a C
+file so maybe it would port straight across.
+
+For installed use, it would be probably be a good idea to do Tops-20 MAKLIB on
+the library and remove the multiple search from clink.pcl, or clink.mic.  (I
+haven't done it because I'm actively working on it and it changes constantly.)
+
+
+REGENERATING THE PREPROCESSOR AND COMPILER:
+Everything is in cpd:.  For the preprocessor use the file CPP.CTL.
+For the two compiler phases, use C1.CCL and C2.CCL as indirect files
+to LINK, after compiling each file referenced therein.  E.g.,
+	@link
+	*@c2
+creates C2.EXE.

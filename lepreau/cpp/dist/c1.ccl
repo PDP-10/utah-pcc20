@@ -1,0 +1,5 @@
+CGRAM.REL,CLOCAL.REL,CODE.REL,COMM1.REL,LOCAL.REL,OPTIM.REL,PFTN.REL,SCAN.REL,TREES.REL,XDEFS.REL
+pcc:plib1/sea,pcc:plib1/sea,pcc:plib1/sea
+pcc:plib/sea,pcc:plib/sea,pcc:plib/sea
+/undef
+c1/save/go

@@ -1,0 +1,54 @@
+1.  FILENAME FORMATS
+
+   Tops-20  dev:<dir1.---.dirn>name.ext;attr ==
+   Unix     /dev/dir1/---/dir2/name.ext.gen;attr
+
+   Any field (except 'name') can be omitted.
+   If there is no Unix leading slash then there is no Tops-20 device field.
+   If there are no directorys, then it's simply
+	dev:filnam.ext == /dev/filnam.ext, for example.
+
+
+2. ORDER OF #INCLUDE DIRECTORY SEARCH
+
+   It works as specified in Unix:
+   #include "file.h" looks in: 1. Directory where this source file is.
+			       2. Directories specified in /INCLUDE(-I) options
+			       3. Directories in a standard place, which is
+				  logical device pcc:, which defaults to <pcc> 
+
+   #include <file.h>   same as above, but excludes 1.
+
+
+3. COMMAND LINE REDIRECTION, and ARGC & ARGV.
+
+   When any pcc program is invoked, the standard input, output, and error
+   output can be re-directed just as to the Unix shell, with these
+   restrictions: it appears that the < and > signs must be adjacent to
+   the filename.  & and && represent the standard error output, analogously
+   to > and >> for the standard output.	
+
+   Argc and argv behave the same as on Unix (file re-direction arguments
+   do not appear in argv, or count in argc).
+
+		Arguments beginning with <, >, >>, &, && do file
+			redirection, a la Unix.
+		(A < redirection must not have an unmatched '>'
+			in the file name.)
+		Arguments are separated by spaces.
+		Arguments may be surrounded by "s, in which case
+			embedded spaces are allowed and embedded
+			"s must be doubled.
+		^V and \ both prohibit the special interpretation of
+			the next character (i.e., space, ", <, >, &)
+		A \ is eaten, a ^V is left in the string unless it
+			is followed by a - or a ?.
+
+
+4. TOPS-20 CR/LF vs. UNIX LF
+
+   All files contain CR/LF pairs, but the carriage returns are removed
+   on input and added on output.  All is transparent to the user: it
+   looks just like Unix.
+   EXCEPT: Things which use fseek screw up, and relative lseeks screw
+   up because of this.

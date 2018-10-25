@@ -1,0 +1,327 @@
+/*---------------------------------------------------------------------------*\
+ |
+ |	FILENAME:	debug.doc
+ |
+ |	DATE:		86/09/28
+ |
+ |	AUTHOR:		thomas j keller
+ |
+ |	PROJECT:	Public Access UNIX(tm) Conferencing System (PAUCS)
+ |
+ |	SYSTEM:		XENIX 3.01.00 / Tandy 6000
+ |
+ |	DESCRIPTION:	this file documents the use of the debugging macros
+ |			found in debug.h.  it also provides some pointers
+ |			on how to add addtional debugging macros to the
+ |			package.
+ |
+ |	COPYRIGHT:	(C) Thomas J Keller, Consequently Computers
+ |
+ |	PERMISSION:	permission is hereby granted for the non-commerical
+ |			use of this software, provided that this copyright
+ |			notice remains intact.  All commercial rights to the
+ |			use of this software are reserved by the author.
+ |
+\*---------------------------------------------------------------------------*/
+
+   The macros documented here provide a flexible and powerful debugging tool
+for C programmers.  All macros are enabled by defining DEBUG at compile time.
+A nice feature of this implementation is that if DEBUG is not defined, the
+debug macros translate to null strings, and debugging code is not generated.
+This is accomplished without the need to explicitly test for #ifdef DEBUG on
+each macro instantiation.
+
+   Each macro, when enabled, prints out a debug flag (DEBUG: ), followed by
+a user specified string, followed by the value of the variable passed.  Some
+of the macros also permit have a function name argument, allowing programmers
+to identify which function is issuing the debug message.
+
+   Suggested usage is to liberally include debugging calls throughout your
+code while writing it.  This saves much editting later, and considerable speeds
+the development cycle.
+
+   Note that there is a separate macro for each identifier type.  Not all
+possible identifier types have been covered.  The user is free to follow the
+guidelines for adding additional macros to the package to meet their needs.
+
+------------------------------------------------------------------------------
+
+Name:		DCHAR
+
+Syntax:		DCHAR(text, char)
+
+Type:		CPP macro
+
+Synopsis:	DCHAR prints the flag, the contents of the string pointed to
+		by (text), and one of the following:
+
+		BLANK char	if the char passed in is a blank (0x20)
+		NULL char	if the char passed in is a null  (0x00)
+		numeric char value otherwise
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		char		char identifier name to view value of
+
+Notes:		By defining OCTAL in debug.h, it is possible to alter the
+		numerical char value output from hex to octal representation
+
+
+
+Name:		DSHORT
+
+Syntax:		DSHORT(text, var)
+
+Type:		CPP macro
+
+Synopsis:	DSHORT prints the debug flag, a user message pointed to by
+		(text), and the value of the short int (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		short int identifier to view value of
+
+
+
+Name:		DINT
+
+Syntax:		DINT(text, var)
+
+Type:		CPP macro
+
+Synopsis:	DINT prints the debug flag, a user message pointed to by
+		(text), and the value of the integer (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DLONG
+
+
+Type:		CPP macro
+
+Syntax:		DLONG(text, var)
+
+Synopsis:	DLONG prints the debug flag, a user message pointed to by
+		(text), and the value of the long integer (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DUCHAR
+
+
+Type:		CPP macro
+
+Syntax:		DUCHAR(text, var)
+
+Synopsis:	DUCHAR prints the debug flag, a user message pointed to by
+		(text), and the value of the usigned char (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DUSHORT
+
+
+Type:		CPP macro
+
+Syntax:		DUSHORT(text, var)
+
+Synopsis:	DUSHORT prints the debug flag, a user message pointed to by
+		(text), and the value of the  unsigned short int (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DUINT
+
+
+Type:		CPP macro
+
+Syntax:		DUINT(text, var)
+
+Synopsis:	DUINT prints the debug flag, a user message pointed to by
+		(text), and the value of the unsigned integer (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DULONG
+
+
+Type:		CPP macro
+
+Syntax:		DULONG(text, var)
+
+Synopsis:	DULONG prints the debug flag, a user message pointed to by
+		(text), and the value of the unsigned long (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DFLOAT
+
+
+Type:		CPP macro
+
+Syntax:		DFLOAT(text, var)
+
+Synopsis:	DFLOAT prints the debug flag, a user message pointed to by
+		(text), and the value of the float (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DDOUBLE
+
+
+Type:		CPP macro
+
+Syntax:		DDOUBLE(text, var)
+
+Synopsis:	XXXX prints the debug flag, a user message pointed to by
+		(text), and the value of the double float (var)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DSTRING
+
+
+Type:		CPP macro
+
+Syntax:		DSTRING(text, var)
+
+Synopsis:	DSTRING prints the debug flag, a user message pointed to by
+		(text), and the value of the string (var) in quotes
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		var		integer identifier to view value of
+
+
+
+Name:		DMSG
+
+
+Type:		CPP macro
+
+Syntax:		DMSG(text)
+
+Synopsis:	DMSG prints the debug flag, and a user message pointed to by
+		(text)
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+
+
+
+Name:		DENTER
+
+Type:		CPP macro
+
+Syntax:		DENTER(funcname)
+
+Synopsis:	DENTER prints the debug flag and the name of the function
+		being entered (funcname).  This is placed as the first line
+		of code in each function
+
+Input:		funcname	string pointer (usually a literal string)
+				containing name of function entered
+
+
+Name:		DEXIT
+
+
+Type:		CPP macro
+
+Syntax:		DEXIT(funcname)
+
+Synopsis:	DEXIT prints the debug flag, and the name of the function
+		being exitted (funcname).  This is placed as the last line
+		of code in each function (excepting return())
+
+Input:		funcname	string pointer (usually a literal string)
+				containing name of function exitting
+
+
+Name:		DSTOP
+
+
+Type:		CPP macro
+
+Syntax:		DSTOP(funcname)
+
+Synopsis:	DSTOP prints the debug flag, a name of function halting
+		(funcname)
+
+Input:		funcname	string pointer (usually a literal string)
+				containing name of function exitting
+
+
+Name:		DERROR
+
+
+Type:		CPP macro
+
+Syntax:		DERROR(text, var)
+
+Synopsis:	DERROR prints the debug flag, a user message pointed to by
+		(text), the function name where error occurred, and the
+		perror() message associated with errno.
+
+Input:		text		string pointer (usually a literal string)
+				containing a descriptive message
+		funcname	name of function where DERROR is called
+
+
+------------------------------------------------------------------------------
+
+Adding new macros:
+
+   simply edit an entry into the debug.h file of the following format:
+
+   #define D<macname>(arg[, arg]) \
+	   PASSTHROUGH(code to perform desired debug action)
+
+
+   Use the existing macros as a guide.  Be sure that the last statement in
+your new macro has no semicolong after it, as the semicolon is supplied on
+invocation (though it won't break things to have a closing semicolon in
+you macro).  Remember the rules to follow about multiline macro definitions.
+
+-----------------------------  cut here  -------------------------------------
+
+--
+
+Disclaimer:  Disclaimer?  DISCLAIMER!? I don't need no stinking DISCLAIMER!!!
+
+tom keller					"She's alive, ALIVE!"
+{ihnp4, dual}!ptsfa!gilbbs!mc68020
+
+(* we may not be big, but we're small! *)

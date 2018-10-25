@@ -1,0 +1,70 @@
+; forkmac.mac - Micro-routines for fork.
+; 
+; Author:	Jay Lepreau
+; 		Computer Science Dept.
+; 		University of Utah
+; Date:		April 81
+; Copyright (c) 1981 Jay Lepreau
+
+	search	$mdefs,monsym
+	twoseg
+	reloc	$text
+
+	entry	.frkretz,.saveacs,.frkzap
+	entry	.setreg
+
+; Return to child with 0 return value.
+.frkretz::
+	adjsp	p,-3		;cause of jsys pushes etc
+	movei	r1,0		;return value
+	jrst	$cret
+
+; Save registers and return ptr to them.
+.saveacs::
+	movei	r1,blk
+	hrli	r1,0
+	blt	r1,blk+17
+	movei	r1,blk
+	popj	p,
+
+; Kludge to force private copy of pages in both parent & child
+.frkzap::
+	movei	r5,0		;page
+	movei	r6,0		;address
+lup:	move	r1,r5
+	hrli	r1,.fhslf
+	rpacs
+	erjmp	[hrroi	r1,[asciz/frkzap: rpacs error
+/]
+		psout
+		haltf]
+	tdnn	r2,[pa%pex]		;page exists?
+	jrst	next			;no
+	tdnn	r2,[pa%wt+pa%cpy]	;write allowed?
+	jrst	next			;no
+	move	r0,0(r6)		;get something in page
+	movem	r0,0(r6)		;and zap it to force new copy of page
+next:	addi	r5,1
+	cain	r5,777
+	haltf				;all done
+	addi	r6,1000
+	jrst	lup
+
+; _setreg(reg, value);
+.setreg::
+	move	r0,-2(p)		; Get value
+	movem	r0,@-1(p)		; Store in the given register
+	popj	p,
+
+
+; _haltf()
+.haltf::
+	haltf
+	popj	p,
+
+
+	lit
+	reloc	$data
+blk:	block	20
+
+	end

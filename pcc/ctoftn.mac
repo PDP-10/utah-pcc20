@@ -1,0 +1,190 @@
+	title	CTOFTN - C to FORTRAN linkage
+
+COMMENT \
+
+Description:
+============
+
+This routine provides for linkage between TOPS-20 C-language  programs
+compiled by the Portable C Compiler (pcc) with FORTRAN programs.   The
+main program MUST be  in C, and the  FORTRAN programs may not  perform
+I/O (a fatal error  is likely if they  do).  
+
+
+Usage:
+======
+
+C always  passes scalars  by value  and arrays  by reference;  FORTRAN
+requires all arguments to be passed by reference.  Thus, the call to
+
+	SUBROUTINE FOO (A1,A2,...,AN)
+or
+	INTEGER FUNCTION FOO (A1,A2,...,AN)
+
+from C must be coded as
+
+	extern int foo;
+	.
+	.
+	.
+	ctoftn(&foo,&a1,&a2,...,&an);
+
+A FORTRAN 77 CHARACTER*n  argument is passed  by string descriptor,  a
+two-word block  consisting  of an  ILDB  byte pointer  followed  by  a
+fullword string  length value.   This could  be created  in C,  albeit
+tediously, but is not of much use since the current implementation  of
+pcc does not provide for packed strings.  Thus, CHARACTER data must be
+avoided for the present.
+
+
+Implementation Details:
+=======================
+
+C's register conventions are  that Ac17 is the  stack pointer and  Ac1
+contains the function result on return.  Ac2..Ac16 must be  preserved.
+On entry to a C routine, the argument list looks as follows:
+
+	|-----------------------|	
+	| next available slot	|
+	|-----------------------|	
+P -->	| return address	|	^
+	|-----------------------|	|
+	| arg1			|	|
+	|-----------------------|	| increasing memory addresses
+	| arg2			|	|
+	|-----------------------|	|
+	.			.	
+	.			.	
+	.			.	
+	|-----------------------|	
+	| argn			|
+	|-----------------------|	
+
+and the instruction at the return address is
+
+	ADJSP	P,-n
+
+which discards the n arguments on the stack.  
+
+FORTRAN expects Ac16 to point to the address of the first slot in  the
+argument list, which is stored at INCREASING addresses with increasing
+argument number, and the word  preceding the first argument is  -n,,0.
+FORTRAN preserves Ac2..Ac15 and Ac17  in function calls and only  Ac17
+in subroutine calls, and  it returns function values  in Ac0 (and  Ac1
+for DOUBLE PRECISION or COMPLEX  values).  We therefore create a  copy
+of the argument list in reverse order  on the stack, so that when  the
+FORTRAN routine is entered, the stack configuration is as follows:
+
+	|-----------------------|	
+	| next available slot	|
+	|-----------------------|
+P -->	| our return address	|	^
+	|-----------------------|	|
+	| Old P			|	|
+	|-----------------------|	|
+	| original argn		|	|
+	|-----------------------|	| increasing memory addresses
+	| original argn-1	|	|
+	|-----------------------|	|
+	.			.	
+	.			.	
+	.			.	
+	|-----------------------|	
+Ac16 -->| original arg2		|
+	|-----------------------|	
+	| -(n-1),,0		|
+	|-----------------------|	
+	| Ac save area (2..16)	|	
+	|			|
+	|			|
+	|-----------------------|	
+OldP -->| return address	|	^
+	|-----------------------|	|
+	| arg1			|	|
+	|-----------------------|	| increasing memory addresses
+	| arg2			|	|
+	|-----------------------|	|
+	.			.	
+	.			.	
+	.			.	
+	|-----------------------|	
+	| argn			|
+	|-----------------------|	
+
+Warning
+=======
+
+TOPS-20 FORTRAN  and C  are inherently  incompatible, because  FORTRAN
+assumes it has control of the stack, and can move it at run time.   It
+thus forbids arguments to  be present on the  stack since it  accesses
+them via base registers other than the stack pointer.  C always stores
+its arguments on the stack, and always addresses them as displacements
+relative to  the stack  pointer.  FORTRAN  routines called  by C  will
+almost certainly fail if  the stack is  moved during their  execution.
+The only cure for this is a large enough runtime stack; this should be
+the case since C expects to put  a lot on it, and therefore  allocates
+lots of space for it.
+
+\
+	entry	ctoftn
+
+$p==17
+$ap==16
+$oldp==15
+$a==0
+$b==1
+
+ctoftn:
+	move	$a,$p
+	push	$p,2
+	push	$p,3
+	push	$p,4
+	push	$p,5
+	push	$p,6
+	push	$p,7
+	push	$p,10
+	push	$p,11
+	push	$p,12
+	push	$p,13
+	push	$p,14
+	push	$p,$oldp
+	push	$p,$ap		;save $ap (= $fp in c)
+	movem	$p,patent	;remember $p in local storage
+	move	$oldp,$a
+	move	$b,-1($oldp)	;a(ftnrtn)
+	hrro	$a,@0($oldp)	;get -numarg from "adjsp $p,-numarg"
+				;instruction following "call ctoftn"
+	aos	$a		;decrement by 1 to get number to pass
+				;to FORTRAN
+	hrlz	$a,$a		;-numftnarg,,0 
+	push	$p,$a		;put count word at head of FORTRAN arglist
+	hlro	$a,$a		;-numftnarg
+	movei	$ap,1($p)	;a(first word of new arglist)
+
+cpargs:	push	$p,-2($oldp)	;addr(arg k)
+	adjsp	$oldp,-1	;point to next arg
+	aojl	$a,cpargs	;copy numarg args
+
+	move	$oldp,patent
+	push	$p,$oldp
+	pushj	$p,0($b)	;call ftnrtn
+	pop	$p,$oldp	;restore stack pointer
+	move	$p,$oldp
+	pop	$p,$ap		;restore $ap
+	pop	$p,$oldp	;restore $oldp
+	pop	$p,14
+	pop	$p,13
+	pop	$p,12
+	pop	$p,11
+	pop	$p,10
+	pop	$p,7
+	pop	$p,6
+	pop	$p,5
+	pop	$p,4
+	pop	$p,3
+	pop	$p,2
+	move	1,0		;save function value, if any
+	popj	$p,		;return to c caller
+
+patent:	block	1		;local storage for $p at entry
+	end

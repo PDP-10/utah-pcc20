@@ -1,0 +1,27 @@
+;	Unix setjmp, longjmp (3)	J.Lepreau 5/81
+
+	search	$mdefs
+	twoseg	$text
+	reloc	$text
+	entry	setjmp,longjmp
+
+;setjmp(env)
+;int env[3];
+setjmp::
+	move	r1,-1(p)		;get ptr to 'env'
+	move	r2,0(p)			;get return address
+	movem	r2,0(r1)		;save it
+	dmovem	fp,1(r1)		;save fp, p
+	movei	r1,0			;return code
+	popj	p,
+
+;longjmp(env, val);
+longjmp::
+	move	r2,-1(p)		;get ptr to 'env'
+	move	r1,-2(p)		;get return value
+	dmove	fp,1(r2)		;restore fp, p
+	move	r2,0(r2)		;return loc
+	movem	r2,0(p)			; and stick on stack
+	popj	p,
+
+	end

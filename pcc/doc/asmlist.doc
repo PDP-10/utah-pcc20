@@ -1,0 +1,21 @@
+Pcc:Asmlist.Exe is a little hack which will merge the MACRO output of
+the compiler with the original C source file, and write the result to
+the standard output.
+
+SYNOPSIS
+asmlist macro-file
+
+The default extensions for "macro-file" are .MAC-USERNAME and .MAC in
+that order; the extension need not be specified.
+
+
+RESTRICTIONS
+If you didn't specify the absolute pathname of the C file when you compiled it
+(i.e. without a directory or logical-device), you must be connected to its
+directory when you run asmlist.
+
+BUGS
+If the C file included other files which resulted in actual code generation
+(an unusual occurrence, in practise), things screw up.
+
+The output should be legal input to the assembler; it's very close.

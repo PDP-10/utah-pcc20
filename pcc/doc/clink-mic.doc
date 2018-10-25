@@ -1,0 +1,11 @@
+For simple things it is just as good as the clink PCL procedure, but it
+has these restrictions:
+1. No filenames.REL longer than 6 chars in first part.
+2. No directory names in brackets allowed, must use logical names. 
+3. Max of 6 .rel files.
+
+To use it after compiling:
+@MIC PCC:CLINK file1,file2,....
+
+Note: file specs must NOT include the .REL suffix.
+      The .exe file is saved as dsk:file1.EXE.

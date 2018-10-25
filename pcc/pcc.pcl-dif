@@ -1,0 +1,30 @@
+
+
+; <SUBSYS.PCC>PCC.PCL.20 & <SUBSYS.PCC>PCC.PCL.19 14-May-83 1207	PAGE 1
+
+
+
+LINE 1, PAGE 1
+1)	! PS:<SUBSYS.PCL>PCC.PCL.20, 14-May-83 09:29:13, Edit by BEEBE
+1)	! Change system-dependenent directory names/logical names
+1)	!
+1)	! OLD EXEC 4(664) VERSION, RESRICTED LINKING ONLY
+LINE 1, PAGE 1
+2)	! OLD EXEC 4(664) VERSION, RESRICTED LINKING ONLY
+
+
+LINE 50, PAGE 1
+1)			if tempdir = "" then tempdir = "SCR:";
+1)	! Can't use username as prefix cause of possible trouble with long filenames.
+LINE 47, PAGE 1
+2)			if tempdir = "" then tempdir = "scratch:";
+2)	! Can't use username as prefix cause of possible trouble with long filenames.
+
+
+LINE 138, PAGE 1
+1)			if s = "" then docommand original "define pcc: ps:<SUBSYS.pcc>";
+1)		end;
+LINE 135, PAGE 1
+2)			if s = "" then docommand original "define pcc: ps:<pcc>";
+2)		end;
+

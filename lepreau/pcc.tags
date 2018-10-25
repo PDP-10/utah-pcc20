@@ -1,0 +1,2617 @@
+LIB02:<COS.LEPREAU.3>ATOI.C.0
+00054,C
+atoi(p)7
+
+LIB02:<COS.LEPREAU.3>CALLOC.C.0
+00164,C
+#define CHARPERINT (sizeof(int)/sizeof(char))138
+#define NULL 0154
+calloc(num, size)183
+cfree(p, num, size)474
+
+LIB02:<COS.LEPREAU.3>CHRTAB.C.0
+00045,C
+
+LIB02:<COS.LEPREAU.3>CLRERR.C.0
+00063,C
+clearerr(iop)79
+
+LIB02:<COS.LEPREAU.3>CRYPT.C.0
+00112,C
+setkey(key)1911
+encrypt(block, edflag)5384
+crypt(pw,salt)7194
+
+LIB02:<COS.LEPREAU.3>CTIME.C.0
+00171,C
+ctime(t)1845
+localtime(tim)1933
+sunday(t, d)2855
+gmtime(tim)3034
+asctime(t)4039
+dysize(y)4694
+ct_numb(cp, n)4781
+
+LIB02:<COS.LEPREAU.3>CTYPE.C.0
+00044,C
+
+LIB02:<COS.LEPREAU.3>DOSCAN.C.0
+00325,C
+#define	SPC	01122
+#define	STP	02138
+#define	SHORT	0157
+#define	REGULAR	1176
+#define	LONG	2192
+#define	INT	0207
+#define	FLOAT	1224
+_doscan(iop, fmt, argp)457
+_innum(ptr, type, len, size, iop, eofptr)1785
+_instr(ptr, type, len, iop, eofptr)3916
+_getccl(s)4656
+
+LIB02:<COS.LEPREAU.3>ECVT.C.0
+00181,C
+#define	NDIG	80265
+ecvt(arg, ndigits, decpt, sign)305
+fcvt(arg, ndigits, decpt, sign)440
+cvt(arg, ndigits, decpt, sign, eflag)588
+
+LIB02:<COS.LEPREAU.3>EXP_NOT-YET.C.0
+00064,C
+exp(arg)698
+
+LIB02:<COS.LEPREAU.3>FDOPEN.C.0
+00067,C
+fdopen(fd, mode)268
+
+LIB02:<COS.LEPREAU.3>FGETC.C.0
+00058,C
+fgetc(fp)74
+
+LIB02:<COS.LEPREAU.3>FGETS.C.0
+00065,C
+fgets(s, n, iop)89
+
+LIB02:<COS.LEPREAU.3>FILBUF.C.0
+00062,C
+_filbuf(iop)94
+
+LIB02:<COS.LEPREAU.3>FLOOR.C.0
+00071,C
+floor(d)110
+ceil(d)296
+
+LIB02:<COS.LEPREAU.3>FLSBUF.C.0
+00118,C
+_flsbuf(c, iop)98
+fflush(iop)1320
+_cleanup()1731
+fclose(iop)1877
+
+LIB02:<COS.LEPREAU.3>FOPEN.C.0
+00067,C
+fopen(file, mode)116
+
+LIB02:<COS.LEPREAU.3>FPUTC.C.0
+00061,C
+fputc(c, fp)77
+
+LIB02:<COS.LEPREAU.3>FPUTS.C.0
+00062,C
+fputs(s, iop)78
+
+LIB02:<COS.LEPREAU.3>FREOPEN.C.0
+00075,C
+freopen(file, mode, iop)82
+
+LIB02:<COS.LEPREAU.3>FREXP.C.0
+00060,C
+frexp(x,i)233
+
+LIB02:<COS.LEPREAU.3>FSEEK.C.0
+00077,C
+fseek(iop, offset, ptrname)178
+
+LIB02:<COS.LEPREAU.3>FTELL.C.0
+00044,C
+
+LIB02:<COS.LEPREAU.3>GETCHAR.C.0
+00061,C
+getchar()150
+
+LIB02:<COS.LEPREAU.3>GETPASS.C.0
+00067,C
+getpass(prompt)129
+
+LIB02:<COS.LEPREAU.3>GETS.C.0
+00055,C
+gets(s)79
+
+LIB02:<COS.LEPREAU.3>GETW.C.0
+00057,C
+getw(iop)73
+
+LIB02:<COS.LEPREAU.3>INDEX.C.0
+00082,C
+#define	NULL	0106
+index(sp, c)130
+
+LIB02:<COS.LEPREAU.3>INTSS.C.0
+00057,C
+intss()182
+
+LIB02:<COS.LEPREAU.3>LOG.C.0
+00144,C
+#define exp frexp		/* TEMP HACK to avoid external ref to exp() */247
+log(arg)807
+log10(arg)1240
+
+LIB02:<COS.LEPREAU.3>MALLOC.C.0
+00696,C
+#define ASSERT(p) if(!(p))botch("p");else121
+botch(s)131
+#define ASSERT(p)241
+#define GRANULE 64308
+#define GRANULE 0334
+#define INT int1086
+#define ALIGN int1105
+#define NALIGN 11123
+#define WORD sizeof(union store)1157
+# define BLOCK 512	/* a multiple of WORD*/1253
+#define BLOCK 10241280
+# define BUSY 0200000000000			/* for kl10 can't be 1 */1360
+# define BUSY 11384
+#define NULL 01410
+#define testbusy(p) ((INT)(p)&BUSY)1447
+#define setbusy(p) (union store *)((INT)(p)|BUSY)1498
+#define clearbusy(p) (union store *)((INT)(p)&~BUSY)1552
+malloc(nbytes)1914
+free(ap)3361
+realloc(p, nbytes)3857
+allock()4354
+
+LIB02:<COS.LEPREAU.3>POW_NOT-YET.C.0
+00070,C
+pow(arg1,arg2)156
+
+LIB02:<COS.LEPREAU.3>PUTCHAR.C.0
+00062,C
+putchar(c)150
+
+LIB02:<COS.LEPREAU.3>PUTS.C.0
+00055,C
+puts(s)71
+
+LIB02:<COS.LEPREAU.3>PUTW.C.0
+00060,C
+putw(w, iop)76
+
+LIB02:<COS.LEPREAU.3>QSORT.C.0
+00068,C
+qsort(a, n, es, fc)65
+
+LIB02:<COS.LEPREAU.3>RDWR.C.0
+00111,C
+fread(ptr, size, count, iop)92
+fwrite(ptr, size, count, iop)427
+
+LIB02:<COS.LEPREAU.3>REGEX.C.0
+00478,C
+#define	CBRA	13064
+#define	CCHR	23080
+#define	CDOT	43096
+#define	CCL	63111
+#define	NCCL	83127
+#define	CDOL	103144
+#define	CEOF	113161
+#define	CKET	123178
+#define	CBACK	183196
+#define	CSTAR	013216
+#define	ESIZE	5123237
+#define	NBRA	93253
+re_comp(sp)3424
+#define	comerr(msg) {expbuf[0] = 0; numbra = 0; return(msg); }3720
+re_exec(p1)5710
+advance(lp, ep)6321
+backref(i, lp)7913
+cclass(set, c, af)8107
+
+LIB02:<COS.LEPREAU.3>REW.C.0
+00058,C
+rewind(iop)72
+
+LIB02:<COS.LEPREAU.3>RIN.C.0
+00053,C
+rin()145
+
+LIB02:<COS.LEPREAU.3>RINDEX.C.0
+00084,C
+#define NULL 0110
+rindex(sp, c)135
+
+LIB02:<COS.LEPREAU.3>SCANF.C.0
+00121,C
+scanf(fmt, args)38
+fscanf(iop, fmt, args)120
+sscanf(str, fmt, args)212
+
+LIB02:<COS.LEPREAU.3>SETBUF.C.0
+00066,C
+setbuf(iop, buf)82
+
+LIB02:<COS.LEPREAU.3>SQRT.C.0
+00058,C
+sqrt(arg)185
+
+LIB02:<COS.LEPREAU.3>STRCAT.C.0
+00065,C
+strcat(s1, s2)119
+
+LIB02:<COS.LEPREAU.3>STRCMP.C.0
+00064,C
+strcmp(s1, s2)79
+
+LIB02:<COS.LEPREAU.3>STRCPY.C.0
+00064,C
+strcpy(s1, s2)99
+
+LIB02:<COS.LEPREAU.3>STRLEN.C.0
+00059,C
+strlen(s)85
+
+LIB02:<COS.LEPREAU.3>STRNCAT.C.0
+00070,C
+strncat(s1, s2, n)159
+
+LIB02:<COS.LEPREAU.3>STRNCMP.C.0
+00070,C
+strncmp(s1, s2, n)101
+
+LIB02:<COS.LEPREAU.3>STRNCPY.C.0
+00070,C
+strncpy(s1, s2, n)120
+
+LIB02:<COS.LEPREAU.3>STROUT.C.0
+00095,C
+_strout(count, string, adjust, file, fillch)110
+
+LIB02:<COS.LEPREAU.3>STUFF.C.0
+00057,C
+wdleng()72
+
+LIB02:<COS.LEPREAU.3>TERMCAP.C.0
+00291,C
+#define	BUFSIZ	102487
+#define MAXHOP	32	/* max number of tc= indirections */143
+tgetent(bp, name)1173
+tnchktc()2934
+tnamatch(np)4041
+tskip(bp)4604
+tgetnum(id)4995
+tgetflag(id)5610
+tgetstr(id, area)6131
+tdecode(str, area)6549
+
+LIB02:<COS.LEPREAU.3>TGOTO.C.0
+00110,C
+#define	CTRL(c)	('c' & 037)93
+tgoto(CM, destcol, destline)929
+
+LIB02:<COS.LEPREAU.3>TIMEZONE.C.0
+00047,C
+
+LIB02:<COS.LEPREAU.3>TPUTS.C.0
+00073,C
+tputs(cp, affcnt, outc)705
+
+LIB02:<COS.LEPREAU.3>UNGETC.C.0
+00064,C
+ungetc(c, iop)80
+
+LIB02:<COS.LEPREAU.3>VALLOC.C.0
+00060,C
+valloc(i)103
+
+LIB02:<COS.LEPREAU.3.LOCAL>ATOT.C.0
+00049,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>FOLD.C.0
+00049,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>FOLD.H.0
+00049,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>GETBOOL.C.0
+00052,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>GTIME.C.0
+00050,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>NXTARG.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>PDATE.C.0
+00559,C
+# define NUMBER 257942
+# define WEEKDAY 258964
+# define MONTH 259984
+# define AM 2601001
+# define PM 2611018
+# define TIMEZONE 2621041
+#define yyclearin yychar = -11072
+#define yyerrok yyerrflag = 01103
+#define YYMAXDEPTH 1501192
+#define YYSTYPE int1238
+# define YYERRCODE 2561301
+pdate(str, tmp)1887
+# define YYNPROD 323971
+# define YYLAST 2263992
+# define YYFLAG -10006567
+# define YYERROR goto yyerrlab6599
+# define YYACCEPT return(0)6628
+# define YYABORT return(1)6656
+
+LIB02:<COS.LEPREAU.3.LOCAL>PRSTAB.C.0
+00213,C
+#define SPACE 5			/* min. space between columns */1133
+#define MAXCOLS 71		/* max. cols on line */1178
+#define MINROWS 8		/* min. rows to be printed */1228
+
+LIB02:<COS.LEPREAU.3.LOCAL>RSINDEX.C.0
+00138,C
+#define streqn(a,b,c)	(!strncmp(a,b,c))196
+#define NULL 0212
+rsindex(s1, s2)239
+
+LIB02:<COS.LEPREAU.3.LOCAL>SINDEX.C.0
+00136,C
+#define streqn(a,b,c)	(!strncmp(a,b,c))165
+#define NULL 0181
+sindex(s1, s2)207
+
+LIB02:<COS.LEPREAU.3.LOCAL>SKIPTO.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.3.LOCAL>STABLK.C.0
+00133,C
+#define NOTFOUND -11535
+#define AMBIGUOUS -21557
+#define MAXSTRINGS 5001581
+
+LIB02:<COS.LEPREAU.3.LOCAL>STLMATCH.C.0
+00053,C
+
+LIB02:<COS.LEPREAU.3.MOD>ATOF.C.0
+00092,C
+atof(p)448
+_flout(buf, d, prec, type)985
+
+LIB02:<COS.LEPREAU.3.MOD>DATA.C.0
+00047,C
+
+LIB02:<COS.LEPREAU.3.MOD>ENDOPEN.C.0
+00080,C
+_endopen(file, mode, iop)94
+
+LIB02:<COS.LEPREAU.3.MOD>FDOPEN.C.0
+00071,C
+fdopen(fd, mode)268
+
+LIB02:<COS.LEPREAU.3.MOD>FPRINT.C.0
+00284,C
+#define sputc(c,p)	((int)(*(p)++ = (c)))595
+#define dtruncate(f) ( (int) (f) )677
+#define dround(f)   ( (f) >= 0 ? (int) ((f)+.499999) : ((int) ((f)-.499999)) )757
+#define dabs(f)	    ( (f) >= 0 ? (f) : (-(f) >= 0 ? -(f) :\918
+
+LIB02:<COS.LEPREAU.3.MOD>GETENV.C.0
+00135,C
+#define NULL	0577
+#define MAXLOGNAME	511		/* enuf for now */712
+getenv(name)736
+
+LIB02:<COS.LEPREAU.3.MOD>GETLOGIN.C.0
+00067,C
+getlogin()266
+
+LIB02:<COS.LEPREAU.3.MOD>GETPWENT.C.0
+00090,C
+getpwuid(uid)174
+getpwnam(name)493
+
+LIB02:<COS.LEPREAU.3.MOD>MKTEMP.C.0
+00079,C
+mktemp(as)192
+_hptim()567
+
+LIB02:<COS.LEPREAU.3.MOD>MODF.C.0
+00109,C
+#define abs(x)	((x) < 0 ? -(x) : (x))37
+modf(val, iptr)64
+
+LIB02:<COS.LEPREAU.3.MOD>MON_ATOF.H.0
+01544,C
+#define _shl18 18	/* cause not cross-compiling */283
+#define FL_sgn  (0600000<<_shl18)	/* FIRST FIELD SIGN CONTROL */497
+#define FLdig  00	/* DIGIT */528
+#define FLspc  01	/* SPACE */559
+#define FLpls  02	/* PLUS SIGN */594
+#define FLspa  03	/* SPACE */625
+#define FL_jus  (0140000<<_shl18)	/* FIRST FIELD JUSTIFICATION CONTROL */700
+#define FLlsp  00	/* LEADING SPACES */740
+#define FLlzr  01	/* LEADING ZEROS */779
+#define FLlas  02	/* LEADING ASTERISKS */822
+#define FLtsp  03	/* TRAILING SPACES */863
+#define FL_one  (0020000<<_shl18)	/* FIRST FIELD NONBLANK */925
+#define FL_dol  (0010000<<_shl18)	/* DOLLAR SIGN PREFIX */985
+#define FL_pnt  (0004000<<_shl18)	/* DECIMAL POINT */1040
+#define FL_exp  (0003000<<_shl18)	/* THIRD FIELD EXPONENT CONTROL */1110
+#define FLexn  00	/* NO EXPONENT */1147
+#define FLexe  01	/* E EXPONENT PREFIX */1190
+#define FLexd  02	/* D EXPONENT PREFIX */1233
+#define FLexm  03	/* *10^ EXPONENT PREFIX */1279
+#define FL_esg  (0000600<<_shl18)	/* EXPONENT SIGN CONTROL */1342
+#define FLdge  00	/* DIGIT */1373
+#define FLple  01	/* PLUS SIGN */1408
+#define FLspe  02	/* SPACE */1439
+#define FLdgt  03	/* DIGIT */1470
+#define FL_ovl  (0000100<<_shl18)	/* COLUMN OVERFLOW */1527
+#define FL_rnd  (0000037<<_shl18)	/* DIGIT POSITION FOR ROUNDING */1596
+#define FLfst  0770000	/* FIRST FIELD WIDTH */1644
+#define FLsnd  0007700	/* SECOND FIELD WIDTH */1693
+#define FLthd  0000077	/* THIRD FIELD WIDTH */1741
+
+LIB02:<COS.LEPREAU.3.MOD>MON_ENV.H.0
+01249,C
+#define _shl18 18	/* Cause not cross-compiling */266
+#define CLnj1  00	/* DELETE 1 LOGICAL NAME FROM JOB */446
+#define CLns1  01	/* DELETE 1 LOGICAL NAME FROM SYSTEM */505
+#define CLnja  02	/* DELETE ALL JOB WIDE LOGICAL NAMES */564
+#define CLnsa  03	/* DELETE ALL SYSTEM LOGICAL NAMES */621
+#define CLnjb  04	/* CREATE A JOB WIDE LOGICAL NAME */677
+#define CLnsy  05	/* CREATE A SYSTEM WIDE LOGICAL NAME */736
+#define INljb  00	/* GET JOB WIDE LOGICAL NAME FROM INDEX */818
+#define INlsy  01	/* GET SYSTEM LOGICAL NAME FROM INDEX */878
+#define LNsjb  00	/* GET JOB WIDE DEFINITION OF A LN */955
+#define LNssy  01	/* GET SYSTEM DEFINITION OF A LOGICAL NAME */1020
+#define ERb 0600000		/* "Error base" */1080
+#define ERcrlnx1 (ERb|01000) /* Logical name is not defined */1146
+#define ERinlnx1 (ERb|01001) /* Index is beyond end of logical name table */1224
+#define ERlnstx1 (ERb|01002) /* No such logical name */1281
+#define ERcrlnx2 (ERb|01134) /* WHEEL or OPERATOR capability required */1355
+#define ERinlnx2 (ERb|01135) /* Invalid function */1408
+#define ERlnstx2 (ERb|01136) /* Invalid function */1461
+#define ERcrlnx3 (ERb|01152) /* Invalid function */1514
+
+LIB02:<COS.LEPREAU.3.MOD>MON_MKTEMP.H.0
+00188,C
+#define _shl18 18	/* cause not cross-compiling */283
+#define HPelp  00	/* ELAPSED TIME */435
+#define HPrnt  01	/* RUN TIME */469
+
+LIB02:<COS.LEPREAU.3.MOD>MON_PERROR.H.0
+02803,C
+#define _shl18 18	/* cause not cross-compiling */283
+#define FHslf  0400000	/* SELF */637
+#define FHsup  0777777	/* SUPERIOR */676
+#define FHtop  0777776	/* TOP IN JOB */717
+#define FHsai  0777775	/* SELF AND INFERIORS */766
+#define FHinf  0777774	/* INFERIORS */806
+#define FHjob  0777773	/* ALL IN JOB */847
+#define TT_osp  (0400000<<_shl18)	/* OUTPUT SUPPRESS */942
+#define TT_mff  (0200000<<_shl18)	/* MECHANICAL FORMFEED PRESENT */1011
+#define TT_tab  (0100000<<_shl18)	/* MECHANICAL TAB PRESENT */1075
+#define TT_lca  (0040000<<_shl18)	/* LOWER CASE CAPABILITIES PRESENT */1148
+#define TT_len  (0037600<<_shl18)	/* PAGE LENGTH */1201
+#define TT_wid  (0000177<<_shl18)	/* PAGE WIDTH */1253
+#define TTwak  0170000	/* WAKEUP FIELD */1296
+#define TTwk0  0400000	/* WAKEUP CLASS 0 (UNUSED) */1350
+#define TTign  0200000	/* IGNORE ttWAK ON SFMOD */1402
+#define TTwkf  0100000	/* WAKEUP ON FORMATING CONTROL CHARS */1466
+#define TTwkn  0040000	/* WAKEUP ON NON-FORMATTING CONTROLS */1530
+#define TTwkp  0020000	/* WAKEUP ON PUNCTUATION */1582
+#define TTwka  0010000	/* WAKEUP ON ALPHANUMERICS */1636
+#define TTeco  0004000	/* ECHOS ON */1675
+#define TTecm  0002000	/* ECHO MODE */1715
+#define TTalk  0001000	/* ALLOW LINKS */1757
+#define TTaad  0000400	/* ALLOW ADVICE (NOT IMPLEMENTED) */1818
+#define TTdam  0000300	/* DATA MODE */1858
+#define TTbin  00	/* BINARY */1890
+#define TTasc  01	/* ASCII */1921
+#define TTato  02	/* ASCII AND TRANSLATE OUTPUT ONLY */1978
+#define TTate  03	/* ASCII AND TRANSLATE ECHOS ONLY */2034
+#define TTuoc  0000040	/* UPPER CASE OUTPUT CONTROL */2090
+#define TTlic  0000020	/* LOWER CASE INPUT CONTROL */2145
+#define TTdum  0000014	/* DUPLEX MODE */2187
+#define TTfdx  00	/* FULL DUPLEX */2224
+#define TT0dx  01	/* NOT USED, RESERVED */2268
+#define TThdx  02	/* HALF DUPLEX (CHARACTER) */2317
+#define TTldx  03	/* LINE HALF DUPLEX */2359
+#define TTpgm  0000002	/* PAGE MODE */2399
+#define TTcar  0000001	/* CARRIER STATE */2443
+#define DP_rd  040	/* READING DIRECTORY IS ALLOWED */2589
+#define DP_cn  010	/* CONNECT TO DIR, OR CHANGE PROT/ACCOUNT */2654
+#define DP_cf  04	/* CREATING FILES IN DIR IS ALLOWED */2712
+#define FP_dir  02	/* DIRECTORY LISTING */2836
+#define FP_app  04	/* APPEND */2869
+#define FP_ex  010	/* EXECUTE */2903
+#define FP_wr  020	/* WRITE */2935
+#define FP_rd  040	/* READ */2966
+#define PRiin  0100	/* PRIMARY INPUT */3050
+#define PRiou  0101	/* PRIMARY OUTPUT */3092
+#define NUlio  0377777	/* NULL DESIGNATOR */3138
+#define CTtrm  0777777	/* JOB'S CONTROLLING TERMINAL */3195
+#define DVdes  0600000	/* UNIVERSAL DEVICE CODE */3247
+#define TTdes  0400000	/* UNIVERSAL TERMINAL CODE */3301
+
+LIB02:<COS.LEPREAU.3.MOD>PERROR.C.0
+00101,C
+perror(str)305
+_seterr()1004
+_syserr(str)1311
+
+LIB02:<COS.LEPREAU.3.MOD>POPEN.C.0
+00065,C
+popen(a,b,c)12
+
+LIB02:<COS.LEPREAU.3.MOD>PRINTF.C.0
+00632,C
+#define TRUE  1504
+#define FALSE 0521
+#define MAXNUMLEN 64	/* max length in chars a number can turn into */2024
+# define OCTMASK 077777777777		/* to fix arith right shifts till we */2165
+# define HEXMASK 037777777777		/* get unsigneds */2217
+#define SMALLREV "86383795343-"2365
+sprintf(str, fmt, args)3503
+#define _PRZF(chr, f, num, prec, padc, fc) {\5750
+#define _PRZF	_przf5856
+_prdf(i, f, w, prec, padc, fc)6807
+_prsf(s, f, w, prec, padc, fc)7502
+_prcf(c, f, w, prec, padc, fc)8258
+_prxf(i, f, w, prec, padc, fc)8641
+_pref(d, f, w, prec, padc, fc)9377
+
+LIB02:<COS.LEPREAU.3.MOD>RAND.C.0
+00072,C
+srand(x)99
+rand()141
+
+LIB02:<COS.LEPREAU.3.MOD>SIN.C.0
+00096,C
+cos(arg)671
+sin(arg)780
+sinus(arg, quad)877
+
+LIB02:<COS.LEPREAU.3.MOD>SLEEP.C.0
+00080,C
+sleep(secs)97
+nap(ticks)256
+
+LIB02:<COS.LEPREAU.3.MOD>SYSTEM.C.0
+00172,C
+#define vfork fork353
+#define _exit exit373
+#define MAXARG 200			/* should be same as in init.c */429
+system(s)488
+
+LIB02:<COS.LEPREAU.CPP.DIST>ALLO.C.0
+00373,C
+allo0()254
+allo( p, q )717
+freetemp( k )1826
+freereg( p, n )2557
+usable( p, n, r )3439
+shareit( p, r, n )4492
+ushare( p, f, r )4756
+recl2( p )5233
+rfree( r, t )5544
+rbusy(r,t)5968
+rwprint( rw )6309
+reclaim( p, rw, cookie )6760
+ncopy( q, p )9780
+tcopy( p )10222
+allchk()10730
+prneeds(n)10979
+
+LIB02:<COS.LEPREAU.CPP.DIST>CGRAM.C.0
+01613,C
+# define NAME 215
+# define STRING 334
+# define ICON 451
+# define FCON 568
+# define PLUS 685
+# define MINUS 8103
+# define MUL 11120
+# define AND 14137
+# define OR 17153
+# define ER 19169
+# define QUEST 21188
+# define COLON 22207
+# define ANDAND 23227
+# define OROR 24245
+# define ASOP 25263
+# define RELOP 26282
+# define EQUOP 27301
+# define DIVOP 28320
+# define SHIFTOP 29341
+# define INCOP 30360
+# define UNOP 31378
+# define STROP 32397
+# define TYPE 33415
+# define CLASS 34434
+# define STRUCT 35454
+# define RETURN 36474
+# define GOTO 37492
+# define IF 38508
+# define ELSE 39526
+# define SWITCH 40546
+# define BREAK 41565
+# define CONTINUE 42587
+# define WHILE 43606
+# define DO 44622
+# define FOR 45639
+# define DEFAULT 46660
+# define CASE 47678
+# define SIZEOF 48698
+# define ENUM 49716
+# define LP 50732
+# define RP 51748
+# define LC 52764
+# define RC 53780
+# define LB 54796
+# define RB 55812
+# define CM 56828
+# define SM 57844
+# define ASSIGN 58864
+#define yyclearin yychar = -1942
+#define yyerrok yyerrflag = 0973
+#define YYMAXDEPTH 1501062
+# define YYERRCODE 2561202
+mkty( t, d, s )1258
+bdty( op, p, v )1351
+dstash(n)1709
+savebc()1822
+resetbc(mask)2034
+addcase(p)2190
+adddef()2601
+swstart()2826
+swend()3027
+# define YYNPROD 1794032
+# define YYLAST 11704054
+# define YYFLAG -100017345
+# define YYERROR goto yyerrlab17377
+# define YYACCEPT return(0)17406
+# define YYABORT return(1)17434
+yyparse()17723
+ftnend()20707
+
+LIB02:<COS.LEPREAU.CPP.DIST>CGRAM.Y.0
+00218,C
+mkty( t, d, s )18075
+bdty( op, p, v )18168
+dstash(n)18526
+savebc()18639
+resetbc(mask)18851
+addcase(p)19007
+adddef()19418
+swstart()19643
+swend()19844
+
+LIB02:<COS.LEPREAU.CPP.DIST>CLOCAL.C.0
+00230,C
+#define FLOATING(t)	((t) == FLOAT || (t) == DOUBLE)385
+bytefix(p)574
+optim1(p)2660
+clocal(p)4667
+strtype(t)15172
+bptype(t)15400
+offsetype(t)15716
+negater(p)15875
+
+LIB02:<COS.LEPREAU.CPP.DIST>CODE.C.0
+00641,C
+#define VERSION	"1,2,36,0\n"  /* pcc v, fxlink v, byte size, unused */751
+#define LABSTART 20		/* must be higher than register# max */ 1003
+branch( n )1278
+defalign(n)1525
+locctr( l )1732
+loctr2(loctyp, firstflg)3289
+deflab( n )4162
+getlab()4315
+efcode()4460
+bfcode( a, n )5581
+bccode()7095
+bjobcode(filnam)7488
+ejobcode( flag )8061
+aobeg()8156
+aocode(p)8226
+aoend()8311
+defnam( p )8386
+bycode( t, i )8800
+zecode( n )9244
+fldal( t )9543
+fldty( p )9678
+where(c)9860
+main( argc, argv )9951
+pextrns()11295
+dexit( v )11801
+genswitch(p,n)11879
+
+LIB02:<COS.LEPREAU.CPP.DIST>CODE2.C.0
+00870,C
+#define GENLABELS 1	/* define to get vars into MACRO labels for DDT */457
+#define GENMODULES 1	/* define for separate module symbol tables */528
+#define REPEAT 1	/* define to get REPEAT macro instead of N */653
+#define VERSION	"1,2,36,0\n"  /* pcc v, fxlink v, byte size, unused */1259
+#define LABSTART 20		/* must be higher than register# max */1608
+branch( n )1932
+defalign(n)2179
+locctr( l )2386
+loctr2(loctyp, firstflg)3943
+deflab( n )4816
+getlab()4969
+efcode()5114
+bfcode( a, n )6235
+bccode()9218
+bjobcode(filnam)9562
+ejobcode( flag )10411
+aobeg()10506
+aocode(p)10576
+aoend()10661
+defnam( p )10736
+bycode( t, i )11149
+zecode( n )11593
+fldal( t )12097
+fldty( p )12232
+where(c)12414
+main( argc, argv )12505
+pextrns()13851
+dexit( v )14357
+genswitch(p,n)14435
+
+LIB02:<COS.LEPREAU.CPP.DIST>COMM1.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.CPP.DIST>COMM2.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.CPP.DIST>CPP.C.0
+02727,C
+#define NCHNAM 63			/* NHFB: was constant 8 in code */392
+#define STATIC841
+#define STDIN 0860
+#define STDOUT 1878
+#define STDERR 2896
+#define READ 0912
+#define WRITE 1929
+#define SALT '#'947
+#define BUFSIZ 512983
+# define COFF 1281238
+# define COFF 01262
+#define ALFSIZ 512	/* alphabet size */1323
+#define ALFSIZ 256	/* alphabet size */1371
+#define BLANK 11444
+#define IDENT 21461
+#define NUMBR 31478
+#define scw1 12612
+#define scw2 02628
+#define b0 12721
+#define b1 22735
+#define b2 42749
+#define b3 82763
+#define b4 162778
+#define b5 322793
+#define b6 642808
+#define b7 1282824
+#define IB 12848
+#define SB 22862
+#define NB 42876
+#define CB 82890
+#define QB 162905
+#define WB 322920
+#define isslo (ptrtab == (slotab+COFF))3022
+#define isid(a)  ((fastab+COFF)[a]&IB)3062
+#define isspc(a) (ptrtab[a]&SB)3095
+#define isnum(a) ((fastab+COFF)[a]&NB)3135
+#define iscom(a) ((fastab+COFF)[a]&CB)3175
+#define isquo(a) ((fastab+COFF)[a]&QB)3215
+#define iswarn(a) ((fastab+COFF)[a]&WB)3256
+#define eob(a) ((a) >= pend)3288
+#define bob(a) (pbeg >= (a))3318
+# define SBSIZE 48000		/* std = 12000 */3397
+# define DROP 0xFE	/* special character not legal ASCII or EBCDIC */3508
+# define WARN DROP3528
+# define SAME 03545
+# define MAXINC 103565
+# define MAXFRE 14	/* max buffers of macro pushback */3621
+# define MAXFRM 31	/* max number of formals/actuals to a macro */3688
+# define NPREDEF 204887
+# define main	mainpp5192
+# define exit(S)	longjmp(env, 1)5240
+# define symsiz 5005281
+# define symsiz 20000			/* NHFB: make it big!!! */5371
+# define open(S,D)	fileno(fopen(S, "r"))5435
+# define close(F)	fclose(_f[F])5468
+sayline()5975
+dump()8763
+#define MAXOUT 809178
+refill(p)10187
+#define BEG 011858
+#define LF 111872
+cotoken(p)11894
+#define tmac1(c,bit) if (!xmac1(c,bit,&)) goto nomac16268
+#define xmac1(c,bit,op) ((macbit+COFF)[c] op (bit))16321
+#define tmac1(c,bit)16350
+#define xmac1(c,bit,op)16375
+#define tmac2(c0,c1,cpos) if (!xmac2(c0,c1,cpos,&)) goto nomac16459
+#define xmac2(c0,c1,cpos,op)\16490
+#define tmac2(c0,c1,cpos)16598
+#define xmac2(c0,c1,cpos,op)16628
+skipbl(p)17909
+unfill(p)18089
+doincl(p)19184
+equfrm(a,p1,p2)21276
+dodef(p)21443
+#define fasscan() ptrtab = fastab+COFF25034
+#define sloscan() ptrtab = slotab+COFF25074
+control(p)25147
+stsym(s)27285
+ppsym(s)27792
+pperror(s,x,y)27977
+yyerror(s,a,b)28259
+ppwarn(s,x)28307
+lookup(namep, enterf)28433
+slookup(p1,p2,enterf)29663
+subst(p,sp)30128
+trmdir(s)32447
+copy(s)32756
+strdex(s,c)32884
+yywrap()32967
+fixdir(p)33099
+main(argc,argv)33559
+
+LIB02:<COS.LEPREAU.CPP.DIST>CPY.C.0
+00666,C
+# define number 25719
+# define stop 25838
+# define DEFINED 25960
+# define EQ 26077
+# define NE 26194
+# define LE 262111
+# define GE 263128
+# define LS 264145
+# define RS 265162
+# define ANDAND 266183
+# define OROR 267202
+# define UMINUS 268223
+#define yyclearin yychar = -1254
+#define yyerrok yyerrflag = 0285
+#define YYMAXDEPTH 150374
+#define YYSTYPE int420
+# define YYERRCODE 256476
+# define YYNPROD 30896
+# define YYLAST 363917
+# define YYFLAG -10004298
+# define YYERROR goto yyerrlab4330
+# define YYACCEPT return(0)4359
+# define YYABORT return(1)4387
+yyparse()4700
+
+LIB02:<COS.LEPREAU.CPP.DIST>CPY.Y.0
+00049,C
+
+LIB02:<COS.LEPREAU.CPP.DIST>INLINE.H.0
+00598,C
+#define rmove(to,fr,typ) printf("\tmove\t%s,%s\n", rnames[to], rnames[fr])314
+#define szty(t)			(1)337
+#define rewfld(p)		(1)361
+#define lineid(LINE,fn) 	printf(";l %d %s\n", LINE, fn)418
+#define adrcon(val)		printf("%ld", val )	/* CONFMT */473
+#define genscall(p,cookie)	gencall(p, cookie)520
+#define lastchance(p,cook)	(0)552
+#define callreg(p)		(1)			/* R1 */588
+#define defalign(n)					/* code.c: null */634
+#define checkst(lev)		/* pftn.c: turn on for symtab debugging */700
+#define setincr(p)		(0)	/* in order.c */742
+
+LIB02:<COS.LEPREAU.CPP.DIST>LOCAL.C.0
+00104,C
+# define BITMASK(n)	((1L<<n)-1)660
+cendarg()1113
+
+LIB02:<COS.LEPREAU.CPP.DIST>LOCAL2.C.0
+00647,C
+rmove(rt, rs, t)6371
+setregs()6528
+szty(t)7125
+rewfld(p)7289
+callreg(p)7429
+shltype(o, p)7664
+flshape(p)7866
+shtemp(p)8108
+spsz(t, v)8450
+shumul( p )8959
+adrcon( val )9172
+conput( p )9237
+vadrput( p )9701
+upput( p )9818
+adrput( p )9869
+acon( p )11176
+genscall(p, cookie)11603
+gencall(p, cookie)11812
+cbgen(o, lab, mode)12524
+nextcook(p, cookie)13171
+lastchance(p, cook)13598
+myreader(p)13753
+special(p, shape)13984
+main(argc, argv)14566
+where(c)14639
+dexit(v)14746
+paconv(p, r)14976
+psconv(p, r)15548
+bpadd(p, r)16151
+bpsub(p, r)16612
+
+LIB02:<COS.LEPREAU.CPP.DIST>MATCH.C.0
+00259,C
+# define logical(e)	((e) != 0)460
+# define logical(e)	(e)492
+tshape( p, shape )1351
+ttype( t, tword )3220
+setrew()4246
+match( p, cookie )5606
+expand( p, cookie, cp, q )7879
+getlr( p, c )10002
+
+LIB02:<COS.LEPREAU.CPP.DIST>OPTIM.C.0
+00396,C
+# define SWAP(p,q) {sp=p; p=q; q=sp;}59
+# define RCON(p) (p->right->op==ICON)98
+# define RO(p) p->right->op127
+# define RV(p) p->right->lval158
+# define LCON(p) (p->left->op==ICON)196
+# define LO(p) p->left->op224
+# define LV(p) p->left->lval254
+fortarg( p )336
+optim(p)797
+ispow2(c)8435
+nncon(p)8627
+coerce(l, o, r)8723
+
+LIB02:<COS.LEPREAU.CPP.DIST>ORDER.C.0
+00632,C
+# define max(x,y) ((x)<(y)?(y):(x))423
+# define min(x,y) ((x)<(y)?(x):(y))460
+# define regnode(p)	( (p)->op == REG )502
+# define commop(op)	( dope[op] & COMMFLG )	/* commutative op? */570
+# define simpop(op)	( dope[op] & SIMPFLG )	/* simple op ?	   */635
+# define shiftop(op)	( dope[op] & SHFFLG )	/* shift operator? */701
+# define umulop(op)	( (op) == UNARY MUL )744
+# define FLOATING(t)	((t) == FLOAT || (t) == DOUBLE)800
+# define CHARACTER(t)	((t) == CHAR)	/*** || (t) == UCHAR) ***/864
+# define ZCHAR	012871
+# define ZLONG	022905
+# define ZFLOAT	042940
+
+LIB02:<COS.LEPREAU.CPP.DIST>PFTN.C.0
+00182,C
+ftnend()7502
+dclargs()8050
+yyaccpt()12984
+getstr()18116
+endinit()19452
+gotscal()23007
+ilbrace()23855
+irbrace()24367
+
+LIB02:<COS.LEPREAU.CPP.DIST>PFTN2.C.0
+00317,C
+#define GENLABELS 1	/* define for symbol table stuff */261
+#define GENMODULES 1	/* define for separate module symbol tables */330
+ftnend()7827
+dclargs()9458
+yyaccpt()14392
+getstr()19524
+endinit()20860
+gotscal()24415
+ilbrace()25263
+irbrace()25775
+
+LIB02:<COS.LEPREAU.CPP.DIST>READER.C.0
+00630,C
+#define NOOPT		/* TEMP? for cbranch */60
+# define NOMAIN342
+p2init( argc, argv )761
+mainp2( argc, argv )2062
+p2compile( p )4084
+p2bbeg( aoff, myreg )4613
+p2bend()4969
+delay( p )5039
+delay1( p )5593
+delay2( p )6208
+codgen( p, cookie )7021
+prcook( cookie )7732
+order(p,cook)8228
+store( p )13774
+constore( p )14942
+markcall( p )15317
+stoarg( p, calltype )15784
+cbranch( p, true, false )16391
+rcount()19122
+eprint( p, down, a, b )19276
+eread()20108
+rdin( base )21145
+ffld( p, down, down1, down2 )21774
+oreg2( p )23036
+canon(p)24804
+
+LIB02:<COS.LEPREAU.CPP.DIST>SCAN.C.0
+01661,C
+#define YYDEBUG SCAN115
+# define A_ERR	0		       /* illegal character */209
+# define A_LET	1		       /* saw a letter */254
+# define A_DIG	2		       /* saw a digit */298
+# define A_1C	3		       /* return a single character */355
+# define A_STR	4		       /* string */394
+# define A_CC	5		       /* character constant */444
+# define A_BCD	6		       /* GCOS BCD constant */494
+# define A_SL	7		       /* saw a / */533
+# define A_DOT	8		       /* saw a . */573
+# define A_PL	9		       /* + */606
+# define A_MI	10		       /* - */640
+# define A_EQ	11		       /* = */674
+# define A_NOT	12		       /* ! */709
+# define A_LT	13		       /* < */743
+# define A_GT	14		       /* > */777
+# define A_AND	16		       /* & */812
+# define A_OR	17		       /* | */846
+# define A_WS	18		       /* whitespace (not \n) */898
+# define A_NL	19		       /* n */933
+# define LEXLET	011210
+# define LEXDIG	021230
+# define LEXOCT	041250
+# define LEXHEX	0101271
+# define LEXWS	0201291
+# define LEXDOT	0401312
+# define AR_TY	0		       /* type word */1392
+# define AR_RW	1		       /* simple reserved word */1445
+# define AR_CL	2		       /* storage class word */1496
+# define AR_S	3		       /* struct */1534
+# define AR_U	4		       /* union */1571
+# define AR_E	5		       /* enum */1607
+# define AR_A	6		       /* asm */1642
+# define LXTSZ	1001690
+# define CSMASK	03771771
+# define CSSZ	2561790
+# define CSMASK	01771820
+# define CSSZ	1281839
+# define lxget(c,m) (lxgcp=yytext,lxmore(c,m))1927
+lxinit()6303
+lxcom()9872
+yylex()11020
+lxres()18832
+lxtitle()21318
+
+LIB02:<COS.LEPREAU.CPP.DIST>TABLE.C.0
+00475,C
+# define AWD	SNAME|SOREG|SCON|STARNM|SAREG	/* addressable word	*/487
+# define LWD	SNAME|SOREG|SCON|SAREG		/* directly addr word	*/550
+# define SMEM	SNAME|SOREG|SCON|STARNM		/* in memory		*/607
+# define TWD	TINT|TFLOAT|TPOINT|TDOUBLE|TCHAR   /*tmp type 'word' (tptrto deleted) */696
+# define TNORM	TINT|TFLOAT|TPOINT|TDOUBLE	/* 'normal' word types	*/765
+# define DF(x) FORREW,SANY,TANY,SANY,TANY,REWRITE,x,""8852
+
+LIB02:<COS.LEPREAU.CPP.DIST>TEST4.C.0
+00109,C
+main()6
+foo4(x,y,z,a,b,c)93
+bar(a)943
+mung(c)1028
+
+LIB02:<COS.LEPREAU.CPP.DIST>TREES.C.0
+00626,C
+# define NCVT 01107
+# define PUN 02124
+# define TYPL 04142
+# define TYPR 010161
+# define TYMATCH 040183
+# define LVAL 0100203
+# define CVTO 0200223
+# define CVTL 0400243
+# define CVTR 01000264
+# define PTMATCH 02000288
+# define OTHER 04000310
+# define NCVTR 010000333
+# define MINT	01		/* integer */24627
+# define MDBI	02		/* integer or double */24670
+# define MSTR	04		/* structure */24705
+# define MPTR	010		/* pointer */24739
+# define MPTI	020		/* pointer or integer */24784
+# define MENU	040		/* enumeration variable or member */24841
+
+LIB02:<COS.LEPREAU.CPP.DIST>XDEFS.C.0
+00051,C
+
+LIB02:<COS.LEPREAU.CPP.DIST>YTAB.C.0
+00519,C
+# define number 25719
+# define stop 25838
+# define DEFINED 25960
+# define EQ 26077
+# define NE 26194
+# define LE 262111
+# define GE 263128
+# define LS 264145
+# define RS 265162
+# define ANDAND 266183
+# define OROR 267202
+# define UMINUS 268223
+#define yyclearin yychar = -1254
+#define yyerrok yyerrflag = 0285
+#define YYMAXDEPTH 150374
+#define YYSTYPE int420
+# define YYERRCODE 256476
+# define YYNPROD 30896
+# define YYLAST 363917
+
+LIB02:<COS.LEPREAU.CPP.DIST>YYLEX.C.0
+00204,C
+#define isid(a)  ((fastab+COFF)[a]&IB)38
+#define IB 152
+#define COFF 128156
+#define COFF 0179
+yylex()198
+tobinary(st, b)1935
+return(n)2507
+
+LIB02:<COS.LEPREAU.SUPPORT>ACCESS.C.0
+00077,C
+access(filnam, mode)320
+
+LIB02:<COS.LEPREAU.SUPPORT>BRK.C.0
+00111,C
+#define	HISEGSTART 0400000354
+brk(addr)474
+sbrk(incr)716
+
+LIB02:<COS.LEPREAU.SUPPORT>F1.C.0
+00341,C
+#define IOX4	0220			/* tops20 error code for eof */503
+_gtjfn(filnam, flags)570
+_rljfn(jfn)1261
+open(filnam, type, bytesize)1478
+#define BYTESIZE ( 36 / (sizeof(int)/sizeof(char)) )2268
+_open(filnam, mode)3872
+_ttynotrn(jfn)5434
+makdir(dirout, file)6334
+_numtodir(dirnum)6877
+
+LIB02:<COS.LEPREAU.SUPPORT>FNSTD1.C.0
+00225,C
+# define FNSIZE 100144
+# define QUOTE	022	/* ^V */173
+# define EOS	'\0'	/* end-of-string */212
+#define chkbar(p)	{if (*p == '/') ++p;}	/* skip adjacent slashes */976
+
+LIB02:<COS.LEPREAU.SUPPORT>FNSTD2.C.0
+00151,C
+# define FNSIZE 10078
+# define QUOTE	022	/* ^V */107
+# define EOS	'\0'	/* end-of-string */146
+
+LIB02:<COS.LEPREAU.SUPPORT>FORK.C.0
+00117,C
+fork()341
+vfork()1941
+wait(status)3673
+gfrks(blk, size)5392
+
+LIB02:<COS.LEPREAU.SUPPORT>INIT.C.0
+00440,C
+#define TRUE	1318
+#define FALSE	0335
+#define MAXNAMLEN 256			/* max length filnam fron gnjfn */397
+#define COMBUFSZ 2048422
+#define MAXARG	 200443
+_init()1186
+fill_combuf()1459
+#define QUOTE	 026		/* ^V */3252
+#define ARGQUOTE '\\'3275
+argovflow()6921
+maybeglob(av, maxarg)7128
+_glob(av, maxarg)7568
+_gnjfn(jfn)8586
+_jfns(buf, jfn, fmt, prefix)8806
+setio()9181
+
+LIB02:<COS.LEPREAU.SUPPORT>IOCTL.C.0
+00361,C
+#define brkword(c)	( (c)<32?0: (c)<64?1: (c)<96?2: 3 )490
+#define brkbit(c)	( 1 << (31 - ((c)-32*brkword(c))) )545
+ioctl(fd, code, argp)901
+mt_ps_brk(jfn, pause_fx, brkptr)5907
+_sfbsz(jfn, size)6344
+_ttyraw(jfn, fotp)6475
+_ttyunraw(jfn, fotp)6573
+_savetiw(jfn, fotp)6653
+_settiw(jfn, tiw)6807
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_FILES.H.0
+09668,C
+#define DV_out 01:35-0			/* device can do output */1009
+#define DV_in 01:35-1			/* device can do input */1060
+#define DV_dir 01:35-2			/* device has a directory */1115
+#define DV_as 01:35-3			/* device is assignable */1167
+#define DV_mdd 01:35-4			/* device is a multiple directory device */1237
+#define DV_av 01:35-5			/* device is available to this job */1300
+#define DV_asn 01:35-6			/* device is assigned by asnd */1359
+#define DV_mdv 01:35-7			/* reserved (historical) */1413
+#define DV_mnt 01:35-8			/* device is mounted */1463
+#define DV_typ 0777:35-17			/* device type field */1516
+#define DV_psd 01:35-18			/* pseudo device */1563
+#define DV_unt 077777	 		/* unit mask */1605
+#define DV_mod 0177777:35-35		/* device data mode */1659
+#define DV_m0 01:35-35			/* device can be opened in mode 0 */1722
+#define DV_m1 01:35-34			/* device can be opened in mode 1 */1785
+#define DV_m2 01:35-33			/* device can be opened in mode 2 */1848
+#define DV_m3 01:35-32			/* device can be opened in mode 3 */1911
+#define DV_m4 01:35-31			/* device can be opened in mode 4 */1974
+#define DV_m5 01:35-30			/* device can be opened in mode 5 */2037
+#define DV_m6 01:35-29			/* device can be opened in mode 6 */2100
+#define DV_m7 01:35-28			/* device can be opened in mode 7 */2163
+#define DV_m10 01:35-27			/* device can be opened in mode 10 */2228
+#define DV_m11 01:35-26			/* device can be opened in mode 11 */2293
+#define DV_m12 01:35-25			/* device can be opened in mode 12 */2358
+#define DV_m13 01:35-24			/* device can be opened in mode 13 */2423
+#define DV_m14 01:35-23			/* device can be opened in mode 14 */2488
+#define DV_m15 01:35-22			/* device can be opened in mode 15 */2553
+#define DV_m16 01:35-21			/* device can be opened in mode 16 */2618
+#define DV_m17 01:35-20			/* device can be opened in mode 17 */2683
+#define D1_spl 01:35-0			/* device is spooled */2733
+#define D1_alc 01:35-1			/* device is under control of allocator */2802
+#define D1_vvl 01:35-2			/* volume valid */2847
+#define D1_niu 01:35-3			/* device slot is not in use (for structures  */2922
+#define D1_ini 01:35-4			/* device is being initialized (structure */3022
+#define DVdsk 00	 		/* disk */3182
+#define DVmta 02	 		/* magtape */3217
+#define DVdta 03	 		/* dectape */3252
+#define DVptr 04	 		/* paper tape reader */3297
+#define DVptp 05	 		/* paper tape punch */3341
+#define DVdsp 06	 		/* display */3376
+#define DVlpt 07	 		/* line printer */3416
+#define DVcdr 010	 		/* card reader */3456
+#define DVfe 011	 		/* front end device */3500
+#define DVtty 012	 		/* terminal */3537
+#define DVpty 013	 		/* pty */3569
+#define DVnul 015	 		/* null device */3609
+#define DVnet 016	 		/* arpa network */3650
+#define DVplt 017	 		/* plotter */3686
+#define DVcdp 021	 		/* card punch */3725
+#define DVdcn 022	 		/* decnet active component */3777
+#define DVsrv 023	 		/* decent passive component */3830
+#define DVats 024	 		/* applications terminal service */3888
+#define DVads 025	 		/* aydin display */3930
+#define GJ_fou 01:35-0			/* file is for output use */4056
+#define GJ_new 01:35-1			/* new file only */4102
+#define GJ_old 01:35-2			/* old file only */4148
+#define GJ_msg 01:35-3			/* print an appropriate message */4209
+#define GJ_cfm 01:35-4			/* confirmation is required */4266
+#define GJ_tmp 01:35-5			/* temporary */4308
+#define GJ_ns 01:35-6			/* dont search search lists */4364
+#define GJ_acc 01:35-7			/* no access by other forks */4421
+#define GJ_del 01:35-8			/* ignore "deleted" bit */4474
+#define GJ_jfn 03:35-10			/* jfn use field */4521
+#define GJdnu 00	 		/* do not use jfn provided */4572
+#define GJerr 02	 		/* error if cannot use jfn provided */4632
+#define GJalt 03	 		/* use alternate if cannot use given jfn */4697
+#define GJ_ifg 01:35-11			/* accept input file group descriptors */4766
+#define GJ_ofg 01:35-12			/* accept output file group descriptors */4836
+#define GJ_flg 01:35-13			/* return flags */4882
+#define GJ_phy 01:35-14			/* physical device only */4936
+#define GJ_xtn 01:35-15			/* extended format (e+11 exists) */4999
+#define GJ_fns 01:35-16			/* accumulator 2 contains job file numbers */5072
+#define GJ_sht 01:35-17			/* short call format */5123
+#define G1_rnd 01:35-0			/* return on null(in alternate flag word) */5251
+#define G1_rbf 01:35-1			/* ^r buffer is disjoint (obsolete) */5316
+#define G1_nln 01:35-2			/* no long names */5362
+#define G1_rcm 01:35-3			/* return confirm message */5417
+#define G1_rie 01:35-4			/* return when main string is empty */5482
+#define G1_iin 01:35-5			/*  ignore invisible status */5539
+#define G1_sln 01:35-6			/* suppress expansion of logical names */5607
+#define GJ_dev 01:35-0			/* asterisk was given for device */5709
+#define GJ_unt 01:35-1			/* asterisk was given for unit */5769
+#define GJ_dir 01:35-2			/* asterisk was given for directory */5834
+#define GJ_nam 01:35-3			/* asterisk was given for name */5894
+#define GJ_ext 01:35-4			/* asterisk was given for extension */5959
+#define GJ_ver 01:35-5			/* asterisk was given for generation */6025
+#define GJ_uhv 01:35-6			/* use highest generation */6080
+#define GJ_nhv 01:35-7			/* use next higher generation */6139
+#define GJ_ulv 01:35-8			/* use lowest generation */6193
+#define GJ_pro 01:35-9			/* protection given */6242
+#define GJ_act 01:35-10			/* account given */6289
+#define GJ_tfs 01:35-11			/* temporary file specified (;t) */6352
+#define GJ_gnd 01:35-12			/* complement of gj%del on call */6414
+#define GJ_giv 01:35-17			/*  comp of g1%iiv */6463
+#define GJgen 00	 		/* flags ,, generation */6541
+#define GJdef <z 0>			/* default generation */6589
+#define GJnhg <z -1>			/* next higher generation */6642
+#define GJleg <z -2>			/* lowest existing generation */6699
+#define GJall <z -3>			/* all generations (i.e., ;*) */6756
+#define GJsrc 01	 		/* source jfn ,, output jfn */6808
+#define GJdev 02	 		/* default device */6850
+#define GJdir 03	 		/* default directory */6895
+#define GJnam 04	 		/* default name */6935
+#define GJext 05	 		/* default extenstion */6981
+#define GJpro 06	 		/* default protection */7027
+#define GJact 07	 		/* default account */7070
+#define GJjfn 010	 		/* desired jfn */7110
+#define GJf2 011	 		/* second group flags,,count */7163
+#define GJcpp 012	 		/* copy buffer pointer */7211
+#define GJcpc 013	 		/* copy buffer count */7257
+#define GJrty 014	 		/* retype (^r) pointer */7305
+#define GJbfp 015	 		/* top of buffer pointer */7355
+#define GJatr 016	 		/* pointer to arbitrary attribute block */7420
+#define GN_str 01:35-13			/* structure changed */7505
+#define GN_dir 01:35-14			/* directory changed */7556
+#define GN_nam 01:35-15			/* name changed */7602
+#define GN_ext 01:35-16			/* extension changed */7653
+#define OF_bsz 077:35-5			/* byte size */7715
+#define OF_mod 017:35-9			/* mode */7753
+#define OF_her 01:35-18			/* halt on io error */7803
+#define OF_rd 01:35-19			/* read */7840
+#define OF_wr 01:35-20			/* write */7878
+#define OF_ex 01:35-21			/* execute (reserved for the future) */7944
+#define OF_app 01:35-22			/* append */7984
+#define OF_thw 01:35-25			/* thawed */8024
+#define OF_awt 01:35-26			/* always wait */8069
+#define OF_pdt 01:35-27			/* preserve dates */8117
+#define OF_nwt 01:35-28			/* never wait */8161
+#define OF_rtd 01:35-29			/* restricted */8205
+#define OF_pln 01:35-30			/* set to disable line number checking for */8278
+#define OF_dud 01:35-31			/* don't update to disk by ddmp */8374
+#define OF_ofl 01:35-32			/* allow opening the device even if offline */8448
+#define OF_fdt 01:35-33			/* force date update */8499
+#define OF_rar 01:35-34			/*  wait if file is off-line */8558
+#define PRiin 0100	 		/* primary input */8643
+#define PRiou 0101	 		/* primary output */8687
+#define NUlio 0377777	 		/* null designator */8735
+#define CTtrm 0777777	 		/* job's controlling terminal */8794
+#define DVdes 0600000	 		/* universal device code */8848
+#define TTdes 0400000	 		/* universal terminal code */8904
+#define ERb 0600000		/* "Error base" */8965
+#define ERopnx1 (ERb|0120) /* File is already open */9022
+#define ERopnx2 (ERb|0121) /* File does not exist */9076
+#define ERopnx3 (ERb|0122) /* Read access required */9131
+#define ERopnx4 (ERb|0123) /* Write access required */9187
+#define ERopnx5 (ERb|0124) /* Execute access required */9245
+#define ERopnx6 (ERb|0125) /* Append access required */9302
+#define ERopnx7 (ERb|0126) /* Device already assigned to another job */9375
+#define ERopnx8 (ERb|0127) /* Device is not on line */9431
+#define ERopnx9 (ERb|0130) /* Invalid simultaneous access */9493
+#define ERopnx10 (ERb|0131) /* Entire file structure full */9555
+#define ERopnx12 (ERb|0133) /* List access required */9611
+#define ERopnx13 (ERb|0134) /* Invalid access requested */9671
+#define ERopnx14 (ERb|0135) /* Invalid mode requested */9729
+#define ERopnx15 (ERb|0136) /* Read/write access required */9791
+#define ERopnx16 (ERb|0137) /* File has bad index block */9851
+#define ERopnx17 (ERb|0140) /* No room in job for long file page table */9926
+#define ERopnx18 (ERb|0141) /* Unit Record Devices are not available */9999
+#define ERopnx19 (ERb|0142) /* IMP is not up */ ;TOPS20AN10058
+#define ERopnx20 (ERb|0143) /* Host is not up */ ;TOPS20AN10118
+#define ERopnx21 (ERb|0144) /* Connection refused */ ;TOPS20AN10182
+#define ERopnx22 (ERb|0145) /* Connection byte size does not match */ ;TOPS20AN10263
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_FORK.H.0
+02907,C
+#define _shl18 18	/* Cause not cross-compiling */266
+#define CR_map  (0400000<<_shl18)	/* SET MAP FOR NEW FORK TO POINT TO */464
+#define CR_cap  (0200000<<_shl18)	/* MAKE CAPABILITIES IDENTICAL */559
+#define CR_acs  (0040000<<_shl18)	/* SET ACS FROM BLOCK */619
+#define CR_st   (0020000<<_shl18)	/* START PROCESS AT PC */680
+#define CR_pcv  0777777		/* VALUE OF PC */724
+#define PA_rd  (0100000<<_shl18)	/* READ ACCESS ALLOWED */826
+#define PA_wt  (0040000<<_shl18)	/* WRITE ACCESS ALLOWED */887
+#define PA_wr  (0040000<<_shl18)	/*  (ANOTHER NAME FOR ABOVE) */953
+#define PA_ex  (0020000<<_shl18)	/* EXECUTE ACCESS ALLOWED */1016
+#define PA_pex  (0010000<<_shl18)	/* PAGE EXISTS */1108
+#define PA_ind  (0004000<<_shl18)	/* INDIRECT POINTER */1166
+#define PA_tpu  (0001000<<_shl18)	/* TRAP TO USER */1220
+#define PA_cpy  (0000400<<_shl18)	/* COPY ON WRITE */1316
+#define PA_prv  (0000200<<_shl18)	/* PRIVATE */1365
+#define P1_rd  (0000000<<_shl18 | 0100000)	/* READ ACCESS ALLOWED IN 1ST POINTER */1450
+#define P1_wr  (0000000<<_shl18 | 040000)	/* WRITE ACCESS ALLOWED IN 1ST POINTER */1535
+#define P1_wt  (0000000<<_shl18 | 040000)	/*  (ANOTHER NAME FOR ABOVE) */1610
+#define P1_ex  (0000000<<_shl18 | 040000)	/* EXECUTE ACCESS ALLOWED IN 1ST POINTER */1697
+#define P1pex  0010000	/* PAGE EXISTS IN 1ST POINTER */1791
+#define P1cpy  0000400	/* COPY-ON-WRITE IN 1ST POINTER */1850
+#define FHslf  0400000	/* SELF */2108
+#define FHsup  0777777	/* SUPERIOR */2147
+#define FHtop  0777776	/* TOP IN JOB */2188
+#define FHsai  0777775	/* SELF AND INFERIORS */2237
+#define FHinf  0777774	/* INFERIORS */2277
+#define FHjob  0777773	/* ALL IN JOB */2318
+#define GF_gfh  (0400000<<_shl18)	/* GET RELATIVE FORK HANDLES */2405
+#define GF_gfs  (0200000<<_shl18)	/* GET FORK STATUS */2462
+#define RF_lng  (0400000<<_shl18)	/* LONG FORM OF RFSTS CALL, ARG BLOCK IN 2 */2563
+#define RFprh  0777777 /* PROCESS HANDLE */2608
+#define RFcnt  00	/* XWD COUNT OF WORDS RETURNED, */2690
+#define RFpsw  01	/* PROCESS STATUS WORD */2770
+#define RFpfl  02	/* PROCESS' PC FLAGS */2813
+#define RFppc  03	/* PROCESS' PC */2850
+#define RFsfl  04	/* STATUS FLAGS FOR PROCESS  */2903
+#define RF_exo  (0400000<<_shl18)	/* PROCESS IS EXECUTE-ONLY */2968
+#define RF_frz  (0400000<<_shl18)	/* PROCESS IS FROZEN */3059
+#define RF_sts  (0377777<<_shl18) /* PROCESS STATUS CODE */3120
+#define RFrun  00	/* RUNNABLE */3154
+#define RFio  01	/* DISMISSED FOR I/O */3196
+#define RFhlt  02	/* HALTED */3228
+#define RFfpt  03	/* FORCED PROCESS TERMINATION */3280
+#define RFwat  04	/* WAITING FOR INFERIOR PROCESS */3334
+#define RFslp  05	/* SLEEP */3365
+#define RFtrp  06	/* JSYS TRAPPED */3403
+#define RFabk  07	/* ADDRESS BREAK FREEZE */3449
+#define RFsic  0777777 /* SOFTWARE INTERRUPT CHANNNEL */3507
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_GTJFN.H.0
+05317,C
+#define _shl18 18	/* cause not cross-compiling */285
+#define JIjno  00	/* JOB NUMBER */437
+#define JItno  01	/* TERMINAL NUMBER */478
+#define JIuno  02	/* USER NUMBER */515
+#define JIdno  03	/* DIRECTORY NUMBER */557
+#define JIsnm  04	/* SUBSYS NAME */594
+#define JIpnm  05	/* PROGRAM NAME */632
+#define JIrt  06	/* RUN TIME */665
+#define JIcpj  07	/* CONTROLLING PTY JOB NUMBER */717
+#define JIrtl  010	/* RUN TIME LIMIT (SET BY TIMER JSYS) */778
+#define JIbat  011	/* CONTROLLED BY BATCH */824
+#define JIden  012	/* MAGTAPE DEFAULT DENSITY */874
+#define JIpar  013	/* MAGTAPE DEFAULT PARITY */923
+#define JIdm  014	/* MAGTAPE DEFAULT DATA MODE */974
+#define JIrs  015	/* MAGTAPE DEFAULT RECORD SIZE */1027
+#define JIdfs  016	/* DEFERRED SPOOLING */1071
+#define JIlno  017	/* LOGGED-IN DIRECTORY NUMBER */1124
+#define JIsrm  020	/* POINTER TO JOB SESSION REMARK */1180
+#define JIlln  021	/* LAST LOGIN DATE & TIME */1229
+#define JIsrt  022	/* JOB RUNTIME AT START OF THIS ACCOUNTING SESSION */1303
+#define JIsct  023	/* JOB CONSOLE TIME AT START OF THIS SESSION */1371
+#define GF_gfh  (0400000<<_shl18)	/* GET RELATIVE FORK HANDLES */1458
+#define GF_gfs  (0200000<<_shl18)	/* GET FORK STATUS */1515
+#define GFaut  00	/* GET FILE AUTHOR */1576
+#define GFlwr  01	/* GET FILE LAST WRITER */1622
+#define GJ_fou  (0400000<<_shl18)	/* FILE IS FOR OUTPUT USE */1762
+#define GJ_new  (0200000<<_shl18)	/* NEW FILE ONLY */1817
+#define GJ_old  (0100000<<_shl18)	/* OLD FILE ONLY */1872
+#define GJ_msg  (0040000<<_shl18)	/* PRINT AN APPROPRIATE MESSAGE */1942
+#define GJ_cfm  (0020000<<_shl18)	/* CONFIRMATION IS REQUIRED */2008
+#define GJ_tmp  (0010000<<_shl18)	/* TEMPORARY */2059
+#define GJ_ns  (0004000<<_shl18)	/* DONT SEARCH SEARCH LISTS */2124
+#define GJ_acc  (0002000<<_shl18)	/* NO ACCESS BY OTHER FORKS */2190
+#define GJ_del  (0001000<<_shl18)	/* IGNORE "DELETED" BIT */2252
+#define GJ_jfn  (0000600<<_shl18)	/* JFN USE FIELD */2307
+#define GJdnu  00	/* DO NOT USE JFN PROVIDED */2356
+#define GJerr  02	/* ERROR IF CANNOT USE JFN PROVIDED */2414
+#define GJalt  03	/* USE ALTERNATE IF CANNOT USE GIVEN JFN */2477
+#define GJ_ifg  (0000100<<_shl18)	/* ACCEPT INPUT FILE GROUP DESCRIPTORS */2554
+#define GJ_ofg  (0000040<<_shl18)	/* ACCEPT OUTPUT FILE GROUP DESCRIPTORS */2632
+#define GJ_flg  (0000020<<_shl18)	/* RETURN FLAGS */2686
+#define GJ_phy  (0000010<<_shl18)	/* PHYSICAL DEVICE ONLY */2748
+#define GJ_xtn  (0000004<<_shl18)	/* EXTENDED FORMAT (E+11 EXISTS) */2819
+#define GJ_fns  (0000002<<_shl18)	/* ACCUMULATOR 2 CONTAINS JOB FILE NUMBERS */2900
+#define GJ_sht  (0000001<<_shl18)	/* SHORT CALL FORMAT */2959
+#define G1_rnd  (0400000<<_shl18)	/* RETURN ON NULL(IN ALTERNATE FLAG WORD) */3097
+#define G1_rbf  (0200000<<_shl18)	/* ^R BUFFER IS DISJOINT (OBSOLETE) */3171
+#define G1_nln  (0100000<<_shl18)	/* NO LONG NAMES */3226
+#define G1_rcm  (0040000<<_shl18)	/* RETURN CONFIRM MESSAGE */3290
+#define G1_rie  (0020000<<_shl18)	/* RETURN WHEN MAIN STRING IS EMPTY */3364
+#define GJ_dev  (0400000<<_shl18)	/* ASTERISK WAS GIVEN FOR DEVICE */3477
+#define GJ_unt  (0200000<<_shl18)	/* ASTERISK WAS GIVEN FOR UNIT */3546
+#define GJ_dir  (0100000<<_shl18)	/* ASTERISK WAS GIVEN FOR DIRECTORY */3620
+#define GJ_nam  (0040000<<_shl18)	/* ASTERISK WAS GIVEN FOR NAME */3689
+#define GJ_ext  (0020000<<_shl18)	/* ASTERISK WAS GIVEN FOR EXTENSION */3763
+#define GJ_ver  (0010000<<_shl18)	/* ASTERISK WAS GIVEN FOR GENERATION */3838
+#define GJ_uhv  (0004000<<_shl18)	/* USE HIGHEST GENERATION */3902
+#define GJ_nhv  (0002000<<_shl18)	/* USE NEXT HIGHER GENERATION */3970
+#define GJ_ulv  (0001000<<_shl18)	/* USE LOWEST GENERATION */4033
+#define GJ_pro  (0000400<<_shl18)	/* PROTECTION GIVEN */4091
+#define GJ_act  (0000200<<_shl18)	/* ACCOUNT GIVEN */4146
+#define GJ_tfs  (0000100<<_shl18)	/* TEMPORARY FILE SPECIFIED (// T) */4219
+#define GJ_gnd  (0000040<<_shl18)	/* COMPLEMENT OF gjDEL ON CALL */4288
+#define  GJgen  00	/* FLAGS ,,GENERATION */4365
+#define  GJdef  00	/* DEFAULT GENERATION */4410
+#define  GJnhg  0777777	/* NEXT HIGHER GENERATION */4464
+#define GJleg  0777776	/* LOWEST EXISTING GENERATION */4521
+#define GJall  0777775	/* ALL GENERATIONS (Ie., // *) */4579
+#define GJsrc  01	/* SOURCE JFN ,,OUTPUT JFN */4628
+#define GJdev  02	/* DEFAULT DEVICE */4668
+#define GJdir  03	/* DEFAULT DIRECTORY */4711
+#define GJnam  04	/* DEFAULT NAME */4749
+#define GJext  05	/* DEFAULT EXTENSTION */4793
+#define GJpro  06	/* DEFAULT PROTECTION */4837
+#define GJact  07	/* DEFAULT ACCOUNT */4878
+#define GJjfn  010	/* DESIRED JFN */4916
+#define GJf2  011	/* SECOND GROUP FLAGS,,COUNT */4967
+#define GJcpp  012	/* COPY BUFFER POINTER */5013
+#define GJcpc  013	/* COPY BUFFER COUNT */5057
+#define GJrty  014	/* RETYPE (^R) POINTER */5103
+#define GJbfp  015	/* TOP OF BUFFER POINTER */5151
+#define GJatr  016	/* POINTER TO ARBITRARY ATTRIBUTE BLOCK */5214
+#define GN_str  (0000020<<_shl18)	/* STRUCTURE CHANGED */5308
+#define GN_dir  (0000010<<_shl18)	/* DIRECTORY CHANGED */5367
+#define GN_nam  (0000004<<_shl18)	/* NAME CHANGED */5421
+#define GN_ext  (0000002<<_shl18)	/* EXTENSION CHANGED */5480
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_INIT.H.0
+04489,C
+#define _shl18 18	/* cause not cross-compiling */283
+#define PRiin  0100	/* PRIMARY INPUT */463
+#define PRiou  0101	/* PRIMARY OUTPUT */505
+#define NUlio  0377777	/* NULL DESIGNATOR */551
+#define CTtrm  0777777	/* JOB'S CONTROLLING TERMINAL */608
+#define DVdes  0600000	/* UNIVERSAL DEVICE CODE */660
+#define TTdes  0400000	/* UNIVERSAL TERMINAL CODE */714
+#define GJ_fou  (0400000<<_shl18)	/* FILE IS FOR OUTPUT USE */850
+#define GJ_new  (0200000<<_shl18)	/* NEW FILE ONLY */905
+#define GJ_old  (0100000<<_shl18)	/* OLD FILE ONLY */960
+#define GJ_msg  (0040000<<_shl18)	/* PRINT AN APPROPRIATE MESSAGE */1030
+#define GJ_cfm  (0020000<<_shl18)	/* CONFIRMATION IS REQUIRED */1096
+#define GJ_tmp  (0010000<<_shl18)	/* TEMPORARY */1147
+#define GJ_ns  (0004000<<_shl18)	/* DONT SEARCH SEARCH LISTS */1212
+#define GJ_acc  (0002000<<_shl18)	/* NO ACCESS BY OTHER FORKS */1278
+#define GJ_del  (0001000<<_shl18)	/* IGNORE "DELETED" BIT */1340
+#define GJ_jfn  (0000600<<_shl18)	/* JFN USE FIELD */1395
+#define GJdnu  00	/* DO NOT USE JFN PROVIDED */1444
+#define GJerr  02	/* ERROR IF CANNOT USE JFN PROVIDED */1502
+#define GJalt  03	/* USE ALTERNATE IF CANNOT USE GIVEN JFN */1565
+#define GJ_ifg  (0000100<<_shl18)	/* ACCEPT INPUT FILE GROUP DESCRIPTORS */1642
+#define GJ_ofg  (0000040<<_shl18)	/* ACCEPT OUTPUT FILE GROUP DESCRIPTORS */1720
+#define GJ_flg  (0000020<<_shl18)	/* RETURN FLAGS */1774
+#define GJ_phy  (0000010<<_shl18)	/* PHYSICAL DEVICE ONLY */1836
+#define GJ_xtn  (0000004<<_shl18)	/* EXTENDED FORMAT (E+11 EXISTS) */1907
+#define GJ_fns  (0000002<<_shl18)	/* ACCUMULATOR 2 CONTAINS JOB FILE NUMBERS */1988
+#define GJ_sht  (0000001<<_shl18)	/* SHORT CALL FORMAT */2047
+#define G1_rnd  (0400000<<_shl18)	/* RETURN ON NULL(IN ALTERNATE FLAG WORD) */2185
+#define G1_rbf  (0200000<<_shl18)	/* ^R BUFFER IS DISJOINT (OBSOLETE) */2259
+#define G1_nln  (0100000<<_shl18)	/* NO LONG NAMES */2314
+#define G1_rcm  (0040000<<_shl18)	/* RETURN CONFIRM MESSAGE */2378
+#define G1_rie  (0020000<<_shl18)	/* RETURN WHEN MAIN STRING IS EMPTY */2452
+#define GJ_dev  (0400000<<_shl18)	/* ASTERISK WAS GIVEN FOR DEVICE */2565
+#define GJ_unt  (0200000<<_shl18)	/* ASTERISK WAS GIVEN FOR UNIT */2634
+#define GJ_dir  (0100000<<_shl18)	/* ASTERISK WAS GIVEN FOR DIRECTORY */2708
+#define GJ_nam  (0040000<<_shl18)	/* ASTERISK WAS GIVEN FOR NAME */2777
+#define GJ_ext  (0020000<<_shl18)	/* ASTERISK WAS GIVEN FOR EXTENSION */2851
+#define GJ_ver  (0010000<<_shl18)	/* ASTERISK WAS GIVEN FOR GENERATION */2926
+#define GJ_uhv  (0004000<<_shl18)	/* USE HIGHEST GENERATION */2990
+#define GJ_nhv  (0002000<<_shl18)	/* USE NEXT HIGHER GENERATION */3058
+#define GJ_ulv  (0001000<<_shl18)	/* USE LOWEST GENERATION */3121
+#define GJ_pro  (0000400<<_shl18)	/* PROTECTION GIVEN */3179
+#define GJ_act  (0000200<<_shl18)	/* ACCOUNT GIVEN */3234
+#define GJ_tfs  (0000100<<_shl18)	/* TEMPORARY FILE SPECIFIED (// T) */3307
+#define GJ_gnd  (0000040<<_shl18)	/* COMPLEMENT OF gjDEL ON CALL */3376
+#define  GJgen  00	/* FLAGS ,,GENERATION */3453
+#define  GJdef  00	/* DEFAULT GENERATION */3498
+#define  GJnhg  0777777	/* NEXT HIGHER GENERATION */3552
+#define GJleg  0777776	/* LOWEST EXISTING GENERATION */3609
+#define GJall  0777775	/* ALL GENERATIONS (Ie., // *) */3667
+#define GJsrc  01	/* SOURCE JFN ,,OUTPUT JFN */3716
+#define GJdev  02	/* DEFAULT DEVICE */3756
+#define GJdir  03	/* DEFAULT DIRECTORY */3799
+#define GJnam  04	/* DEFAULT NAME */3837
+#define GJext  05	/* DEFAULT EXTENSTION */3881
+#define GJpro  06	/* DEFAULT PROTECTION */3925
+#define GJact  07	/* DEFAULT ACCOUNT */3966
+#define GJjfn  010	/* DESIRED JFN */4004
+#define GJf2  011	/* SECOND GROUP FLAGS,,COUNT */4055
+#define GJcpp  012	/* COPY BUFFER POINTER */4101
+#define GJcpc  013	/* COPY BUFFER COUNT */4145
+#define GJrty  014	/* RETYPE (^R) POINTER */4191
+#define GJbfp  015	/* TOP OF BUFFER POINTER */4239
+#define GJatr  016	/* POINTER TO ARBITRARY ATTRIBUTE BLOCK */4302
+#define GN_str  (0000020<<_shl18)	/* STRUCTURE CHANGED */4396
+#define GN_dir  (0000010<<_shl18)	/* DIRECTORY CHANGED */4455
+#define GN_nam  (0000004<<_shl18)	/* NAME CHANGED */4509
+#define GN_ext  (0000002<<_shl18)	/* EXTENSION CHANGED */4568
+#define RSini  00	/* MAKE RESCAN BUFFER AVAILABLE FOR INPUT */4652
+#define RScnt  01	/* COUNT CHARACTERS LEFT TO READ FROM RESCAN BUFFER */4726
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_IOCTL.H.0
+10366,C
+#define MOcle 00	 		/* clear errors */736
+#define MOnop 031	 		/* nop (wait for activity to stop) */796
+#define MOrew 01	 		/* rewind */830
+#define MOeof 03	 		/* write eof */867
+#define MOdte 04	 		/* assign fe device to a dte */920
+#define MOfwr 06	 		/* forward space record */968
+#define MObkr 07	 		/* backspace record */1012
+#define MOrul 011	 		/* rewind and unload */1058
+#define MOers 013	 		/* erase tape */1097
+#define MOfwf 016	 		/* forward space file */1144
+#define MObkf 017	 		/* backspace file */1187
+#define MOspd 026	 		/* set tty speed (for kl only) */1243
+#define MOrsp 027	 		/* read line speed (for kl only) */1301
+#define    MO_rmt 01:35-0			/* flag to say line is remote */1363
+#define    MO_aut 01:35-1			/* flag to say line is "auto" speed */1431
+#define MOsnt 034	 		/* set tty non-terminal status */1489
+#define    MOsmn 01	 		/* no system messages(i.e. suppress) */1553
+#define    MOsmy 00	 		/* yes system messages(default) */1612
+#define MOrnt 035	 		/* read tty non-terminal status */1669
+#define MOapi 024	 		/* assign pty interrupt channels */1756
+#define    MO_wfi 01:35-0			/* enable waiting for input */1816
+#define    MO_oir 01:35-1			/* enable output is waiting */1876
+#define    MO_sic 077:35-17		/* software interrupt channel */1939
+#define MOpih 025	 		/* test pty input hungry */1989
+#define    MOnwi 00	 		/* not waiting for input */2041
+#define    MOwfi -1			/* waiting for input */2088
+#define MObat 026	 		/* set batch bit */2130
+#define   MOjcb 01	 		/* job controlled by batch */2183
+#define   MOncb 00	 		/* job not controlled by batch */2240
+#define MOrlw 030	 		/* read width */2314
+#define MOslw 031	 		/* set width */2352
+#define MOrll 032	 		/* read length */2392
+#define MOsll 033	 		/* set length */2431
+#define MOsig 036	 		/* set "ignore input when inactive" bit */2496
+#define MOrbm 037	 		/* read 128 character break mask */2554
+#define 	MO_wn1 (0776117<<18|0777740)	/* bit definitions for non-formatting control  */2645
+#define 	MO_wn2 00	 	/* for ascii codes 40-777 */2696
+#define 	MO_wn3 00	 	/* for ascii codes 100-137 */2748
+#define 	MO_wn4 020	 	/* for ascii codes 137-177 */2801
+#define 	MO_wf1 (0001260<<18|0000420)	/* formatting control bits  */2873
+#define 	MO_wf2 00	 	/* for ascii codes 40-77 */2923
+#define 	MO_wf3 00	 	/* for ascii codes 100-137 */2975
+#define 	MO_wf4 020	 	/* for ascii codes 140-177 */3028
+#define 	MO_wp1 (0000400<<18|0400)	/* punctuation bit definitions  */3101
+#define 	MO_wp2 (0777774<<18|0001760)	/*  for ascii codes 40-77  */3170
+#define 	MO_wp3 (0400000<<18|0000760)	/*  for ascii codes 100-137  */3241
+#define 	MO_wp4 (0400000<<18|0000760)	/*  for ascii codes 140-177  */3312
+#define 	MO_wa1 0400	 	/* alphanumerics definitions */3371
+#define 	MO_wa2 (0000003<<18|0776000)	/*  for ascii codes 40-77  */3440
+#define 	MO_wa3 (0377777<<18|0777000)	/*  for ascii codes 100-137  */3511
+#define 	MO_wa4 (0377777<<18|0777020)	/*  for ascii codes 140-177 */3581
+#define MOsbm 040	 		/* set 128 character break mask */3638
+#define MOrfw 041	 		/* read field width */3683
+#define MOsfw 042	 		/* set field width */3727
+#define MOxof 043	 		/* set/clear xoff/xon handling */3783
+#define 	MOoff 00	 	/* turn off xon/xoff processing */3839
+#define 	MOonx 01	 	/* turn on xon/xoff processing */3894
+#define MOrxo 044	 		/* read value of xoff bit */3945
+#define MOslc 045	 		/* set line counter */3990
+#define MOrlc 046	 		/* read line counter */4036
+#define MOslm 047	 		/* set line counter maximum */4089
+#define MOrlm 050	 		/* read line counter maximum */4143
+#define MOtps 051	 		/* psi for non-controlling terminal  */4205
+#define MOamo 01	 		/* set mode word */4327
+#define 	MOamm 01	 	/* message mode */4367
+#define 	MOadm 02	 	/* data mode */4404
+#define MOaat 02	 		/* acquire terminal */4448
+#define 	MO_aer 01:35-0		/* htn field contains an error code */4513
+#define MOasi 03	 		/* enable interrupts */4558
+#define 	MO_ifl 0777:35-8		/* function to be performed */4617
+#define 	  MOaai 00	 	/* assign interrupt channel */4671
+#define 	  MOadi 01	 	/* deassign interrupt channel */4727
+#define 	MO_iev 0777:35-17		/* event being assigned or deassigned */4797
+#define 	  MOadt 00	 	/* data arrival */4839
+#define 	  MOast 01	 	/* status arrival */4883
+#define 	MO_ach 0777777:35-35	/* channel number */4935
+#define MOrcd 04	 		/* get status */4973
+#define 	MO_wdv 0777:35-35		/* which devices to report on */5035
+#define 	  MOald 00	 	/* all terminals */5078
+#define 	  MOchg 01	 	/* terminals whose status has changed */5142
+#define 	  MOlst 02	 	/* terminals specified in list */5199
+#define 	MO_arm 01:35-0		/* ask the resource manager */5256
+#define 	MO_mda 01:35-1		/* more data available for this jfn */5321
+#define 		AT_opn 01:35-0	/* htn is open and usable */5376
+#define 		AT_tcl 01:35-1	/* nrm closed terminal via status-report */5446
+#define 		AT_dht 01:35-2	/* deassigning htn */5494
+#define 		AT_txf 01:35-3	/* terminal is xoff'd */5545
+#define 		AT_und 01:35-4	/* device requested is undefined */5607
+#define 		AT_nav 01:35-5	/* device requested is not available */5673
+#define 		AT_ofl 01:35-6	/* device requested is offline */5733
+#define 		AT_ful 01:35-7	/* server is full */5780
+#define 		AT_uns 01:35-8	/* device type is unsupported */5839
+#define 		AT_rej 01:35-9	/* node nrm rejected the request */5901
+#define 		AT_mie 01:35-10	/* monitor internal error (node or host) */5972
+#define 		AT_stf 01:35-11	/* vt62 start-up failed */6026
+#define 		AT_crj 01:35-12	/* connection was rejected */6083
+#define 		AT_ndp 01:35-13	/* data pipe is not open */6138
+#define 		AT_ser 0777777:35-35 /* status report error code (18 bits) */6211
+#define MOade 05	 		/* deassign terminal */6256
+#define 	MO_aab 01:35-0		/* don't send remaining data */6314
+#define MOfle 00	 		/* flush errors */6404
+#define MOrer 01	 		/* return aydin error code */6455
+#define MOwat 02	 		/* wait for activity to stop */6508
+#define 	MO_rwc 0777777:35-17	/* remaining word count */6566
+#define 	MO_ler 0777777:35-35	/* last aydin error code */6625
+#define FHslf 0400000	 		/* self */6881
+#define FHsup -1			/* superior */6916
+#define FHtop -2			/* top in job */6953
+#define FHsai -3			/* self and inferiors */6998
+#define FHinf -4			/* inferiors */7034
+#define FHjob -5			/* all in job */7071
+#define TT_osp 01:35-0			/* output suppress */7156
+#define TT_mff 01:35-1			/* mechanical formfeed present */7216
+#define TT_tab 01:35-2			/* mechanical tab present */7271
+#define TT_lca 01:35-3			/* lower case capabilities present */7335
+#define TT_len 0177:35-10			/* page length */7382
+#define TT_wid 0177:35-17			/* page width */7428
+#define TT_wak 017:35-23			/* wakeup field */7475
+#define TT_wk0 01:35-18			/* wakeup class 0 (unused) */7532
+#define TT_ign 01:35-19			/* ignore tt%wak on sfmod */7588
+#define TT_wkf 01:35-20			/* wakeup on formating control chars */7655
+#define TT_wkn 01:35-21			/* wakeup on non-formatting controls */7722
+#define TT_wkp 01:35-22			/* wakeup on punctuation */7777
+#define TT_wka 01:35-23			/* wakeup on alphanumerics */7834
+#define TT_eco 01:35-24			/* echos on */7876
+#define TT_ecm 01:35-25			/* echo mode */7919
+#define TT_alk 01:35-26			/* allow links */7964
+#define TT_aad 01:35-27			/* allow advice (not implemented) */8028
+#define TT_dam 03:35-29			/* data mode */8071
+#define TTbin 00	 		/* binary */8105
+#define TTasc 01	 		/* ascii */8138
+#define TTato 02	 		/* ascii and translate output only */8197
+#define TTate 03	 		/* ascii and translate echos only */8255
+#define TT_uoc 01:35-30			/* upper case output control */8314
+#define TT_lic 01:35-31			/* lower case input control */8372
+#define TT_dum 03:35-33			/* duplex mode */8417
+#define TTfdx 00	 		/* full duplex */8456
+#define TT0dx 01	 		/* not used, reserved */8502
+#define TThdx 02	 		/* half duplex (character) */8553
+#define TTldx 03	 		/* line half duplex */8597
+#define TT_pgm 01:35-34			/* page mode */8640
+#define TT_car 01:35-35			/* carrier state */8687
+#define TT33 0	 		/* model 33 */8757
+#define TT35 1	 		/* model 35 */8791
+#define TT37 2	 		/* model 37 */8825
+#define TTexe 3	 		/* execuport */8861
+#define TTdtc 2	 		/* diablo or dtc (tty 37 de-implemented) */8925
+#define TTexe 3	 		/* execuport */8961
+#define TTgtt 4	 		/* glass teletype */9002
+#define TTpe 5	 		/* perkin elmer fox */9044
+#define TTadm 6	 		/* lsi adm3a */9080
+#define TTtel 7	 		/* teleray 1061 */9119
+#define TTdef 8			/* default */9152
+#define TTidl 9			/* ideal */9183
+#define TTv05 10			/* vt05 */9214
+#define TTv50 11			/* vt50 */9245
+#define TTl30 12			/* la30 */9276
+#define TTg40 13			/* gt40 */9307
+#define TTl36 14			/* la36 */9338
+#define TTv52 15			/* vt52 */9369
+#define TT100 16			/* vt100 */9401
+#define TTl38 17			/* la38 */9432
+#define TT120 18			/* la120 */9464
+#define TThp 24			/* hp 2645/2621 */9502
+#define TIcbk 0	 		/* break */9568
+#define TIcca 1	 		/* ^a */9597
+#define TIccb 2	 		/* ^b */9626
+#define TIccc 3	 		/* ^c */9655
+#define TIccd 4	 		/*  */9682
+#define TIcce 5	 		/* ^e */9711
+#define TIccf 6	 		/* ^f */9740
+#define TIccg 7	 		/* ^g */9769
+#define TIcch 8	 		/* ^h */9798
+#define TIcci 9	 		/* ^i */9827
+#define TIccj 10	 		/* ^j */9857
+#define TIcck 11	 		/* ^k */9887
+#define TIccl 12	 		/* ^l */9917
+#define TIccm 13	 		/* ^m */9947
+#define TIccn 14	 		/* ^n */9977
+#define TIcco 15	 		/* ^o */10007
+#define TIccp 16	 		/* ^p */10037
+#define TIccq 17	 		/* ^q */10067
+#define TIccr 18	 		/* ^r */10097
+#define TIccs 19	 		/* ^s */10127
+#define TIcct 20	 		/* ^t */10157
+#define TIccu 21	 		/* ^u */10187
+#define TIccv 22	 		/* ^v */10217
+#define TIccw 23	 		/* ^w */10247
+#define TIccx 24	 		/* ^x */10277
+#define TIccy 25	 		/* ^y */10307
+#define TIccz 26	 		/* ^z */10337
+#define TIces 27	 		/* esc */10368
+#define TIcrb 28	 		/* rubout */10402
+#define TIcsp 29	 		/* space */10435
+#define TIcrf 30	 		/* carrier off */10474
+#define TIcti 31	 		/* typein */10508
+#define TIcto 32	 		/* typeout */10543
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_SIG.H.0
+03262,C
+#define FHslf 0400000	 		/* self */342
+#define ICaov 6	 		/* arithmetic overflow */420
+#define ICfov 7	 		/* floating overflow */464
+#define ICpov 9	 		/* pdl overflow */503
+#define ICeof 10	 		/* end of file */542
+#define ICdae 11	 		/* data error */580
+#define ICqta 12	 		/* quota/disk exceeded */627
+#define ICtod 14	 		/* time of day (not implemented) */684
+#define ICili 15	 		/* illeg instruction */729
+#define ICird 16	 		/* illegal read */769
+#define ICiwr 17	 		/* illegal write */810
+#define ICiex 18	 		/* illegal execute (not implemented) */871
+#define ICift 19	 		/* inferior fork termination */924
+#define ICmse 20	 		/* machine size exceeded */973
+#define ICtru 21	 		/* trap to user (not implemented) */1031
+#define ICnxp 22	 		/* nonexistent page referenced */1086
+#define RT_dim 01:35-0			/* deferred terminal interrupt mask given */1173
+#define RT_prh 0777777	 		/* process handle */1221
+#define SI_ver 07:35-17			/* version of sir in t1 */1306
+#define SI_lev 077:35-5			/* level field in chntab */1361
+#define SI_adr 7777,,-1		/* address of interrupt routine in chntab */1432
+#define ST_dim 01:35-0			/* set deferred interrupt mask */1508
+#define ST_prh 0777777:35-35		/* process handle */1560
+#define SWart 00	 		/* set arithmetic trap */1636
+#define SWrat 01	 		/* read arithmetic trap */1684
+#define SWlut 02	 		/* set luuo address */1728
+#define SWrlt 03	 		/* read luuo address */1773
+#define 	ARpfl 00	 	/* offset in trap block for pc flags */1834
+#define 	ARopc 01	 	/* offset for old pc value */1885
+#define 	ARefa 02	 	/* offset for e */1925
+#define 	ARnpc 03	 	/* offset for new pc word */1975
+#define TIcbk 0	 		/* break */2041
+#define TIcca 1	 		/* ^a */2070
+#define TIccb 2	 		/* ^b */2099
+#define TIccc 3	 		/* ^c */2128
+#define TIccd 4	 		/*  */2155
+#define TIcce 5	 		/* ^e */2184
+#define TIccf 6	 		/* ^f */2213
+#define TIccg 7	 		/* ^g */2242
+#define TIcch 8	 		/* ^h */2271
+#define TIcci 9	 		/* ^i */2300
+#define TIccj 10	 		/* ^j */2330
+#define TIcck 11	 		/* ^k */2360
+#define TIccl 12	 		/* ^l */2390
+#define TIccm 13	 		/* ^m */2420
+#define TIccn 14	 		/* ^n */2450
+#define TIcco 15	 		/* ^o */2480
+#define TIccp 16	 		/* ^p */2510
+#define TIccq 17	 		/* ^q */2540
+#define TIccr 18	 		/* ^r */2570
+#define TIccs 19	 		/* ^s */2600
+#define TIcct 20	 		/* ^t */2630
+#define TIccu 21	 		/* ^u */2660
+#define TIccv 22	 		/* ^v */2690
+#define TIccw 23	 		/* ^w */2720
+#define TIccx 24	 		/* ^x */2750
+#define TIccy 25	 		/* ^y */2780
+#define TIccz 26	 		/* ^z */2810
+#define TIces 27	 		/* esc */2841
+#define TIcrb 28	 		/* rubout */2875
+#define TIcsp 29	 		/* space */2908
+#define TIcrf 30	 		/* carrier off */2947
+#define TIcti 31	 		/* typein */2981
+#define TIcto 32	 		/* typeout */3016
+#define TImrt 00	 		/* set time limit */3087
+#define TImel 01	 		/* set elapsed time clock */3137
+#define TImdt 02	 		/* set date & time clock */3186
+#define TImdd 03	 		/* delete an explict date & time clock */3249
+#define TImbf 04	 		/* delete all entires before d&t */3306
+#define TImal 05	 		/* delete all (includes time limit) */3366
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_TIME.H.0
+06497,C
+#define _shl18 18	/* cause not cross-compiling */283
+#define HPelp 00	 		/* elapsed time */440
+#define HPrnt 01	 		/* run time */476
+#define IC_dsa 01:35-0			/* daylight savings if appropriate */582
+#define IC_ads 01:35-1			/* apply daylight savings */637
+#define IC_utz 01:35-2			/* use time zone given */689
+#define IC_jud 01:35-3			/* use julian date conversion */748
+#define IC_tmz 077:35-17			/* time zone */792
+#define IC_tim 0777777:35-35		/* local time */840
+#define IT_nda 01:35-0			/* no date */907
+#define IT_nnm 01:35-1			/* no numeric month */956
+#define IT_snm 01:35-2			/* second number is month */1011
+#define IT_err 01:35-3			/* error if numbers are not in specified */1081
+#define IT_nti 01:35-6			/* no time */1139
+#define IT_nis 01:35-7			/* no seconds */1182
+#define IT_ais 01:35-8			/* always include seconds */1237
+#define IT_nac 01:35-9			/* no colon allowed between hh and mm */1304
+#define IT_aac 01:35-10			/* always allow colon */1356
+#define IT_ams 01:35-11			/* always interpret one colon as hhmm:ss */1427
+#define IT_ahm 01:35-12			/* always interpret one colon as hh:mm */1496
+#define IT_n24 01:35-14			/* no 24-hour format */1547
+#define IT_ntm 01:35-15			/* no time modifier (am, pm) */1606
+#define IT_ntz 01:35-16			/* no time zone */1652
+#define OT_nda  (0400000<<_shl18)	/* DO NOT OUTPUT DATE */1730
+#define OT_day  (0200000<<_shl18)	/* OUTPUT DAY OF WEEK */1790
+#define OT_fdy  (0100000<<_shl18)	/* OUTPUT NUMERIC MONTH */1852
+#define OT_nmn  (0040000<<_shl18)	/* OUTPUT NUMERIC MONTH */1914
+#define OT_fmn  (0020000<<_shl18)	/* OUTPUT MONTH IN FULL */1976
+#define OT_4yr  (0010000<<_shl18)	/* OUTPUT 4-DIGIT YEAR */2037
+#define OT_dam  (0004000<<_shl18)	/* OUTPUT DAY AFTER MONTH */2101
+#define OT_spa  (0002000<<_shl18)	/* OUTPUT SPACES IN DATE */2164
+#define OT_sla  (0001000<<_shl18)	/* OUTPUT SLASHES IN DATE */2228
+#define OT_ntm  (0000400<<_shl18)	/* DO NOT OUTPUT TIME */2288
+#define OT_nsc  (0000200<<_shl18)	/* DO NOT OUTPUT SECONDS */2351
+#define OT_12h  (0000100<<_shl18)	/* OUTPUT 12-HOUR FORMAT */2414
+#define OT_nco  (0000040<<_shl18)	/* DO NOT OUTPUT COLON */2475
+#define OT_tmz  (0000020<<_shl18)	/* OUTPUT TIME ZONE */2533
+#define OT_scl  (0000001<<_shl18)	/* SUPPRESS COLUMNIZATION */2597
+#define OF_bsz  (0770000<<_shl18)	/* BYTE SIZE */2708
+#define OF_mod  (0007400<<_shl18)	/* MODE */2754
+#define OFher  0400000	/* HALT ON IO ERROR */2801
+#define OFrd  0200000	/* READ */2835
+#define OFwr  0100000	/* WRITE */2870
+#define OFex  0040000	/* EXECUTE (RESERVED FOR THE FUTURE) */2933
+#define OFapp  0020000	/* APPEND */2970
+#define OFthw  0002000	/* THAWED */3007
+#define OFawt  0001000	/* ALWAYS WAIT */3049
+#define OFpdt  0000400	/* PRESERVE DATES */3094
+#define OFnwt  0000200	/* NEVER WAIT */3135
+#define OFrtd  0000100	/* RESTRICTED */3176
+#define OFpln  0000040	/* SET TO DISABLE LINE NUMBER CHECKING FOR */3246
+#define OFdud  0000020	/* DON'T UPDATE TO DISK BY DDMP */3338
+#define OFofl  0000010	/* ALLOW OPENING THE DEVICE EVEN IF OFFLINE */3409
+#define SFfac 00	 		/* allow fact entries */3523
+#define SFcde 01	 		/* checkdisk found errors */3573
+#define SFcdr 02	 		/* checkdisk running */3618
+#define SFmst 03	 		/* manual start in progress */3670
+#define SFrmt 04	 		/* remote logins allowed */3719
+#define SFpty 05	 		/* pty logins allowed */3765
+#define SFcty 06	 		/* cty login allowed */3810
+#define SFopr 07	 		/* operator in attendance */3860
+#define SFlcl 010	 		/* local logins allowed */3909
+#define SFbte 011	 		/* bit table errors found on startup */3971
+#define SFcrd 012	 		/* user can change directory characteristics */4041
+#define SFnvt 013	       /* tops20an	;nvt login allowed */4101
+#define SFwct 014	 		/* wheel login on cty allowed */4156
+#define SFwlc 015	 		/* wheel login on local terminals allowed */4223
+#define SFwrm 016	 		/* wheel login on remote terminals allowed */4291
+#define SFwpt 017	 		/* wheel login on pty's allowed */4348
+#define SFwnv 020	       /* tops20an	;wheel login on nvt's allowed */4419
+#define SFusg 021	 		/* usage file in use */4465
+#define SFflo 022	 		/* full latency optimization */4519
+#define SFmta 023	 		/* magtape allocation enabled */4791
+#define SFntn 044	       /* tops20an	;network on/off control */4927
+#define SFndu 045	       /* tops20an	;net down/up request */4989
+#define SFnhi 046	       /* tops20an	;net host table initialize */5057
+#define SFtmz 047	 		/* set time zone this system is in */5117
+#define SFlhn 050	       /* tops20an	;set local host number of this net site */5198
+#define SFavr 051	 		/* account validation on/off */5252
+#define SFsts 052	 		/* enable/disable status reporting */5312
+#define SFsok 053	 		/* getok/givok default setting */5368
+#define SFmcy 054	 		/* set max ordinary offline exp period */5432
+#define SFrdu 055	 		/* read date update function */5486
+#define SFacy 056	 		/* set max archive exp period */5541
+#define SFrtw 057	 		/* set [no] retrieval waits non-0 => no wait */5611
+#define SFtdf 060	 		/* tape mount controls */5659
+#define   MT_uut 01:35-0			/* unload unreadable tapes */5717
+#define SFwsp 061	 		/* working set preloading */5768
+#define SF_fac 01:35-<.sffac>		/* fact entries allowed */5829
+#define SF_cde 01:35-<.sfcde>		/* checkdisk found errors */5890
+#define SF_cdr 01:35-<.sfcdr>		/* checkdisk running */5946
+#define SF_mst 01:35-<.sfmst>		/* manual start in progress */6009
+#define SF_rmt 01:35-<.sfrmt>		/* remote logins allowed */6069
+#define SF_pty 01:35-<.sfpty>		/* pty logins allowed */6126
+#define SF_cty 01:35-<.sfcty>		/* cty login allowed */6182
+#define SF_opr 01:35-<.sfopr>		/* operator in attendance */6243
+#define SF_lcl 01:35-<.sflcl>		/* local logins allowed */6302
+#define SF_bte 01:35-<.sfbte>		/* bit table errors found on startup */6374
+#define SF_crd 01:35-<.sfcrd>		/* user can change directory characteristics */6454
+#define SF_nvt 01:35-<.sfnvt>   /* tops20an	;nvt logins allowed */6522
+#define SF_usg 01:35-<.sfusg>		/* usage file in use */6578
+#define SF_flo 01:35-<.sfflo>		/* full latency optimization in use */6649
+#define SF_mta 01:35-<.sfmta>		/* magtape allocation enabled */6929
+#define SF_eok 01:35-0			/* enable access checking */6988
+#define SF_dok 01:35-1			/* allow access if checking disabled */7054
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_U1.H.0
+11466,C
+#define AC_con 01:35-0			/* connect to the specified directory */1032
+#define AC_own 01:35-1			/* gain ownership */1079
+#define AC_rem 01:35-2			/* remove ownership */1128
+#define ACdir 00	 		/* directory designator */1213
+#define ACpsw 01	 		/* pointer to password string */1267
+#define ACjob 02	 		/* job number (-1 for self) */1319
+#define DV_out 01:35-0			/* device can do output */1423
+#define DV_in 01:35-1			/* device can do input */1474
+#define DV_dir 01:35-2			/* device has a directory */1529
+#define DV_as 01:35-3			/* device is assignable */1581
+#define DV_mdd 01:35-4			/* device is a multiple directory device */1651
+#define DV_av 01:35-5			/* device is available to this job */1714
+#define DV_asn 01:35-6			/* device is assigned by asnd */1773
+#define DV_mdv 01:35-7			/* reserved (historical) */1827
+#define DV_mnt 01:35-8			/* device is mounted */1877
+#define DV_typ 0777:35-17			/* device type field */1930
+#define DV_psd 01:35-18			/* pseudo device */1977
+#define DV_unt 077777	 		/* unit mask */2019
+#define DV_mod 0177777:35-35		/* device data mode */2073
+#define DV_m0 01:35-35			/* device can be opened in mode 0 */2136
+#define DV_m1 01:35-34			/* device can be opened in mode 1 */2199
+#define DV_m2 01:35-33			/* device can be opened in mode 2 */2262
+#define DV_m3 01:35-32			/* device can be opened in mode 3 */2325
+#define DV_m4 01:35-31			/* device can be opened in mode 4 */2388
+#define DV_m5 01:35-30			/* device can be opened in mode 5 */2451
+#define DV_m6 01:35-29			/* device can be opened in mode 6 */2514
+#define DV_m7 01:35-28			/* device can be opened in mode 7 */2577
+#define DV_m10 01:35-27			/* device can be opened in mode 10 */2642
+#define DV_m11 01:35-26			/* device can be opened in mode 11 */2707
+#define DV_m12 01:35-25			/* device can be opened in mode 12 */2772
+#define DV_m13 01:35-24			/* device can be opened in mode 13 */2837
+#define DV_m14 01:35-23			/* device can be opened in mode 14 */2902
+#define DV_m15 01:35-22			/* device can be opened in mode 15 */2967
+#define DV_m16 01:35-21			/* device can be opened in mode 16 */3032
+#define DV_m17 01:35-20			/* device can be opened in mode 17 */3097
+#define D1_spl 01:35-0			/* device is spooled */3147
+#define D1_alc 01:35-1			/* device is under control of allocator */3216
+#define D1_vvl 01:35-2			/* volume valid */3261
+#define D1_niu 01:35-3			/* device slot is not in use (for structures  */3336
+#define D1_ini 01:35-4			/* device is being initialized (structure */3436
+#define DVdsk 00	 		/* disk */3596
+#define DVmta 02	 		/* magtape */3631
+#define DVdta 03	 		/* dectape */3666
+#define DVptr 04	 		/* paper tape reader */3711
+#define DVptp 05	 		/* paper tape punch */3755
+#define DVdsp 06	 		/* display */3790
+#define DVlpt 07	 		/* line printer */3830
+#define DVcdr 010	 		/* card reader */3870
+#define DVfe 011	 		/* front end device */3914
+#define DVtty 012	 		/* terminal */3951
+#define DVpty 013	 		/* pty */3983
+#define DVnul 015	 		/* null device */4023
+#define DVnet 016	 		/* arpa network */4064
+#define DVplt 017	 		/* plotter */4100
+#define DVcdp 021	 		/* card punch */4139
+#define DVdcn 022	 		/* decnet active component */4191
+#define DVsrv 023	 		/* decent passive component */4244
+#define DVats 024	 		/* applications terminal service */4302
+#define DVads 025	 		/* aydin display */4344
+#define GJ_fou 01:35-0			/* file is for output use */4470
+#define GJ_new 01:35-1			/* new file only */4516
+#define GJ_old 01:35-2			/* old file only */4562
+#define GJ_msg 01:35-3			/* print an appropriate message */4623
+#define GJ_cfm 01:35-4			/* confirmation is required */4680
+#define GJ_tmp 01:35-5			/* temporary */4722
+#define GJ_ns 01:35-6			/* dont search search lists */4778
+#define GJ_acc 01:35-7			/* no access by other forks */4835
+#define GJ_del 01:35-8			/* ignore "deleted" bit */4888
+#define GJ_jfn 03:35-10			/* jfn use field */4935
+#define GJdnu 00	 		/* do not use jfn provided */4986
+#define GJerr 02	 		/* error if cannot use jfn provided */5046
+#define GJalt 03	 		/* use alternate if cannot use given jfn */5111
+#define GJ_ifg 01:35-11			/* accept input file group descriptors */5180
+#define GJ_ofg 01:35-12			/* accept output file group descriptors */5250
+#define GJ_flg 01:35-13			/* return flags */5296
+#define GJ_phy 01:35-14			/* physical device only */5350
+#define GJ_xtn 01:35-15			/* extended format (e+11 exists) */5413
+#define GJ_fns 01:35-16			/* accumulator 2 contains job file numbers */5486
+#define GJ_sht 01:35-17			/* short call format */5537
+#define G1_rnd 01:35-0			/* return on null(in alternate flag word) */5665
+#define G1_rbf 01:35-1			/* ^r buffer is disjoint (obsolete) */5730
+#define G1_nln 01:35-2			/* no long names */5776
+#define G1_rcm 01:35-3			/* return confirm message */5831
+#define G1_rie 01:35-4			/* return when main string is empty */5896
+#define G1_iin 01:35-5			/*  ignore invisible status */5953
+#define G1_sln 01:35-6			/* suppress expansion of logical names */6021
+#define GJ_dev 01:35-0			/* asterisk was given for device */6123
+#define GJ_unt 01:35-1			/* asterisk was given for unit */6183
+#define GJ_dir 01:35-2			/* asterisk was given for directory */6248
+#define GJ_nam 01:35-3			/* asterisk was given for name */6308
+#define GJ_ext 01:35-4			/* asterisk was given for extension */6373
+#define GJ_ver 01:35-5			/* asterisk was given for generation */6439
+#define GJ_uhv 01:35-6			/* use highest generation */6494
+#define GJ_nhv 01:35-7			/* use next higher generation */6553
+#define GJ_ulv 01:35-8			/* use lowest generation */6607
+#define GJ_pro 01:35-9			/* protection given */6656
+#define GJ_act 01:35-10			/* account given */6703
+#define GJ_tfs 01:35-11			/* temporary file specified (;t) */6766
+#define GJ_gnd 01:35-12			/* complement of gj%del on call */6828
+#define GJ_giv 01:35-17			/*  comp of g1%iiv */6877
+#define GJgen 00	 		/* flags ,, generation */6955
+#define GJdef <z 0>			/* default generation */7003
+#define GJnhg <z -1>			/* next higher generation */7056
+#define GJleg <z -2>			/* lowest existing generation */7113
+#define GJall <z -3>			/* all generations (i.e., ;*) */7170
+#define GJsrc 01	 		/* source jfn ,, output jfn */7222
+#define GJdev 02	 		/* default device */7264
+#define GJdir 03	 		/* default directory */7309
+#define GJnam 04	 		/* default name */7349
+#define GJext 05	 		/* default extenstion */7395
+#define GJpro 06	 		/* default protection */7441
+#define GJact 07	 		/* default account */7484
+#define GJjfn 010	 		/* desired jfn */7524
+#define GJf2 011	 		/* second group flags,,count */7577
+#define GJcpp 012	 		/* copy buffer pointer */7625
+#define GJcpc 013	 		/* copy buffer count */7671
+#define GJrty 014	 		/* retype (^r) pointer */7719
+#define GJbfp 015	 		/* top of buffer pointer */7769
+#define GJatr 016	 		/* pointer to arbitrary attribute block */7834
+#define GN_str 01:35-13			/* structure changed */7919
+#define GN_dir 01:35-14			/* directory changed */7970
+#define GN_nam 01:35-15			/* name changed */8016
+#define GN_ext 01:35-16			/* extension changed */8067
+#define OF_bsz 077:35-5			/* byte size */8129
+#define OF_mod 017:35-9			/* mode */8167
+#define OF_her 01:35-18			/* halt on io error */8217
+#define OF_rd 01:35-19			/* read */8254
+#define OF_wr 01:35-20			/* write */8292
+#define OF_ex 01:35-21			/* execute (reserved for the future) */8358
+#define OF_app 01:35-22			/* append */8398
+#define OF_thw 01:35-25			/* thawed */8438
+#define OF_awt 01:35-26			/* always wait */8483
+#define OF_pdt 01:35-27			/* preserve dates */8531
+#define OF_nwt 01:35-28			/* never wait */8575
+#define OF_rtd 01:35-29			/* restricted */8619
+#define OF_pln 01:35-30			/* set to disable line number checking for */8692
+#define OF_dud 01:35-31			/* don't update to disk by ddmp */8788
+#define OF_ofl 01:35-32			/* allow opening the device even if offline */8862
+#define OF_fdt 01:35-33			/* force date update */8913
+#define OF_rar 01:35-34			/*  wait if file is off-line */8972
+#define PRiin 0100	 		/* primary input */9057
+#define PRiou 0101	 		/* primary output */9101
+#define NUlio 0377777	 		/* null designator */9149
+#define CTtrm 0777777	 		/* job's controlling terminal */9208
+#define DVdes 0600000	 		/* universal device code */9262
+#define TTdes 0400000	 		/* universal terminal code */9318
+#define RD_brk 01:35-0			/* break on regular break set */9404
+#define RD_top 01:35-1			/* break on tops10 break set */9462
+#define RD_pun 01:35-2			/* break on punctuation */9515
+#define RD_bel 01:35-3			/* break on end of line */9568
+#define RD_crf 01:35-4			/* suppress cr (returns lf only) */9630
+#define RD_rnd 01:35-5			/* return if nothing to delete */9690
+#define RD_jfn 01:35-6			/* jfns given for source */9744
+#define RD_rie 01:35-7			/* return on input (buffer) empty */9807
+#define RD_bbg 01:35-8			/* beginning of (dest) buffer given */9872
+#define RD_beg 01:35-9			/* return immediately when typist edits to .rdbkl */9951
+#define RD_rai 01:35-10			/* raise lowercase input */10006
+#define RD_sui 01:35-11			/* suppress ^u indication */10062
+#define RD_btm 01:35-12			/* break character terminated input */10128
+#define RD_bfe 01:35-13			/* returned because buffer empty */10191
+#define RD_blr 01:35-14			/* backup limit reached */10245
+#define RDcwb 00	 		/* count of words in block */10396
+#define RDflg 01	 		/* flags */10429
+#define RDioj 02	 		/* io jfns */10464
+#define RDdbp 03	 		/* dest byte pointer */10509
+#define RDdbc 04	 		/* dest byte count */10552
+#define RDbfp 05	 		/* top of buffer pointer */10601
+#define RDrty 06	 		/* retype (^r) pointer */10648
+#define RDbrk 07	 		/* break set mask pointer */10698
+#define RDbkl 010	 		/* backup limit pointer */10747
+#define ERb 0600000		/* "Error base" */10818
+#define ERopnx1 (ERb|0120) /* File is already open */10875
+#define ERopnx2 (ERb|0121) /* File does not exist */10929
+#define ERopnx3 (ERb|0122) /* Read access required */10984
+#define ERopnx4 (ERb|0123) /* Write access required */11040
+#define ERopnx5 (ERb|0124) /* Execute access required */11098
+#define ERopnx6 (ERb|0125) /* Append access required */11155
+#define ERopnx7 (ERb|0126) /* Device already assigned to another job */11228
+#define ERopnx8 (ERb|0127) /* Device is not on line */11284
+#define ERopnx9 (ERb|0130) /* Invalid simultaneous access */11346
+#define ERopnx10 (ERb|0131) /* Entire file structure full */11408
+#define ERopnx12 (ERb|0133) /* List access required */11464
+#define ERopnx13 (ERb|0134) /* Invalid access requested */11524
+#define ERopnx14 (ERb|0135) /* Invalid mode requested */11582
+#define ERopnx15 (ERb|0136) /* Read/write access required */11644
+#define ERopnx16 (ERb|0137) /* File has bad index block */11704
+#define ERopnx17 (ERb|0140) /* No room in job for long file page table */11779
+#define ERopnx18 (ERb|0141) /* Unit Record Devices are not available */11852
+#define ERopnx19 (ERb|0142) /* IMP is not up */ ;TOPS20AN11911
+#define ERopnx20 (ERb|0143) /* Host is not up */ ;TOPS20AN11971
+#define ERopnx21 (ERb|0144) /* Connection refused */ ;TOPS20AN12035
+#define ERopnx22 (ERb|0145) /* Connection byte size does not match */ ;TOPS20AN12116
+
+LIB02:<COS.LEPREAU.SUPPORT>MON_U2.H.0
+07832,C
+#define ERb 0600000		/* "Error base" */122
+#define ERgfdbx1 (ERb|0424) /* Invalid displacement */180
+#define ERgfdbx2 (ERb|0425) /* Invalid number of words */239
+#define ERgfdbx3 (ERb|0426) /* List access required */295
+#define ERcfdbx1 (ERb|0430) /* Invalid displacement */351
+#define ERcfdbx2 (ERb|0431) /* Illegal to change specified bits */419
+#define ERcfdbx3 (ERb|0432) /* Write or owner access required */485
+#define ERcfdbx4 (ERb|0433) /* Invalid value for specified bits */555
+#define AC_con 01:35-0			/* connect to the specified directory */1309
+#define AC_own 01:35-1			/* gain ownership */1356
+#define AC_rem 01:35-2			/* remove ownership */1405
+#define ACdir 00	 		/* directory designator */1490
+#define ACpsw 01	 		/* pointer to password string */1544
+#define ACjob 02	 		/* job number (-1 for self) */1596
+#define CF_nud 01:35-0			/* no update directory */1665
+#define CF_dsp 0777:35-17			/* fdb displacement */1717
+#define CF_jfn 0777777:35-35		/* jfn */1758
+#define GFaut 00	 		/* get file author */1820
+#define GFlwr 01	 		/* get file last writer */1868
+#define GJ_fou 01:35-0			/* file is for output use */1996
+#define GJ_new 01:35-1			/* new file only */2042
+#define GJ_old 01:35-2			/* old file only */2088
+#define GJ_msg 01:35-3			/* print an appropriate message */2149
+#define GJ_cfm 01:35-4			/* confirmation is required */2206
+#define GJ_tmp 01:35-5			/* temporary */2248
+#define GJ_ns 01:35-6			/* dont search search lists */2304
+#define GJ_acc 01:35-7			/* no access by other forks */2361
+#define GJ_del 01:35-8			/* ignore "deleted" bit */2414
+#define GJ_jfn 03:35-10			/* jfn use field */2461
+#define GJdnu 00	 		/* do not use jfn provided */2512
+#define GJerr 02	 		/* error if cannot use jfn provided */2572
+#define GJalt 03	 		/* use alternate if cannot use given jfn */2637
+#define GJ_ifg 01:35-11			/* accept input file group descriptors */2706
+#define GJ_ofg 01:35-12			/* accept output file group descriptors */2776
+#define GJ_flg 01:35-13			/* return flags */2822
+#define GJ_phy 01:35-14			/* physical device only */2876
+#define GJ_xtn 01:35-15			/* extended format (e+11 exists) */2939
+#define GJ_fns 01:35-16			/* accumulator 2 contains job file numbers */3012
+#define GJ_sht 01:35-17			/* short call format */3063
+#define G1_rnd 01:35-0			/* return on null(in alternate flag word) */3191
+#define G1_rbf 01:35-1			/* ^r buffer is disjoint (obsolete) */3256
+#define G1_nln 01:35-2			/* no long names */3302
+#define G1_rcm 01:35-3			/* return confirm message */3357
+#define G1_rie 01:35-4			/* return when main string is empty */3422
+#define G1_iin 01:35-5			/*  ignore invisible status */3479
+#define G1_sln 01:35-6			/* suppress expansion of logical names */3547
+#define GJ_dev 01:35-0			/* asterisk was given for device */3649
+#define GJ_unt 01:35-1			/* asterisk was given for unit */3709
+#define GJ_dir 01:35-2			/* asterisk was given for directory */3774
+#define GJ_nam 01:35-3			/* asterisk was given for name */3834
+#define GJ_ext 01:35-4			/* asterisk was given for extension */3899
+#define GJ_ver 01:35-5			/* asterisk was given for generation */3965
+#define GJ_uhv 01:35-6			/* use highest generation */4020
+#define GJ_nhv 01:35-7			/* use next higher generation */4079
+#define GJ_ulv 01:35-8			/* use lowest generation */4133
+#define GJ_pro 01:35-9			/* protection given */4182
+#define GJ_act 01:35-10			/* account given */4229
+#define GJ_tfs 01:35-11			/* temporary file specified (;t) */4292
+#define GJ_gnd 01:35-12			/* complement of gj%del on call */4354
+#define GJ_giv 01:35-17			/*  comp of g1%iiv */4403
+#define GJgen 00	 		/* flags ,, generation */4481
+#define GJdef <z 0>			/* default generation */4529
+#define GJnhg <z -1>			/* next higher generation */4582
+#define GJleg <z -2>			/* lowest existing generation */4639
+#define GJall <z -3>			/* all generations (i.e., ;*) */4696
+#define GJsrc 01	 		/* source jfn ,, output jfn */4748
+#define GJdev 02	 		/* default device */4790
+#define GJdir 03	 		/* default directory */4835
+#define GJnam 04	 		/* default name */4875
+#define GJext 05	 		/* default extenstion */4921
+#define GJpro 06	 		/* default protection */4967
+#define GJact 07	 		/* default account */5010
+#define GJjfn 010	 		/* desired jfn */5050
+#define GJf2 011	 		/* second group flags,,count */5103
+#define GJcpp 012	 		/* copy buffer pointer */5151
+#define GJcpc 013	 		/* copy buffer count */5197
+#define GJrty 014	 		/* retype (^r) pointer */5245
+#define GJbfp 015	 		/* top of buffer pointer */5295
+#define GJatr 016	 		/* pointer to arbitrary attribute block */5360
+#define GN_str 01:35-13			/* structure changed */5445
+#define GN_dir 01:35-14			/* directory changed */5496
+#define GN_nam 01:35-15			/* name changed */5542
+#define GN_ext 01:35-16			/* extension changed */5593
+#define DP_rd 040	 		/* reading directory is allowed */5735
+#define DP_cn 010	 		/* connect to dir, or change prot/account */5802
+#define DP_cf 04	 		/* creating files in dir is allowed */5862
+#define FP_dir 02	 		/* directory listing */5985
+#define FP_app 04	 		/* append */6020
+#define FP_ex 010	 		/* execute */6056
+#define FP_wr 020	 		/* write */6090
+#define FP_rd 040	 		/* read */6123
+#define JIjno 00	 		/* job number */6181
+#define JItno 01	 		/* terminal number */6224
+#define JIuno 02	 		/* user number */6263
+#define JIdno 03	 		/* directory number */6307
+#define JIsnm 04	 		/* subsys name */6346
+#define JIpnm 05	 		/* program name */6386
+#define JIrt 06	 		/* run time */6421
+#define JIcpj 07	 		/* controlling pty job number */6475
+#define JIrtl 010	 		/* run time limit (set by timer jsys) */6538
+#define JIbat 011	 		/* controlled by batch */6586
+#define JIden 012	 		/* magtape default density */6638
+#define JIpar 013	 		/* magtape default parity */6689
+#define JIdm 014	 		/* magtape default data mode */6742
+#define JIrs 015	 		/* magtape default record size */6797
+#define JIdfs 016	 		/* deferred spooling */6843
+#define JIlno 017	 		/* logged-in directory number */6898
+#define JIsrm 020	 		/* pointer to job session remark */6956
+#define JIlln 021	 		/* last login date & time */7007
+#define JIsrt 022	 		/* job runtime at start of this accounting session */7083
+#define JIsct 023	 		/* job console time at start of this session */7153
+#define JIt20 024	 		/* -1 if at tops20 command level */7211
+#define JIstm 025	 		/* date & time job was initialized */7271
+#define JIbch 026	 		/* batch stream and flags */7322
+#define 	OB_wto 03:35-1		/* write to operator capabilities */7385
+#define 	    OBall 00	 	/* wto and wtor allowed */7437
+#define 	    OBnwr 01	 	/* no wtor allowed */7484
+#define 	    OBnom 02	 	/* no message allowed */7534
+#define 	OB_bss 01:35-10		/* batch stream number set */7591
+#define 	OB_bsn 0177:35-17		/* batch-stream number */7646
+#define JIllo 027	 		/* logical location (node name) */7703
+#define JImax .jillo			/* current highest getji offset */7764
+#define RC_par 01:35-14			/* partial recognition is allowed */7891
+#define RC_stp 01:35-15			/* step wildcard (rcdir only) */7951
+#define RC_awl 01:35-16			/* allow wildcards (rcdir only) */8013
+#define RC_emo 01:35-17			/* exact match only */8063
+#define RC_dir 01:35-0			/* files-only directory */8143
+#define RC_ana 01:35-1			/* alphanumeric accounts allowed */8205
+#define RC_rlm 01:35-2			/* repeat login message */8258
+#define RC_nom 01:35-3			/* no match found */8305
+#define RC_amb 01:35-4			/* ambiguous */8347
+#define RC_nmd 01:35-5			/* no more dirs - returned if stp is requested */8423
+#define RC_wld 01:35-6			/* wildcard dir was input */8478
+
+LIB02:<COS.LEPREAU.SUPPORT>OLD-IOCTL.C.0
+00239,C
+#define brkword(c)	( (c)<32?0: (c)<64?1: (c)<96?2: 3 )490
+#define brkbit(c)	( 1 << (31 - ((c)-32*brkword(c))) )545
+ioctl(fd, code, argp)901
+mt_ps_brk(jfn, pause_fx, brkptr)5797
+
+LIB02:<COS.LEPREAU.SUPPORT>OPEN_NOT-YET.C.0
+00138,C
+open(filnam, type)86
+#define BYTESIZE ( 36 / (sizeof(int)/sizeof(char)) )831
+
+LIB02:<COS.LEPREAU.SUPPORT>PRTERR.C.0
+00068,C
+_prterr(str)35
+
+LIB02:<COS.LEPREAU.SUPPORT>SIG.C.0
+00708,C
+#define NCHAN	36673
+#define UBASE	23			/* start of "assignable by user pgm" */829
+#define CHNBIT(n) (1 << (35-n))862
+#define TERM	001			/* can be terminal generated */997
+#define PANIC	002			/* panic channel */1038
+#define NORM	004			/* other psi intr */1079
+#define BJ	010			/*unique to blackjack; not in tops20*/1136
+#define CHNHUP	UBASE+01163
+#define CHNINT	UBASE+11187
+#define CHNQUIT	UBASE+21212
+#define CHNKILL	UBASE+31237
+#define CHNSYS	UBASE+41261
+#define CHNPIPE	UBASE+51286
+#define CHNALRM	UBASE+61311
+#define CHNTERM	UBASE+71336
+(*2329
+signal(sig, func)2348
+kill(pid, sig)4001
+ignore(sig)4297
+alarm(secs)4349
+
+LIB02:<COS.LEPREAU.SUPPORT>SIGNAL.H.0
+02944,C
+#define NSIG 1554
+#define	SIGHUP	1	/* hangup */87
+#define	SIGINT	2	/* interrupt */121
+#define	SIGQUIT	3	/* quit */151
+#define	SIGILL	4	/* illegal instruction (not reset when caught) */219
+#define	    ILL_RESAD_FAULT	0x0	/* reserved addressing fault */299
+#define	    ILL_PRIVIN_FAULT	0x1	/* privileged instruction fault */368
+#define	    ILL_RESOP_FAULT	0x2	/* reserved operand fault */430
+#define	SIGTRAP	5	/* trace trap (not reset when caught) */565
+#define	SIGIOT	6	/* IOT instruction */605
+#define	SIGEMT	7	/* EMT instruction */645
+#define	SIGFPE	8	/* floating point exception */694
+#define	    FPE_INTOVF_TRAP	0x1	/* integer overflow */765
+#define	    FPE_INTDIV_TRAP	0x2	/* integer divide by zero */827
+#define	    FPE_FLTOVF_TRAP	0x3	/* floating overflow */884
+#define	    FPE_FLTDIV_TRAP	0x4	/* floating/decimal divide by zero */955
+#define	    FPE_FLTUND_TRAP	0x5	/* floating underflow */1013
+#define	    FPE_DECOVF_TRAP	0x6	/* decimal overflow */1069
+#define	    FPE_SUBRNG_TRAP	0x7	/* subscript out of range */1131
+#define	    FPE_FLTOVF_FAULT	0x8	/* floating overflow fault */1195
+#define	    FPE_FLTDIV_FAULT	0x9	/* divide by zero floating fault */1265
+#define	    FPE_FLTUND_FAULT	0xa	/* floating underflow fault */1330
+#define	SIGKILL	9	/* kill (cannot be caught or ignored) */1398
+#define	SIGBUS	10	/* bus error */1433
+#define	SIGSEGV	11	/* segmentation violation */1482
+#define	SIGSYS	12	/* bad argument to system call */1535
+#define	SIGPIPE	13	/* write on a pipe with no one to read it */1600
+#define	SIGALRM	14	/* alarm clock */1638
+#define	SIGTERM	15	/* software termination signal from kill */1702
+#define	SIGSTOP	17	/* sendable stop signal not from tty */1779
+#define	SIGTSTP	18	/* stop signal from tty */1826
+#define	SIGCONT	19	/* continue a stopped process */1879
+#define	SIGCHLD	20	/* to parent on child stop or exit */1937
+#define	SIGTTIN	21	/* to readers pgrp upon background tty read */2004
+#define	SIGTTOU	22	/* like TTIN for output if (tp->t_local&LTOSTOP) */2076
+#define SIGTINT	23	/* to pgrp on every input character if LINTRUP */2146
+#define	SIGXCPU	24	/* exceeded CPU time limit */2196
+#define	SIGXFSZ	25	/* exceeded file size limit */2247
+#define	BADSIG		(int (*)())-12334
+#define	SIG_DFL		(int (*)())02365
+#define	SIG_IGN		(int (*)())12396
+#define	SIG_CATCH	(int (*)())22443
+#define	SIG_HOLD	(int (*)())32482
+#define	SIGISDEFER(x)	(((int)(x) & 1) != 0)2529
+#define	SIGUNDEFER(x)	(int (*)())((int)(x) &~ 1)2579
+#define	DEFERSIG(x)	(int (*)())((int)(x) | 1)2626
+#define	SIGNUMMASK	0377		/* to extract pure signal number */2690
+#define	SIGDOPAUSE	0400		/* do pause after setting action */2752
+#define	SIGDORTI	01000		/* do ret+rti after setting action */2815
+#define signal(a,b)	02857
+#define	BADSIG		-12877
+#define	SIG_DFL		02897
+#define	SIG_IGN		12917
+
+LIB02:<COS.LEPREAU.SUPPORT>TIME.C.0
+00271,C
+#define HOUR 3600370
+#define DAY  (HOUR*24)394
+#define DAY0 40587     /* number of days between tops20 0 day and Unix 0 day */475
+ctime(intime)582
+time(tloc)1484
+ftime(tp)1655
+_u2ttim(u)2213
+_t2utim(t)2312
+
+LIB02:<COS.LEPREAU.SUPPORT>TOPSDIR.H.0
+00052,C
+
+LIB02:<COS.LEPREAU.SUPPORT>U0_NOT-YET.C.0
+00070,C
+jfnof(fd)109
+
+LIB02:<COS.LEPREAU.SUPPORT>U1.C.0
+00566,C
+#define V Value464
+#define IOX4  0220			/* end of file */577
+#define IOX11 01440			/* quota exceeded */621
+# define min(a,b)	( (a) <= (b) ? (a) : (b) )682
+close(fd, flags)782
+chdir(dirnam, pwd)1328
+read(fd, buf, nbytes)1745
+_read(jfn, buf, nbytes)2820
+_ungetc(c, fd)3081
+ttyread(jfn, buf, nbytes)4441
+write(fd, buf, nbytes)7124
+_write(jfn, buf, nbytes)8494
+open(filnam, type)8801
+creat(filnam, mode)8945
+unlink(filnam, flags)9133
+funlink(fd, flags)9465
+exit(val)9728
+_exit(val)10365
+
+LIB02:<COS.LEPREAU.SUPPORT>U2.C.0
+00489,C
+lseek(fd, offset, whence)516
+tell(fd)1172
+_gtfsz(jfn)1367
+#define WREAD	04			/* "world" read */1526
+#define WWRITE	021545
+#define WEXEC	011563
+stat(name, statp)1646
+fstat(fd, statp)1964
+_rcusr(user)4509
+getuid()4793
+_getji(offset)4859
+gtdirprot(dir)5138
+_dirnm(jfn)6108
+_dirnm(jfn)6774
+utime(file, timep)7696
+#define FDBIDX(fld) (&fdb.fld - (int *)&fdb)7874
+chmod(name, mode)8201
+_chfdb(jfn, idx, val)8669
+
+LIB02:<COS.LEPREAU.SUPPORT>XDEFS20_NOT-YET.C.0
+00060,C
+
+LIB02:<COS.LEPREAU.3.MOD>SETJMP.MAC.0
+00082,MACRO
+setjmp:150
+longjmp:352
+
+LIB02:<COS.LEPREAU.CPP.DIST>TEST4.MAC.0
+00385,MACRO
+main:470
+$24:607
+$25:631
+$26:655
+$F1=823
+foo4:1108
+%x=1175
+%y=1202
+%z=1229
+%a=1256
+b=1301
+c=1349
+$28:1416
+$29:1431
+$30:1446
+$31:1461
+$32:1476
+$33:1491
+$34:1506
+$35:1521
+$36:1536
+$37:1551
+$38:1594
+$F2=1828
+bar:2139
+a=2224
+$F3=2390
+mung:2732
+%c=2799
+$F4=2940
+$44:3370
+
+LIB02:<COS.LEPREAU.SUPPORT>$CDEFS.MAC.0
+00081,MACRO
+$data=123
+$text=146
+
+LIB02:<COS.LEPREAU.SUPPORT>$INIT.MAC.0
+00157,MACRO
+$VERSION=274
+$LEVEL=301
+$EDIT=374
+$stksz=434
+$evec:527
+$start:679
+ok:1009
+abort:1428
+
+LIB02:<COS.LEPREAU.SUPPORT>$MDEFS.MAC.0
+00212,MACRO
+$data=131
+$text=155
+$AUTOINIT=190
+$PARM1=232
+$PARM2=274
+$PARM3=331
+$parm4=342
+.jbrel=391
+.jbhrl=403
+.jbsa=415
+.jbff=427
+.jbcor=440
+
+LIB02:<COS.LEPREAU.SUPPORT>CSVRET.MAC.0
+00093,MACRO
+lowreg=470
+$csv:504
+$cret:623
+
+LIB02:<COS.LEPREAU.SUPPORT>EXEC.MAC.0
+00286,MACRO
+COMBUFSZ=451
+execl:529
+execv:779
+doexec:1027
+havjfn:1217
+regcod:1575
+erretn:1657
+erret1:1682
+fillbuf:1888
+arglup:1978
+cplup:2061
+strdun:2191
+dorscan:2323
+mksix:2554
+lup:2644
+shft:2868
+workbuf:3044
+
+LIB02:<COS.LEPREAU.SUPPORT>FORKMAC.MAC.0
+00163,MACRO
+.frkretz:325
+.saveacs:462
+.frkzap:607
+lup:657
+next:975
+.setreg:1082
+.haltf:1196
+blk:1245
+
+LIB02:<COS.LEPREAU.SUPPORT>JSYS.MAC.0
+00184,MACRO
+fudge=733
+parmreg=775
+jsysno=789
+invec=856
+outvec=878
+jsys:1043
+onearg:1285
+err0:1383
+finis:1567
+.JSacs:1666
+
+LIB02:<COS.LEPREAU.SUPPORT>NARGS.MAC.0
+00068,MACRO
+nargs:325
+
+LIB02:<COS.LEPREAU.SUPPORT>SIGMAC.MAC.0
+00114,MACRO
+SIGENTL=312
+.handler:392
+entpnt:431
+.cotsig:1226
+

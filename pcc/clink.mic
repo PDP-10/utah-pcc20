@@ -1,0 +1,6 @@
+@sys:link.exe
+*'A,'B,'C,'D,'E,'F
+*pcc:plib1/s,pcc:plib1/s,pcc:plib1/s,pcc:plib1/s
+*pcc:plib/s,pcc:plib/s,pcc:plib/s,pcc:plib/s
+*/u
+*'A/sav/go

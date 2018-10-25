@@ -1,0 +1,30 @@
+int
+jsys (jsnumber [,ACinvec]  [,ACoutvec]);
+int jsnumber; 		JSYS number, defines in jsys.h
+int ACinvec[5];		Input register values in ACinvec[1-4], omit if uneeded.
+int ACoutvec[5];	Output regiser values.   jsys(n, v) == jsys(n, v, v).
+
+NB: returns JSerr==0 on error, JSok==1 if ok.
+Note that vec[n] corresponds to ACn; ie, vec[0] is unused.
+
+
+fnstd(Name20, anyname) char *name20, *anyname;
+	Standardize filenames.
+	Accepts anyname in either tops-20 or Unix format, and sets
+	name20 to its equivalent in 20 fmt.  Name20 should be at least
+	FNMAX chars long (defined in stdio.h).  See MISC.DOC for
+	correspondence between Unix and tops20 formats.
+
+fnunix(NameUnix, anyname) 	Same as above, but converts to Unix format.
+
+int
+_seterr()	Sets the global 'errno' to the last system (jsys) error,
+		and returns it.  Should be used in library routines.
+		
+int
+_gtjfn(filnam, flags) char *filnam; int flags;
+		Filnam can be in either tops-20 or Unix format.  Returns
+		the jfn or -1 (OPENERR) if problem, and errno is set.
+
+int
+_rljfn(jfn) int jfn;	Returns 0 if ok, -1 if problem, and errno is set.

@@ -1,0 +1,45 @@
+; PCC register definitions for use by macro programs.	J.Lepreau 1980	
+
+	universal $mdefs
+	radix	10
+	extern	$csv,$cret
+
+$data=^o0		;reloc base
+$text=^o400000		;reloc base
+
+$AUTOINIT=6		;automatic area offset start
+
+$PARM1=-2		;offsets off fp of parameters
+$PARM2=-3		;really should be a macro, but what the hell
+$PARM3=-4
+$parm4=-5
+
+	radix	8
+
+;Job Data area symbols
+.jbrel==44
+.jbhrl==115
+.jbsa==120
+.jbff==121
+.jbcor==133
+
+;Registers
+	r0==0
+	r1==1
+	r2==2
+	r3==3
+	r4==4
+	r5==5
+	r6==6
+	r7==7
+	r10==10
+	r11==11
+	r12==12
+	r13==13
+	r14==14
+	r15==15
+	fp=16
+	p=17
+	sp==17
+
+	end

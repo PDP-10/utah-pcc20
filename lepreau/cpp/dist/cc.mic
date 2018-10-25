@@ -1,0 +1,5 @@
+@do c1test 'a
+@do c2 'a
+@do c3 'a
+@load 'a,@pcc:plib
+@save 'a

@@ -1,0 +1,19 @@
+! <SUBSYS.PCC>4INSTALL-PCL.MIC.2, 14-May-83 15:02:42, Edit by BEEBE;
+! Change system-dependenent directory names/logical names
+! Require ENABLE capability to save new environment file on PCC:
+;@def pcc: ps:<SUBSYS.pcc>	! Maybe INSTALLATION DEPENDENT (hopefully not)	;
+@CONN
+@RENAME COMAND.CMD.* #COMAND#.CMD.*
+@PUSH
+@ENABLE
+  undeclare all		;to be safe
+  set no command-trace	;to be safe (old pcl bug)
+  declare /noconf pcl-routines pcc:pcc.pcl,pcc:clink.pcl
+  save /environment pcc:pcc-all.env
+  POP
+@RENAME #COMAND#.CMD.* COMAND.CMD.*
+;
+; Now see if it works
+@dec /noconfirm environment pcc:pcc-all.env
+@tak pcc:init
+@show-pcc-defaults				! see if it works

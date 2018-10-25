@@ -1,0 +1,108 @@
+19-Apr-82 14:34:30-MST,2432;000000000001
+Mail-from: ARPANET site UTAH-20 rcvd 19-Apr-82 1432-MST
+Date: 19 Apr 1982 1430-MST
+From: C-GRISS at UTAH-20 (Cedric)
+Subject: PCL EXEC HANG
+To: Frank at UTAH-20, Admin.Mrc at SU-SCORE, King at CMU-20C
+
+Following fix appears to work on my r5 system, and with quick check, on
+Randy's too.
+
+Symptom:
+	EXEC goes into infinite loop with part of its data base smashed
+when a PCL routine containing an INVOKE is terminated with one of the
+following:
+a) ^C
+b) no KILLPROGRAM
+c) EXIT TOPROGRAM
+
+Fix:
+	Insert the patch that follows. 
+
+Analysis:
+	I dont want to even think about it, cept that the patch will
+free a CTWAIT on the pty. Something changed between 4 and 5 in this
+area. In general, the above problem causes the exec's data base to be
+wiped after a ^C, or normal exit, and in particular, the TAKE stack
+has TAKLEN set to a ridiculous negative number.
+
+Patch: (photo'd and slight comments edited in)
+
+
+$get system:exec
+$dd
+DDT
+$w   pciclp?
+EXECPI G
+
+pciclp 10/   MOVE A,PCCURC   
+PCICLP+11/   HRRZ A,D(A)   
+PCICLP+12/   JUMPE A,PCICLP+37   
+PCICLP+13/   ADDI A,400000   
+PCICLP+14/   RELD   $<
+PAT../   0   move b,a		!! MOVE TYY POINTER !!
+PAT..+1/   0   hrri a,.fhslf	!! .SCRST of SCTTY% !!
+PAT..+2/   0   hrli a,2		!! to fix CTWAIT.   !!
+PAT..+3/   0   jsys 324		!! FIX SCTTY TREE   !!
+PAT..+4/   0   move a,b		!! Restore dev desig!!
+$>
+PAT..+5/   0   RELD
+PAT..+6/   0   JUMPA A,PCICLP+15
+PAT..+7/   0   JUMPA B,PCICLP+16
+PCICLP+14/   RELD   JUMPA DIVTAH+6   	
+DIVTAH+6/   MOVE B,A   
+DIVTAH+7/   HRRI A,400000   
+DIVTAH+10/   HRLI A,B   
+DIVTAH+11/   JSYS CBUF+134   
+DIVTAH+12/   MOVE A,B   
+DIVTAH+13/   RELD   
+DIVTAH+14/   JUMPA A,PCICLP+15   	
+PCICLP+15/   JFCL 0   
+PCICLP+16/   MOVE B,PCCURC   
+^C
+$in mem
+
+
+159. pages, Entry vector loc 7000 len 3
+
+
+0-4	 <SYSTEM.5FT4>EXEC.EXE.24  1-5   R, CW, E
+7-131	 <SYSTEM.5FT4>EXEC.EXE.24  6-130   R, E
+140-141	 <SYSTEM.5FT4>EXEC.EXE.24  131-132   R, E
+142	 Private   R, E
+143-161	 <SYSTEM.5FT4>EXEC.EXE.24  134-152   R, E
+162-163	 Private   R, E
+164-221	 <SYSTEM.5FT4>EXEC.EXE.24  155-212   R, E
+400-410	 <SYSTEM.5FT4>EXEC.EXE.24  213-223   R, CW, E
+440	 <SYSTEM.5FT4>EXEC.EXE.24  224   R, CW, E
+524	 <SYSTEM.5FT4>EXEC.EXE.24  225   R, CW, E
+535	 <SYSTEM.5FT4>EXEC.EXE.24  226   R, CW, E
+766	 Private   R, W, E
+770-777	 <SUBSYS.5FT4>UDDT.EXE.1  2-11   R, E
+$save exec 0 535
+ EXEC.EXE.1 Saved
+-------
+ 8-Jun-82 12:23:15-MDT,00000651;000000000001
+Date:  8 Jun 1982 1223-MDT
+From: Telenet Guest <TELENET-GUEST at UTAH-20>
+Subject: PCL LOOP
+To: HAAS, C-GRISS, LEPREAU
+cc: TELENET-GUEST, FRANK
+
+THANK YOU FOR THE PCL LOOP PATCH. WORKS LIKE A CHARM AT OUR SITE TOO.
+HERE IS OUR VERSION OF THE BLISS SOURCE:
+
+IN EXECPI BEFORE THE LINE
+	R1= = $TTDES + .PCCURC[ECB_CTN];
+
+ADD THE FOLLOWING LINES:
+	R2 = $TTDES + .PCCURC[ECB_CTN];  !MAKE TTY DESIGNATOR
+	HLFTMP[HLF_LFT] = $SCRST;	!SET FORK CTY TO JOB'S CTY
+	HLFTMP[HLF_RGT] = $FHSLF;	!FOR THIS FORK
+	R1 = .HLFTMP;			!PUT IN AC1
+	JSYS(0,SCTTY,R1,R2);		!DO IT
+
+SHOULD WORK LIKE A CHAMP IF I DON'T HAVE ANY TYPOS.
+THX MUCH
+PAT
+-------

@@ -1,0 +1,131 @@
+; exec.mac - Unix execl, execv for pcc on Tops-20
+; 
+; Author:	Jay Lepreau
+; 		Computer Science Dept.
+; 		University of Utah
+; Date:		March 81
+; Copyright (c) 1981 Jay Lepreau
+;
+
+;	int
+;	execl(filnam, arg0, arg1, ..., argn, 0)
+;		char *filnam, *arg0, *arg1, ...,*argn;
+;
+;	int
+;	execv(filnam, argv)
+;		char *filnam, *argv[];
+
+
+	radix	10
+	search	$mdefs,monsym
+	twoseg	$text
+
+	entry	execl,execv
+	extern	.gtjfn,.seterr
+
+COMBUFSZ==512			;command buffer size. must equal that in init.c
+
+	reloc	$text
+execl:	pushj	p,$csv
+	adjsp	p,$autoinit
+	
+	movei	r12,$parm2(fp)		;get addr 1st arg param
+	movni	r13,1			;negative increment: arg list backwards
+	pushj	p,fillbuf
+	move	r13,$parm2(fp)		;get pgm name for later setsn
+	jrst	doexec			;do the exec
+
+execv:	pushj	p,$csv
+	adjsp	p,$autoinit
+
+	move	r12,$parm2(fp)		;get vector of args ptrs
+	movei	r13,1			;increment is positive
+	pushj	p,fillbuf		;zaps r12
+	move	r13,@$parm2(fp)		;get ptr to pgm name for later setsn
+	jrst	doexec
+
+; Get jfn
+doexec:
+	push	p,[<gj%old+gj%sht>]
+	push	p,$parm1(fp)
+	pushj	p,.gtjfn		; C routine
+	adjsp	p,-2
+	camn	r1,[-1]			; Error
+	jrst	erret1			; _seterr() done by _gtjfn aleady
+	jrst	havjfn
+
+havjfn:	move	r5,r1			; save jfn temporarily
+	move	r7,r13			; arg0 = ptr to pgm name
+	pushj	p,mksix			; sets r2 to the sixbit name
+	move	r1,[sixbit/(PRIV)/]
+	setsn				; set pgm name for systat, etc.
+	erjmp	erretn
+
+; Set up for get
+	move	r1,r5
+	hrli	r1,.fhslf		; myself!
+	dmove	r5,regcod		; and move me into the regs
+	dmove	r7,regcod+2
+	jrst	r5
+
+regcod:	get
+	erjmp	erretn
+	hrrz	r3,.jbsa		; get rid of lhs crap
+	jrst	0(r3)
+
+erretn:	pushj	p,.seterr
+erret1:	movni	r1,1			; go here to skip _seterr()
+	jrst	$cret			; returns -1 on for error
+
+
+;subr to fill rescan buffer.	r13 holds increment to move along arg list
+;				r12 holds ptr to it.  Zaps r0.
+fillbuf:
+	movei	r14,workbuf		;init destination
+	movei	r15," "			;ascii space constant
+
+arglup:	move	r1,0(r12)		;get next param
+	jumpe	r1,dorscan		;if arg zero then done
+cplup:	move	r0,0(r1)		;get next char
+	jumpe	r0,strdun		;to strdun if 0
+	movem	r0,0(r14)
+	addi	r1,1
+	addi	r14,1
+	jrst	cplup
+strdun:	movem	r15,0(r14)		;r15 hold ascii space
+	addi	r14,1
+	add	r12,r13			;get next param
+	jrst	arglup			;and go look at it
+
+dorscan:
+	setzm	-1(r14)			;terminate with null
+	move	r1,[point 36,workbuf]
+	rscan				;load new rescan buffer
+	erjmp	erretn
+	popj	p,			;all done!
+
+
+; mini subr to build sixbit name-- r7 holds ptr to name; returns r2 = sixbit
+mksix:				;  Zaps r3
+	movei	r2,0			;init result reg
+	hrl	r7,[-6]			;initialize count reg
+lup:	skipn	r3,0(r7)		;get char
+	jrst	shft			;end of name
+	dpb	r3,[point 6,r2,5]	;store char in left-most 6 bits
+	rot	r2,6			;rotate it (left) into right-most
+	aobjn	r7,lup			;loop max six times
+	popj	p,			;all done
+
+shft:	hlre	r7,r7			;This makes sure it is left-justified
+	movn	r7,r7			;6 - #of chars in name 
+	imuli	r7,6			;cnvt to bits
+	lsh	r2,@r7
+	popj	p,
+
+	lit
+
+	reloc	$data
+workbuf: block	COMBUFSZ
+
+;	xpunge
+	end

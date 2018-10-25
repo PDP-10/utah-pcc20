@@ -1,0 +1,116 @@
+! clink.pcl  -	CLINK exec command to link pcc-20 modules.
+!		Handles long filenames.  Don't ctrl-C it!
+!
+! Author:	Jay Lepreau
+!		Computer Science Dept.
+!		University of Utah
+! Date:		March 22, 1981
+! Copyright (c) 1981 Jay Lepreau
+
+string pccrelfiles;
+
+command CLINK;
+begin
+	external string procedure clink_cleanup;
+	external string pccrelfiles;
+
+	string	oldir, s, snul, savfiles, snfil;
+	string	fn1, fn1short, devdir, pdev, shorthead, fnexe, ddfn12;
+
+	integer first, fn1beg, length, err, nfil, genlen;
+
+	guide "Link pcc .rel files";
+	parse ( filelist(input, default pccrelfiles, default_ext "rel",
+		help "rel files to link (EXE file gets name of first one)"):
+		parse eol);
+
+	nfil = 10;		!so always have 2 digits
+
+!	oldir = $connecteddirectory;
+	pccrelfiles = "";
+!	docommand original "connect <scratch>" to snul;
+	invoke "sys:link.exe";
+!	typein "@pcc:psect.ccl";
+	
+	do begin	
+		fn1beg = $search ($filel, ">") + 1;
+		length = $search ($filel [fn1beg : *], ".") - 1;
+		fn1 = $filel [fn1beg : length];
+		devdir = $filel [1 : fn1beg-1];
+		genlen = $search ($filel [fn1beg+length+1 : *], ".") - 1;
+		ddfn12 = $filel [1 : fn1beg + length + 1 + genlen];
+		pccrelfiles = pccrelfiles + "," + ddfn12;	!no gen number
+		nfil = nfil + 1;		!must have unique devices cause
+		snfil = $string(nfil);		!link doesn't execute till /go.
+		pdev = "pccd" + snfil + ":";
+		docommand original "define " + pdev + " " + devdir;
+		if length > 6 then begin
+			shorthead = pdev + "pccf" + snfil;
+			docommand original "rename " + $filen
+			   + " " + shorthead + ".rel" to snul;
+			savfiles = savfiles + shorthead + ".* "
+			   + devdir + fn1 + "\";
+		end
+		else shorthead = pdev + fn1;
+		typein shorthead;
+		if first = 0 then begin			!exe file
+			first = 1;
+			typein shorthead + "/sav";
+		end;
+	end until $nextfile = 0;
+
+	pccrelfiles = pccrelfiles[2 : *];	!remove leading comma
+	typein "pcc:plib1/s,pcc:plib1/s,pcc:plib1/s,pcc:plib1/s";  !dummy,for user override
+	typein "pcc:plib/s,pcc:plib/s,pcc:plib/s,pcc:plib/s";
+	typein "/u";
+	gettypeout s;
+	err = $search(s, "?") + $search(s, "%");
+	if err > 0 then begin
+		display "**** Link Problem ****";
+		display s;
+		snul = clink_cleanup(oldir, savfiles);
+		abort "Aborting...";
+	end;
+	if $search(s, "No") > 0 then begin   ! watch out for terminal diffs:
+		typein "/go";		     ! vt100/52 puts tabs, teleray <sp>
+		gettypeout s;
+		err = $search(s, "?") + $search(s, "%");
+		if err > 0 then begin
+			display "**** Link Problem ****";
+			display s;
+			fnexe = clink_cleanup(oldir, savfiles);
+			docommand original "delete " + fnexe + $crlf
+				+ "expunge" + $crlf to snul;
+			abort "Aborting...";
+		end;
+		snul = clink_cleanup(oldir, savfiles);		!ok, all done
+	end
+
+	else begin
+		display "**** Link Problem ****";
+		display s;
+		snul = clink_cleanup(oldir, savfiles);
+		abort "Aborting...";
+	end;
+end;
+
+
+string procedure clink_cleanup(string dir; string s);
+begin
+	string	cmdstr, exefile, snul;
+	integer fb;			!first blank
+
+!	docommand original "connect " + dir to snul;
+
+	killprogram;		! Write-around release 5 bug
+
+	while s <> "" do begin
+		fb = $search(s, "\");		!delimiter
+		cmdstr = s[1 : fb-1];
+		docommand original "rename " + cmdstr + ".*" to snul;
+		s = s[fb+1 : *];
+		if cmdstr[5 : 2] = "01" then		!exe file too
+			exefile = cmdstr[14 : *] + ".exe";
+	end;
+	return exefile;
+end;

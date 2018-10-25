@@ -1,0 +1,56 @@
+; sigmac.mac - Micro-routines for signal
+; 
+; Author:	Jay Lepreau
+; 		Computer Science Dept.
+; 		University of Utah
+; Date:		19 September 1982
+; Copyright (c) 1982 Jay Lepreau
+
+	search	$mdefs,monsym
+	twoseg
+	reloc	$text
+	radix	10
+
+	entry	.handler
+	entry	.cotsig
+	extern	.sigtab,.chntab
+
+SIGENTL==4			;sigtab entry length
+
+; PSI system handler interface routines.
+.handler::
+repeat 36,<
+	jsr	entpnt>
+
+entpnt:! 0			;entry point+1 of the handler saved here
+;Save all the acs on the stack	
+	movem	r0,1(p)		;fmt: 0 - 17
+	movei	r0,2(p)		;dest start
+	hrli	r0,1		;source start
+	blt	r0,16(p)	;note 16 is decimal
+	adjsp	p,16
+	
+;Compute channel, signum, and function
+	sos	r1,entpnt	;now is actual entry point
+	subi	r1,.handler	;get offset = channel number
+	addi	r1,.chntab	;make absolute
+	move	r2,0(r1)	;now have assoc'ed sig
+	push	p,r2		;pass as param
+	imuli	r2,SIGENTL	;compute offset
+	addi	r2,.sigtab	;make absolute: now have fxnp
+	pushj	p,@0(r2)	;call handler(sig)
+	adjsp	p,-1		;for benefit of nargs(), etc.
+
+;Restore acs
+	adjsp	p,-16
+	movei	r0,2(p)		;source start
+	hrli	r0,1		;dest start
+	blt	r0,16(p)	;1-17
+	move	r0,1(p)
+	aos	.cotsig		;BLETCH
+	debrk
+
+	lit
+	reloc	$data
+.cotsig:: 0
+	end
